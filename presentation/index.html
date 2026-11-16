@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="snowflake-source" content="cortex-agent-authored" />
+<title>What's the Art of the Possible with CoCo? -- December 2, 2026</title>
+
+<script type="application/json" id="snowflake-report-metadata">
+{
+  "generated": "2026-11-16",
+  "intent": "Slides for the public virtual hands-on lab 'What's the Art of the Possible with CoCo?', Part 2 of 'I Downloaded CoCo Desktop... Now What?', December 2, 2026, 12:00-2:00 p.m. ET.",
+  "audience": "Snowflake analysts, data engineers, developers, data scientists and AI engineers who have installed CoCo Desktop.",
+  "runtime": "Standalone HTML. Opens directly in a browser with no server, no network access and no external assets.",
+  "dataSources": [{"type": "file", "path": "EVENT_GUIDE.md"}],
+  "sections": [
+    { "id": "slide-3", "title": "Agenda", "dataSources": [{"type": "file", "path": "EVENT_GUIDE.md"}],
+      "producerNotes": "Keep in sync with the schedule table in EVENT_GUIDE.md; blocks total 120 minutes." },
+    { "id": "slide-7", "title": "Review, permissions and cost",
+      "dataSources": [{"type": "doc", "url": "https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit"}],
+      "producerNotes": "Deliberately general; no prices or parameter specifics on the slide." }
+  ]
+}
+</script>
+
+<style>
+  /* ============================================================
+     Theme tokens. Theme is switched by the data-theme attribute on
+     <html> rather than light-dark(), because the presenter needs a
+     manual toggle mid-talk, not just an OS preference.
+     ============================================================ */
+  :root {
+    --accent: #29B5E8;
+    --accent-deep: #11567F;
+    --radius: 14px;
+    --maxw: 1120px;
+    --speed: 180ms;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0D1117;
+    --bg-2: #161B22;
+    --bg-3: #1C2430;
+    --fg: #E6EDF3;
+    --fg-dim: #9DA7B3;
+    --line: #2A3441;
+    --shadow: 0 10px 40px rgba(0,0,0,.45);
+    --svg-fill: #1C2430;
+    --svg-fill-2: #11202B;
+    /* Accent used as a border or as small text. On dark, the bright
+       Snowflake blue already clears WCAG AA, so it is used directly. */
+    --accent-brd: #29B5E8;
+    --accent-ink: #29B5E8;
+    --accent-ring: rgba(41,181,232,.28);
+    --accent-glow: rgba(41,181,232,.85);
+  }
+  :root[data-theme="light"] {
+    --bg: #FFFFFF;
+    --bg-2: #F5F8FB;
+    --bg-3: #EAF1F7;
+    --fg: #10202B;
+    --fg-dim: #5A6B78;
+    --line: #D3E0EA;
+    --shadow: 0 10px 30px rgba(16,32,43,.10);
+    --svg-fill: #EAF1F7;
+    --svg-fill-2: #DCE9F3;
+    /* On white, #29B5E8 at 1px is roughly 2:1 against the page and
+       reads as a smudge. Borders and small accent text drop to the
+       deeper Snowflake blue, which clears AA on both --bg and --bg-2. */
+    --accent-brd: #11567F;
+    --accent-ink: #0B5A85;
+    --accent-ring: rgba(17,86,127,.20);
+    --accent-glow: rgba(17,86,127,.55);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    transition: background var(--speed) ease, color var(--speed) ease;
+  }
+
+  /* ---------- Slide frame ---------- */
+  #deck { position: relative; height: 100vh; width: 100vw; }
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    padding: 4.2rem 3.2rem 4.6rem;
+    /* Hidden rather than auto: tall slides are scaled down to fit by fitSlide()
+       instead of scrolling, so a presenter never has to scroll mid-sentence.
+       .scrollable is added back only if a slide is so tall that scaling it to
+       fit would make it unreadable -- see FIT_MIN. */
+    overflow: hidden;
+  }
+  .slide.scrollable { overflow-y: auto; }
+  .slide.active { display: block; animation: fade var(--speed) ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  /* transform-origin is top centre so a scaled slide stays put at the top and
+     shrinks downward, rather than drifting away from the title. */
+  .inner {
+    max-width: var(--maxw); margin: 0 auto;
+    transform-origin: top center;
+    transition: transform var(--speed) ease;
+  }
+  /* Printing lays every slide out in full, so any fitted scale must come off. */
+  @media print { .inner { transform: none !important; } }
+
+  h1 { font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.08; margin: 0 0 1rem; letter-spacing: -.02em; }
+  h2 { font-size: clamp(1.5rem, 2.9vw, 2.3rem); line-height: 1.15; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  .kicker {
+    text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 700;
+    color: var(--accent-ink); margin: 0 0 .9rem;
+  }
+  .sub { color: var(--fg-dim); font-size: clamp(1rem, 1.35vw, 1.18rem); margin: 0 0 1.8rem; max-width: 62ch; line-height: 1.5; }
+  p { line-height: 1.55; }
+  strong { color: var(--fg); }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--bg-3); padding: .12em .4em; border-radius: 5px; font-size: .88em;
+    border: 1px solid var(--line);
+  }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; gap: 1rem; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 1.05rem 1.15rem;
+  }
+  .card h3 { margin: 0 0 .35rem; font-size: 1.02rem; }
+  .card p { margin: 0; color: var(--fg-dim); font-size: .93rem; line-height: 1.5; }
+  .card .tag {
+    display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: .45rem;
+  }
+  /* .accent means exactly one thing: "this is the card to look at first".
+     It is never used to decorate one of a set of equal peers -- if two
+     cards are alternatives or steps, neither gets it. */
+  .card.accent { border-color: var(--accent-brd); box-shadow: inset 0 0 0 1px var(--accent-ring); }
+
+  ul.clean { margin: 0 0 1rem; padding-left: 1.15rem; }
+  ul.clean li { margin: .45rem 0; line-height: 1.5; }
+
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: .5rem .7rem; text-align: left; }
+  th { background: var(--bg-3); font-weight: 650; }
+  td code { font-size: .82em; }
+
+  /* ---------- Title slide ---------- */
+  .title-wrap { display: flex; flex-direction: column; justify-content: center; min-height: 62vh; }
+  .logo-row { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .logo-row img { height: 54px; width: auto; image-rendering: pixelated; }
+  /* An SVG wordmark supplied as markup rather than as a data URI, so a logo drawn
+     with fill="currentColor" -- which is how most vendors ship theirs -- picks up
+     the deck's text colour and stays legible in both themes. An <img> cannot do
+     this: it is an isolated document, so currentColor resolves to black and the
+     logo disappears on the dark theme. Height is below the penguin's because a
+     wordmark reads much wider than it is tall. */
+  .logo-row .logo-svg { display: inline-flex; align-items: center; height: 38px; color: var(--fg); }
+  .logo-row .logo-svg svg { height: 100%; width: auto; max-width: 300px; }
+  .logo-row .divider { width: 1px; height: 42px; background: var(--line); }
+  .audience-name { font-weight: 650; font-size: 1.05rem; color: var(--fg-dim); }
+  .byline { color: var(--fg-dim); margin-top: 1.6rem; font-size: .98rem; }
+
+  /* ---------- Diagram (inline SVG) ---------- */
+  .diagram { width: 100%; height: auto; display: block; margin: .3rem 0 1rem; }
+  .diagram text { font-family: -apple-system, system-ui, sans-serif; fill: var(--fg); }
+  .diagram .box { fill: var(--svg-fill); stroke: var(--line); stroke-width: 1.5; rx: 10; }
+  .diagram .box-accent { fill: var(--svg-fill-2); stroke: var(--accent-brd); stroke-width: 1.8; rx: 10; }
+  .diagram .t-title { font-size: 15px; font-weight: 650; }
+  .diagram .t-sub { font-size: 11.5px; fill: var(--fg-dim); }
+  .diagram .t-mini { font-size: 10.5px; fill: var(--fg-dim); }
+  .diagram .link { stroke: var(--fg-dim); stroke-width: 1.6; fill: none; opacity: .75; }
+  .diagram .link-accent { stroke: var(--accent-brd); stroke-width: 2.2; fill: none; }
+  .diagram .lbl { font-size: 10px; fill: var(--fg-dim); }
+  .diagram .col-head { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; fill: var(--fg-dim); }
+  .diagram .chip { fill: none; stroke: var(--line); stroke-width: 1.2; }
+  .diagram .chip-accent { fill: var(--svg-fill-2); stroke: var(--accent-brd); stroke-width: 1.3; }
+  .diagram .t-chip { font-size: 10px; font-weight: 650; fill: var(--fg-dim); }
+  .diagram .t-chip-accent { fill: var(--accent-ink); }
+  .diagram .rule { stroke: var(--line); stroke-width: 1.2; }
+
+  /* ---------- Highlight mode ----------
+     The Highlight button arms a hover spotlight: moving the pointer over
+     any .hl element dims every other .hl on the same slide. Nothing is
+     clicked and nothing is latched, so the presenter can sweep across a
+     diagram at talking speed and the deck returns to normal the moment
+     the pointer leaves.                                              */
+  .hl { transition: opacity var(--speed) ease, filter var(--speed) ease; }
+  body.hl-on .hl { cursor: default; }
+  body.hl-on .slide:has(.hl:hover) .hl:not(:hover) { opacity: .18; }
+  body.hl-on .hl:hover {
+    filter: drop-shadow(0 0 12px var(--accent-glow)) brightness(1.05);
+  }
+  body.hl-on .card.hl:hover { border-color: var(--accent-brd); background: var(--bg-3); }
+  body.hl-on .hl:hover .box,
+  body.hl-on .hl:hover .box-accent { stroke: var(--accent-brd); stroke-width: 2.6; }
+
+  /* ---------- Chrome: progress, nav, badges ---------- */
+  #brand {
+    position: fixed; top: .85rem; right: 1.35rem; z-index: 35;
+    display: flex; align-items: center; gap: .5rem;
+    color: var(--accent-ink); pointer-events: none;
+    opacity: .92;
+  }
+  #brand img { width: 27px; height: auto; display: block; }
+  #brand span {
+    font-size: .82rem; font-weight: 650; letter-spacing: .01em; color: var(--fg-dim);
+  }
+  @media (max-width: 700px) { #brand span { display: none; } }
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; background: var(--accent);
+    transition: width var(--speed) ease; z-index: 40;
+  }
+  #chrome {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 3.3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.5rem; background: var(--bg); border-top: 1px solid var(--line);
+    z-index: 30; font-size: .84rem; color: var(--fg-dim);
+  }
+  #chrome .left, #chrome .right { display: flex; align-items: center; gap: .5rem; }
+  .btn {
+    background: var(--bg-2); color: var(--fg); border: 1px solid var(--line);
+    border-radius: 8px; padding: .34rem .62rem; font-size: .82rem; cursor: pointer;
+    font-family: inherit; line-height: 1;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg-3); }
+  #counter { font-variant-numeric: tabular-nums; min-width: 4.4rem; text-align: center; }
+  .slide-title-mini { max-width: 40ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ---------- Overlays: grid, notes, help ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: var(--bg); z-index: 50;
+    display: none; overflow-y: auto; padding: 2.2rem;
+  }
+  .overlay.open { display: block; }
+  .overlay h2 { margin-bottom: 1.2rem; }
+  #gridList { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem; }
+  .thumb {
+    text-align: left; background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 10px; padding: .7rem .8rem; cursor: pointer; color: var(--fg);
+    font-family: inherit; display: flex; gap: .55rem; align-items: baseline;
+  }
+  .thumb:hover, .thumb.current { border-color: var(--accent); }
+  .thumb .n { color: var(--accent); font-weight: 700; font-size: .78rem; font-variant-numeric: tabular-nums; }
+  .thumb .t { font-size: .88rem; line-height: 1.35; }
+
+  #notes {
+    position: fixed; right: 1.2rem; bottom: 4.1rem; width: min(420px, 90vw);
+    max-height: 46vh; overflow-y: auto; background: var(--bg-2);
+    border: 1px solid var(--accent); border-radius: var(--radius);
+    padding: 1rem 1.1rem; z-index: 45; box-shadow: var(--shadow); display: none;
+  }
+  #notes.open { display: block; }
+  #notes .kicker { margin-bottom: .5rem; }
+  #notes p { margin: 0 0 .6rem; font-size: .88rem; line-height: 1.5; color: var(--fg-dim); }
+  #notes p:last-child { margin-bottom: 0; }
+
+  .keys { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .6rem; }
+  .keyrow { display: flex; gap: .6rem; align-items: baseline; font-size: .9rem; }
+  kbd {
+    font-family: ui-monospace, Menlo, monospace; background: var(--bg-3);
+    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+    padding: .1rem .4rem; font-size: .8rem; min-width: 1.6rem; text-align: center;
+  }
+
+  .pill {
+    display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: .2rem .5rem; border-radius: 999px;
+    border: 1px solid var(--accent); color: var(--accent); margin-left: .5rem;
+    vertical-align: middle;
+  }
+  .pill.muted { border-color: var(--line); color: var(--fg-dim); }
+
+  /* Surface chips on the lab lists. One shape, two weights: the accent weight
+     marks the recommended surface for that lab, and any neutral chip after it is
+     a surface that also works. Two weights rather than a four-colour key, so the
+     list reads as a list with annotations rather than a legend nobody can decode
+     from the back of the room. */
+  .chip {
+    display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; padding: .08rem .42rem; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--fg-dim); background: var(--bg-3);
+    margin-left: .34rem; vertical-align: 1px; white-space: nowrap;
+  }
+  .chip.on { border-color: var(--accent-brd); color: var(--accent-ink); background: var(--accent-ring); }
+
+  /* A loud section marker, used only to signal the switch from the briefing to
+     the hands-on half of the workshop. Deliberately much larger than .pill --
+     the job is to be visible from the back of a room, not to label a detail. */
+  .pill-lg {
+    display: inline-block; margin: 0 0 .85rem;
+    background: var(--accent-ring); color: var(--accent-ink);
+    border: 1px solid var(--accent-brd); border-radius: 999px;
+    padding: .34rem 1.05rem; font-size: 1rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; line-height: 1.2;
+  }
+
+  /* Wide content with a narrow right-hand rail. Used where a diagram needs a
+     companion list beside it rather than beneath it. Collapses on narrow
+     viewports so the rail falls under the diagram instead of squeezing it. */
+  .split { display: grid; grid-template-columns: 1fr 262px; gap: 1.1rem; align-items: start; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+  /* A compact stack of labelled items for the rail. */
+  .rail { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); padding: .8rem .9rem; }
+  .rail h3 { margin: 0 0 .5rem; font-size: .95rem; }
+  .rail ul { margin: 0; padding: 0; list-style: none; }
+  .rail li { font-size: .84rem; color: var(--fg-dim); padding: .2rem 0; line-height: 1.35; }
+  .rail li strong { color: var(--fg); font-weight: 600; }
+
+  .lead-num { color: var(--accent); font-weight: 700; font-size: 1.6rem; line-height: 1; }
+  /* A single headline figure at the top of a card. Deliberately larger than
+     .lead-num, which numbers a sequence rather than carrying a statistic. */
+  .stat {
+    display: block; color: var(--accent-ink); font-weight: 700;
+    font-size: 2.3rem; line-height: 1; letter-spacing: -.02em; margin-bottom: .35rem;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--bg-2);
+    padding: .85rem 1.1rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 1rem 0;
+  }
+  .callout p { margin: 0; font-size: .95rem; }
+  .muted { color: var(--fg-dim); }
+  .center { text-align: center; }
+  a { color: var(--accent); }
+  .linklist { columns: 2; column-gap: 2rem; }
+  @media (max-width: 900px) { .linklist { columns: 1; } }
+  .linklist p { margin: 0 0 .8rem; break-inside: avoid; font-size: .93rem; }
+  .linklist .lt { display: block; font-weight: 600; }
+  .linklist a { word-break: break-word; font-size: .86rem; }
+
+  @media print { body { overflow: visible; } .slide { display: block !important; page-break-after: always; } #chrome, .overlay, #notes { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- Official Snowflake mark, lifted from the product-overview deck and inlined as a
+     base64 data URI so the deck stays a single file with no external assets. The
+     brand blue reads correctly on both the light and the dark background, so it is
+     deliberately not recoloured per theme. -->
+<div id="brand" aria-label="Snowflake">
+  <img alt="" aria-hidden="true" src="data:image/png;base64,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">
+  <span>Snowflake</span>
+</div>
+
+<div id="deck"><!-- slides injected here --></div>
+
+<div id="chrome">
+  <div class="left">
+    <button class="btn" id="btnPrev" title="Previous slide">&#8249;</button>
+    <span id="counter">1 / 19</span>
+    <button class="btn" id="btnNext" title="Next slide">&#8250;</button>
+    <span class="slide-title-mini muted" id="miniTitle"></span>
+  </div>
+  <div class="right">
+    <button class="btn" id="btnGrid" title="Jump to any slide (G)">Slides</button>
+    <button class="btn" id="btnHl" aria-pressed="false" title="Highlight mode (H)">Highlight</button>
+    <button class="btn" id="btnNotes" aria-pressed="false" title="Speaker notes (S)">Notes</button>
+    <button class="btn" id="btnPresent" aria-pressed="false" title="Notes in a separate window (P)">Present</button>
+    <button class="btn" id="btnTheme" title="Light / dark (D)">Theme</button>
+    <button class="btn" id="btnHelp" title="Keyboard shortcuts (?)">?</button>
+  </div>
+</div>
+
+<div id="notes"></div>
+
+<div class="overlay" id="gridOverlay">
+  <div class="inner">
+    <h2>Jump to a slide</h2>
+    <p class="sub">Click any slide, or type its number. <kbd>Esc</kbd> closes.</p>
+    <div id="gridList"></div>
+  </div>
+</div>
+
+<div class="overlay" id="helpOverlay">
+  <div class="inner">
+    <h2>Keyboard shortcuts</h2>
+    <p class="sub">Slides never advance on a stray click, so you can click diagram elements freely to point at them.</p>
+    <div class="keys">
+      <div class="keyrow"><kbd>&#8594;</kbd><kbd>Space</kbd><span>Next slide</span></div>
+      <div class="keyrow"><kbd>&#8592;</kbd><span>Previous slide</span></div>
+      <div class="keyrow"><kbd>G</kbd><span>Slide grid / jump</span></div>
+      <div class="keyrow"><kbd>1</kbd>&hellip;<span>Type a number, then Enter, to jump</span></div>
+      <div class="keyrow"><kbd>H</kbd><span>Highlight mode on / off</span></div>
+      <div class="keyrow"><kbd>S</kbd><span>Speaker notes, in this window</span></div>
+      <div class="keyrow"><kbd>P</kbd><span>Speaker notes, in a second window</span></div>
+      <div class="keyrow"><kbd>D</kbd><span>Light / dark theme</span></div>
+      <div class="keyrow"><kbd>Home</kbd><kbd>End</kbd><span>First / last slide</span></div>
+      <div class="keyrow"><kbd>?</kbd><span>This help</span></div>
+      <div class="keyrow"><kbd>Esc</kbd><span>Close any overlay</span></div>
+    </div>
+    <div class="callout" style="margin-top:1.4rem">
+      <p><strong>Highlight mode:</strong> press <kbd>H</kbd>, then simply move the pointer over any
+        diagram block or card. Whatever is under the cursor stays lit and everything else on the slide
+        dims, so the room knows exactly where to look. Move off, and the slide returns to normal.
+        Nothing to click and nothing to reset &mdash; press <kbd>H</kbd> again, or <kbd>Esc</kbd>, to disarm it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Per-audience branding, speaker notes and the slide plan, all loaded from
+     sidecar files that are deliberately NOT committed. If any is absent the tag
+     fails quietly and the deck runs generically: no audience name, no logo, no
+     notes, every slide. That is the point -- index.html can be committed and
+     shared on its own.
+     <script> tags rather than fetch(), because fetching a local JSON file is
+     blocked by CORS on a file:// path, which is how the deck presents. -->
+<!-- Event edition: all slide content is built into this file. There are no
+     sidecar files to load, so it opens from a download with no network. -->
+
+<script>
+/* ============================================================
+   BRANDING
+
+   Generic defaults. The event slides below do not use per-audience branding;
+   these keys remain only because shared helpers read them.
+   ============================================================ */
+const BRANDING_DEFAULTS = {
+  audienceName: "",                  // e.g. "Acme Corp". Blank -> the deck says "you" / "your team".
+  logoDataUri:  "",                  // e.g. "data:image/png;base64,iVBOR..." Blank -> no audience logo shown.
+  logoSvg:      "",                  // inline <svg> markup instead. Preferred for a vector wordmark:
+                                     // fill="currentColor" then follows the deck's theme. See below.
+  logoIsWordmark: false,             // true when the logo spells the name out. Suppresses the separate
+                                     // name label beside it on the title slide, which would repeat it.
+  accent:       "#29B5E8",           // any CSS color
+  presenter:    "",                  // blank -> the byline shows the org alone
+  presenterOrg: "Snowflake",
+
+  // The curated lab set for a specific audience, shown on the labs slide as
+  // "Omakase for <name>". Leave `labs` empty and the whole card disappears, so
+  // the slide still works for a generic run.
+  omakase: {
+    name: "",                        // blank -> falls back to audienceName, then "this team"
+    note: "",                        // optional one-line rationale under the heading
+    labs: []                         // { id, label, why, surface } -- see branding.example.js
+  }
+};
+
+/* Shallow merge, with `omakase` merged one level deeper so a branding file can
+   set just `labs` without wiping `name` and `note`. */
+const CONFIG = (() => {
+  const b = (typeof window !== "undefined" && window.BRANDING) || {};
+  const merged = Object.assign({}, BRANDING_DEFAULTS, b);
+  merged.omakase = Object.assign({}, BRANDING_DEFAULTS.omakase, b.omakase || {});
+  return merged;
+})();
+/* ========================= end CONFIG ========================= */
+
+/* The CoCo penguin, inlined as a data URI so this file has zero
+   external dependencies and works offline or emailed as an attachment. */
+const PENGUIN = "data:image/png;base64,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";
+
+/* Audience name helpers, so no slide ever says "the customer". */
+const AUD  = (CONFIG.audienceName || "").trim();
+const YOU  = AUD || "you";
+const YOUR = AUD ? AUD + "'s" : "your";
+const Yc   = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+/* Verb agreement. ${YOU} is either "you", which takes a plural verb, or a company
+   name, which takes a singular one -- "you are" but "Acme is". Any verb sitting
+   next to ${YOU} has to bend, or every named run of the deck reads as broken English
+   in front of the people being named. IS and HAS cover the two irregulars; S is the
+   third-person singular ending for the rest, so `${YOU} pick${S}` is right either way.
+   Modals (can, cannot, will) need nothing. */
+const IS   = AUD ? "is"  : "are";
+const HAS  = AUD ? "has" : "have";
+const S    = AUD ? "s"   : "";
+
+/* Back-reference pronouns, for the second mention of the audience inside one
+   sentence. Repeating the name there reads like an unfinished mail merge --
+   "Acme pays for consumption, and Acme can cap it". These fall back to
+   you/your when no name is set, so a generic run is word-for-word unchanged. */
+const THEY  = AUD ? "they"  : "you";
+const THEIR = AUD ? "their" : "your";
+
+/* An inline SVG logo is hand-placed in a local file, but the markup is normally
+   pasted straight off a vendor's website, so strip the two things that could ride
+   along with it: scripts and inline event handlers. The outer width/height are
+   dropped too, so CSS controls the size and the viewBox governs aspect ratio --
+   vendor wordmarks are usually shipped as width="100%" height="100%", which would
+   otherwise collapse or fill the row. */
+const LOGO_SVG = (CONFIG.logoSvg || "")
+  .replace(/<script[\s\S]*?<\/script>/gi, "")
+  .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+  .replace(/<svg\b([^>]*)>/i, (m, attrs) =>
+    "<svg" + attrs.replace(/\s(width|height)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "") + ">");
+
+/* ------------------------------------------------------------
+   The curated per-audience lab set -- "omakase", chef's choice.
+   Renders nothing at all when CONFIG.omakase.labs is empty, so a generic
+   run of the deck is unaffected and there is no placeholder to embarrass
+   anyone who forgot to fill it in.
+   ------------------------------------------------------------ */
+const OMA      = CONFIG.omakase || {};
+const OMA_LABS = Array.isArray(OMA.labs) ? OMA.labs : [];
+const OMA_NAME = (OMA.name || AUD || "this team").trim();
+
+/* Surface chips for the lab lists. Defined once, so the deck cannot drift from
+   the Surface row in each lab README's header table.
+
+   The FIRST chip is the recommended surface and is the one that carries the
+   accent; any after it are alternatives that also work. So chip('snowsight',
+   'desktop') reads "do this in Snowsight, but Desktop is fine". The accent
+   follows the recommendation rather than being fixed to one surface, because
+   which surface is easiest varies per lab -- and the point of showing the
+   alternatives is that a room can stay on one surface all day if it prefers. */
+const SURFACE = {
+  desktop:   "Desktop",
+  snowsight: "Snowsight",
+  cli:       "CLI",
+  ide:       "IDE"
+};
+const chip = (...keys) => keys
+  .filter(k => SURFACE[k])
+  .map((k, i) => `<span class="chip${i === 0 ? " on" : ""}">${SURFACE[k]}</span>`)
+  .join("");
+
+/* Which surfaces each lab runs on, recommended first, plus the track and list
+   data the lab slides render. All of it is GENERATED into labs.js from the
+   Surface, Track, Sequence, Time, Stretch and Deck label rows of each lab's
+   README -- see tools/build_lab_data.py.
+
+   It used to be hand-written here, which meant every new lab required editing
+   this file in three places, and a lab whose recommended surface changed showed
+   one thing in its README and another on the slide. That drift really happened:
+   the curated omakase list and the full lab list each carried their own copy and
+   disagreed about the same lab.
+
+   These consts are declared in labs.js. The guards below only cover the case
+   where labs.js is missing entirely, so that a deck opened without it still
+   renders rather than throwing on the first slide. */
+const LAB_SURFACE = typeof window.LAB_SURFACE !== "undefined" ? window.LAB_SURFACE : {};
+const LAB_TRACKS = typeof window.LAB_TRACKS !== "undefined" ? window.LAB_TRACKS : [];
+const LAB_RECOMMENDED = typeof window.LAB_RECOMMENDED !== "undefined" ? window.LAB_RECOMMENDED : [];
+const LAB_ALSO = typeof window.LAB_ALSO !== "undefined" ? window.LAB_ALSO : [];
+const LAB_STRETCH = typeof window.LAB_STRETCH !== "undefined" ? window.LAB_STRETCH : [];
+const LAB_CAPSTONE = typeof window.LAB_CAPSTONE !== "undefined" ? window.LAB_CAPSTONE : "";
+const LAB_COUNT = typeof window.LAB_COUNT !== "undefined" ? window.LAB_COUNT : 0;
+const LAB_NOT_DESKTOP = typeof window.LAB_NOT_DESKTOP !== "undefined" ? window.LAB_NOT_DESKTOP : [];
+const LAB_DESKTOP_ONLY = typeof window.LAB_DESKTOP_ONLY !== "undefined" ? window.LAB_DESKTOP_ONLY : [];
+
+/* "labs 71, 72 and 73" from ["71","72","73"], for prose that lists exceptions. */
+const labList = (nums, join = "and") => nums.length <= 1 ? (nums[0] || "")
+  : nums.slice(0, -1).join(", ") + ` ${join} ` + nums[nums.length - 1];
+
+/* Small counts read as words in prose. "3 write files to your machine" is the
+   kind of thing that looks generated, which on a slide is exactly what it is. */
+const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+const spell = n => WORDS[n] !== undefined ? WORDS[n] : String(n);
+/* Chips for a lab by its number. Takes "05" or "05, 06" and uses the first. */
+const labChip = id => chip(...(LAB_SURFACE[String(id).trim().slice(0, 2)] || []));
+
+/* An omakase lab's chips come from LAB_SURFACE, keyed by its number, rather than
+   from the profile. Profiles used to carry their own `surface` per lab, which
+   silently went stale the moment a lab's recommended surface changed -- and then
+   the same lab showed different chips in the curated card and the full list. A
+   profile may still name a surface for a lab number the deck does not know about,
+   which is the only case where its own value is used. */
+const omaChip = (id, s) => labChip(id) ||
+  chip(...(Array.isArray(s) ? s : s ? [s] : []));
+
+const omakaseCard = () => OMA_LABS.length ? `
+    <div class="card hl accent"><span class="tag">Chosen for you</span>
+      <h3>Omakase for ${OMA_NAME}</h3>
+      ${OMA.note ? `<p style="margin-bottom:.45rem">${OMA.note}</p>` : ``}
+      <ul class="clean">
+        ${OMA_LABS.map(l => `<li><strong>${l.id}</strong> ${l.label}` +
+            (l.why ? ` <span class="muted">&mdash; ${l.why}</span>` : ``) +
+            omaChip(l.id, l.surface) + `</li>`).join("\n        ")}
+      </ul></div>` : ``;
+
+/* ------------------------------------------------------------
+   Reusable diagram pieces. Every element the presenter may want to
+   spotlight carries class="hl" -- that is the only contract the
+   hover spotlight needs.
+   ------------------------------------------------------------ */
+function node(x, y, w, h, title, sub, accent) {
+  const cls = accent ? "box-accent" : "box";
+  const ty  = sub ? y + h/2 - 3 : y + h/2 + 5;
+  return `<g class="hl">
+    <rect class="${cls}" x="${x}" y="${y}" width="${w}" height="${h}" rx="10"></rect>
+    <text class="t-title" x="${x + w/2}" y="${ty}" text-anchor="middle">${title}</text>
+    ${sub ? `<text class="t-sub" x="${x + w/2}" y="${y + h/2 + 15}" text-anchor="middle">${sub}</text>` : ``}
+  </g>`;
+}
+
+/* A three-line box for the top row of the surfaces decision tree: who tends to
+   ask, the question itself, and a short hint. node() only carries two lines, and
+   the persona is the part that makes the tree land in a mixed room. */
+function decision(x, y, w, persona, question, hint, accent) {
+  const h = 84;
+  return `<g class="hl">
+    <rect class="${accent ? "box-accent" : "box"}" x="${x}" y="${y}" width="${w}" height="${h}" rx="10"></rect>
+    <text class="t-chip${accent ? " t-chip-accent" : ""}" x="${x + w/2}" y="${y + 20}" text-anchor="middle">${persona}</text>
+    <text class="t-title" x="${x + w/2}" y="${y + 45}" text-anchor="middle">${question}</text>
+    <text class="t-sub" x="${x + w/2}" y="${y + 65}" text-anchor="middle">${hint}</text>
+  </g>`;
+}
+
+/* A left-aligned step row with an owner chip on the right, used by the
+   "your own teammate" graphic on slide 3. SVG text does not wrap, so the
+   labels passed in here are deliberately short. */
+function teamRow(x, y, w, label, owner, accent) {
+  const h = 32, chipW = 62;
+  return `<g class="hl">
+    <rect class="${accent ? "box-accent" : "box"}" x="${x}" y="${y}" width="${w}" height="${h}" rx="8"></rect>
+    <text class="t-sub" x="${x + 14}" y="${y + 21}">${label}</text>
+    <rect class="chip${accent ? " chip-accent" : ""}" x="${x + w - chipW - 10}" y="${y + 7}"
+          width="${chipW}" height="18" rx="9"></rect>
+    <text class="t-chip${accent ? " t-chip-accent" : ""}" x="${x + w - chipW / 2 - 10}" y="${y + 20}"
+          text-anchor="middle">${owner}</text>
+  </g>`;
+}
+
+/* ------------------------------------------------------------
+   SLIDES
+   ------------------------------------------------------------ */
+const REPO_URL = "https://github.com/sfc-gh-rmichaud/coco_interactive_workshop_public";
+const REPO_LABEL = "github.com/sfc-gh-rmichaud/coco_interactive_workshop_public";
+const SLIDES = [
+
+/* 1 -------------------------------------------------- */
+{
+  id: "welcome",
+  title: "Welcome",
+  html: `<div class="title-wrap">
+    <div class="logo-row">
+      <img src="${PENGUIN}" alt="CoCo penguin" />
+    </div>
+    <p class="kicker">Virtual hands-on lab &middot; Part 2</p>
+    <h1>What's the Art of the<br/>Possible with CoCo?</h1>
+    <p class="sub">You installed CoCo Desktop and found your way around. Today we use it on real
+      multi-step work &mdash; and check the results before trusting them.</p>
+    <p class="byline">December 2, 2026 &middot; 12:00&ndash;2:00 p.m. ET</p>
+    <p class="byline">Rick Michaud, Senior Solution Engineer &middot; Caleb Alexander, Account Engineer &middot; Snowflake</p>
+  </div>`,
+},
+
+/* 2 -------------------------------------------------- */
+{
+  id: "bridge",
+  title: "From Part 1 to Part 2",
+  html: `<p class="kicker">Where we left off</p>
+  <h2>Part 1 removed the intimidation. Part 2 is the toolkit.</h2>
+  <div class="grid g2">
+    <div class="card hl"><span class="tag">Part 1 &middot; Now what?</span>
+      <h3>Find your way around</h3>
+      <p>Projects, sessions, connections, settings, and a first real task. We will not repeat the interface tour.</p></div>
+    <div class="card hl accent"><span class="tag">Part 2 &middot; Today</span>
+      <h3>Make it part of everyday work</h3>
+      <p>Frame multi-step tasks, give useful context, tailor output for an audience, verify the answer,
+        and save what you learned for the next task.</p></div>
+  </div>
+  <div class="callout"><p><strong>The habit we are practising:</strong> inspect &rarr; clarify &rarr; act &rarr; verify.
+    Plausible output is not the same as verified output.</p></div>`,
+},
+
+/* 3 -------------------------------------------------- */
+{
+  id: "agenda",
+  title: "Agenda",
+  html: `<p class="kicker">Two hours, Eastern Time</p>
+  <h2>One full lab, three focused checkpoints</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="tag">12:00 &middot; 20 min</span><h3>Welcome and readiness</h3>
+      <p>The possibilities, then a quick Desktop and connection check.</p></div>
+    <div class="card hl"><span class="tag">12:20 &middot; 10 min</span><h3>Lab 10 checkpoint</h3>
+      <p>Research one question and check a source.</p></div>
+    <div class="card hl accent"><span class="tag">12:30 &middot; 30 min</span><h3>Lab 11, full core</h3>
+      <p>Explore unfamiliar data, define the metric, explain the result for an audience.</p></div>
+    <div class="card hl"><span class="tag">1:00 &middot; 30 min</span><h3>Lab 41 checkpoint</h3>
+      <p>Build and open one small Streamlit screen.</p></div>
+    <div class="card hl"><span class="tag">1:30 &middot; 13 min</span><h3>Lab 62 checkpoint</h3>
+      <p>Read cost evidence and propose guardrails.</p></div>
+    <div class="card hl"><span class="tag">1:43 &middot; 17 min</span><h3>Save, clean up, Q&amp;A</h3>
+      <p>Save reusable context, remove what you created, then questions.</p></div>
+  </div>
+  <p class="muted" style="font-size:.86rem;margin-top:.7rem">Times are guidance. If we run behind, we cut optional extras &mdash; never verification, cleanup or Q&amp;A.</p>`,
+},
+
+/* 4 -------------------------------------------------- */
+{
+  id: "possible",
+  title: "The art of the possible, by role",
+  html: `<p class="kicker">The art of the possible</p>
+  <h2>What this looks like in your week</h2>
+  <div class="grid g4">
+    <div class="card hl"><span class="tag">Analysts</span><h3>Understand new data</h3>
+      <p>Explore a schema, pin down a metric definition, and turn the result into a short business answer.</p></div>
+    <div class="card hl"><span class="tag">Data engineers</span><h3>Build and test</h3>
+      <p>Turn a plain-language spec into a pipeline, then prove it handles a new batch correctly.</p></div>
+    <div class="card hl"><span class="tag">Developers</span><h3>Ship something usable</h3>
+      <p>Go from a finding to a small app someone can open, and package repeat work as a skill.</p></div>
+    <div class="card hl"><span class="tag">Data science &amp; AI</span><h3>Research and review</h3>
+      <p>Compare approaches against sources, then check query performance and cost before scaling.</p></div>
+  </div>
+  <div class="callout"><p><strong>Today vs. take-home:</strong> we do exploration, a small app and cost review live.
+    Pipelines (Lab 21), query tuning (Lab 61) and reusable skills (Lab 71) are in the repo for later.</p></div>`,
+},
+
+/* 5 -------------------------------------------------- */
+{
+  id: "prompt-pattern",
+  title: "A prompt pattern that scales",
+  html: `<p class="kicker">Framing the task</p>
+  <h2>Context, constraints, output, verification</h2>
+  <div class="grid g4">
+    <div class="card hl"><span class="lead-num">1</span><h3>Context</h3>
+      <p>Which database, what the business question is, what you already know.</p></div>
+    <div class="card hl"><span class="lead-num">2</span><h3>Constraints</h3>
+      <p>Read-only first. Which warehouse. What not to change. Ask before acting.</p></div>
+    <div class="card hl"><span class="lead-num">3</span><h3>Output</h3>
+      <p>The shape you need: a table, two sentences for a manager, a screen, a file.</p></div>
+    <div class="card hl accent"><span class="lead-num">4</span><h3>Verification</h3>
+      <p>How will we know it is right? A count, a reconciliation, a source you opened.</p></div>
+  </div>
+  <div class="callout"><p><strong>Audience and style are part of the output.</strong> "Explain this for a regional sales
+    director, in plain language, two sentences, no SQL" gets a different &mdash; and more useful &mdash; answer than "summarise".</p></div>`,
+},
+
+/* 6 -------------------------------------------------- */
+{
+  id: "reuse-context",
+  title: "Carry context forward",
+  html: `<p class="kicker">Building on previous work</p>
+  <h2>Save what you learned, reuse it on purpose</h2>
+  <p class="sub">At the end of today you will write a short project note: the definitions you settled, your
+    preferences, the checks that mattered. Next time, you hand it to CoCo at the start.</p>
+  <div class="grid g3">
+    <div class="card hl"><h3>Definitions</h3><p>"Revenue means transaction price net of whole-percent discount, completed orders only."</p></div>
+    <div class="card hl"><h3>Preferences</h3><p>"Read-only exploration first. Explain for business readers. Show the SQL."</p></div>
+    <div class="card hl"><h3>Checks</h3><p>"Reconcile totals to the source table before charting."</p></div>
+  </div>
+  <div class="callout"><p><strong>Be explicit.</strong> We will not assume CoCo remembers this automatically. A note you
+    own and reference is predictable; when it is reusable procedure, Lab 71 turns it into a skill.</p></div>`,
+},
+
+/* 7 -------------------------------------------------- */
+{
+  id: "guardrails",
+  title: "Review, permissions and cost",
+  html: `<p class="kicker">Working responsibly</p>
+  <h2>You stay accountable for what it does</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="tag">Review</span><h3>Approve before it acts</h3>
+      <p>Read the plan and the SQL. Keep approvals on in an unfamiliar account.</p></div>
+    <div class="card hl"><span class="tag">Permissions</span><h3>It runs as your role</h3>
+      <p>CoCo can only do what your connected role can do. Use a non-production account and synthetic workshop data today.</p></div>
+    <div class="card hl"><span class="tag">Cost</span><h3>Two kinds of usage</h3>
+      <p>CoCo's AI usage, plus the warehouse compute for SQL it runs. Administrators can set limits; see the cost documentation.</p></div>
+  </div>
+  <div class="callout"><p><strong>Do not paste secrets, credentials or sensitive production data into prompts.</strong>
+    Today's labs create their own sample data.</p></div>`,
+},
+
+/* 8 -------------------------------------------------- */
+{
+  id: "readiness",
+  title: "Readiness check",
+  html: `<p class="pill-lg">Hands-on</p>
+  <p class="kicker">Before we start</p>
+  <h2>Ready in CoCo Desktop?</h2>
+  <div class="grid g2">
+    <div class="card hl accent"><h3>You need</h3>
+      <ul class="clean">
+        <li>CoCo Desktop open and signed in</li>
+        <li>A connection to an <strong>approved non-production</strong> Snowflake account</li>
+        <li>A role that can create a database and warehouse (or pre-provisioned access)</li>
+        <li>CoCo answers a simple question in chat</li>
+        <li>This repo downloaded, so CoCo can read the lab files</li>
+      </ul></div>
+    <div class="card hl"><h3>Not ready? Watch along</h3>
+      <p>Follow the presenter's screen and the guide. Every step and prompt is in
+        <code>EVENT_GUIDE.md</code>, so you can redo it afterwards or from the on-demand recording.</p>
+      <p class="muted">Post blockers in chat &mdash; our co-host is watching it.</p></div>
+  </div>
+  <div class="callout"><p><strong>Poll:</strong> on a scale of 1&ndash;5, how is the pace so far?</p></div>`,
+},
+
+/* 9 -------------------------------------------------- */
+{
+  id: "lab10",
+  title: "Lab 10 checkpoint",
+  html: `<p class="pill-lg">Lab 10 &middot; 10 min</p>
+  <p class="kicker">Research a question</p>
+  <h2>Ask, then check the evidence</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="lead-num">1</span><h3>Ask one question</h3><p>Use the starter question in the guide. Ask CoCo to cite its sources.</p></div>
+    <div class="card hl"><span class="lead-num">2</span><h3>Open one source</h3><p>Confirm one claim yourself in the documentation.</p></div>
+    <div class="card hl accent"><span class="lead-num">3</span><h3>Name one unknown</h3><p>What does the answer depend on in <em>your</em> account?</p></div>
+  </div>
+  <div class="callout"><p><strong>Done when:</strong> you have a short answer, one claim you checked yourself, and one open question. No SQL in this step.</p></div>`,
+},
+
+/* 10 -------------------------------------------------- */
+{
+  id: "lab11",
+  title: "Lab 11: explore unfamiliar data",
+  html: `<p class="pill-lg">Lab 11 &middot; 25 min + 5 catch-up</p>
+  <p class="kicker">Explore a schema you have never seen</p>
+  <h2>Find the trap before you trust the trend</h2>
+  <div class="grid g4">
+    <div class="card hl"><span class="lead-num">1</span><h3>Names</h3><p>Use the object names your prework <code>setup.sql</code> printed.</p></div>
+    <div class="card hl"><span class="lead-num">2</span><h3>Explore</h3><p>Ask CoCo to map the tables, read-only.</p></div>
+    <div class="card hl accent"><span class="lead-num">3</span><h3>Define revenue</h3><p>Agree the definition before computing anything.</p></div>
+    <div class="card hl"><span class="lead-num">4</span><h3>Verify &amp; explain</h3><p>Check the finding, then rewrite it for a named audience.</p></div>
+  </div>
+  <div class="callout"><p><strong>Poll:</strong> how confident are you guiding CoCo through a multi-step exploration?</p></div>`,
+},
+
+/* 11 -------------------------------------------------- */
+{
+  id: "lab41",
+  title: "Lab 41: a small app",
+  html: `<p class="pill-lg">Lab 41 &middot; 30 min</p>
+  <p class="kicker">Ship a Streamlit app into Snowflake</p>
+  <h2>From finding to a screen someone can open</h2>
+  <div class="grid g2">
+    <div class="card hl accent"><h3>Keep the scope small</h3>
+      <ul class="clean">
+        <li>One comparison that shows the finding</li>
+        <li>One region filter</li>
+        <li>One supporting table</li>
+        <li>Aggregate in SQL, not in Python</li>
+      </ul></div>
+    <div class="card hl"><h3>Done when</h3>
+      <p>The app opens in Snowsight and the filter changes the view. A created object that does not open is not done.</p>
+      <p class="muted">Deployment blocked? Keep your agreed screen spec and watch the presenter's demo.</p></div>
+  </div>
+  <div class="callout"><p><strong>Poll:</strong> what is the biggest challenge you have hit so far in the lab?</p></div>`,
+},
+
+/* 12 -------------------------------------------------- */
+{
+  id: "lab62",
+  title: "Lab 62: what did it cost?",
+  html: `<p class="pill-lg">Lab 62 &middot; 13 min</p>
+  <p class="kicker">Cost and usage</p>
+  <h2>Read the evidence, propose a guardrail</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="lead-num">1</span><h3>Seeded evidence</h3><p>Use the lab's labeled sample usage data.</p></div>
+    <div class="card hl"><span class="lead-num">2</span><h3>Three findings</h3><p>Separate warehouse credits from CoCo usage.</p></div>
+    <div class="card hl accent"><span class="lead-num">3</span><h3>One guardrail</h3><p>Recommend a control. Do not change account settings today.</p></div>
+  </div>
+  <div class="callout"><p><strong>Honest scope:</strong> this is not an exact bill for today. Live usage views lag and per-lab figures are estimates.</p></div>`,
+},
+
+/* 13 -------------------------------------------------- */
+{
+  id: "wrap-up",
+  title: "Save and clean up",
+  html: `<p class="pill-lg">Wrap-up &middot; 8 min</p>
+  <p class="kicker">Before you leave</p>
+  <h2>Keep the learning, drop the objects</h2>
+  <div class="grid g2">
+    <div class="card hl accent"><h3>Save a project note</h3>
+      <p>Ask CoCo to draft <code>PROJECT_CONTEXT.md</code> from today: definitions, preferences and checks. Edit it yourself.
+        Start your next task by pointing CoCo at it.</p></div>
+    <div class="card hl"><h3>Clean up</h3>
+      <p>Run each lab's <code>cleanup.sql</code>. Review the names it prints first, and only remove what you created today.</p></div>
+  </div>`,
+},
+
+/* 14 -------------------------------------------------- */
+{
+  id: "links",
+  title: "Next steps and links",
+  html: `<p class="kicker">Take it further</p>
+  <h2>Keep going</h2>
+  <div class="linklist">
+    <p><span class="lt">Workshop materials</span><a href="${REPO_URL}">${REPO_LABEL}</a></p>
+    <p><span class="lt">CoCo product overview</span><a href="https://www.snowflake.com/en/product/snowflake-coco/">snowflake.com/en/product/snowflake-coco</a></p>
+    <p><span class="lt">Documentation home</span><a href="https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code">docs.snowflake.com/en/user-guide/cortex-code</a></p>
+    <p><span class="lt">Cost controls and credit limits</span><a href="https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit">docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit</a></p>
+  </div>
+  <div class="grid g3" style="margin-top:1.2rem">
+    <div class="card hl"><span class="tag">Engineers</span><h3>Lab 21</h3><p>Build a pipeline from a plain-English spec.</p></div>
+    <div class="card hl"><span class="tag">SQL-heavy</span><h3>Lab 61</h3><p>Fix a deliberately slow query.</p></div>
+    <div class="card hl"><span class="tag">Repeat work</span><h3>Lab 71</h3><p>Turn a recurring task into a skill.</p></div>
+  </div>
+  <div class="center" style="margin-top:1.4rem">
+    <h2>Thank you &mdash; questions?</h2>
+    <p class="muted"><strong>Poll:</strong> on a scale of 1&ndash;5, how helpful was this content for your role?</p>
+  </div>`,
+}
+
+];
+
+/* ------------------------------------------------------------
+   Slide plan
+
+   An optional third sidecar, slides.js, sets
+
+     window.SLIDE_PLAN = { include: ["welcome", "agenda", ...] };
+
+   naming the slides to show, in the order to show them. Keyed by the stable
+   `id` above rather than by title, so retitling a slide cannot invalidate a
+   saved plan -- titles are the speaker-notes key and have to stay free to
+   change wording.
+
+   With no plan, an empty plan, or an empty include list, the deck runs every
+   slide in authored order. That is the generic path and it is deliberately
+   byte-for-byte the old behaviour.
+
+   SLIDES is spliced in place rather than reassigned, so everything downstream
+   -- the build loop, the grid, the counter, the progress bar, the next-slide
+   preview and the notes lookup -- follows from one edit here.
+   ------------------------------------------------------------ */
+(function applySlidePlan() {
+  const plan = window.SLIDE_PLAN;
+  const want = plan && Array.isArray(plan.include) ? plan.include : null;
+  if (!want || !want.length) return;
+
+  const byId = new Map(SLIDES.map(s => [s.id, s]));
+  const chosen = [];
+  const unknown = [];
+  for (const id of want) {
+    const slide = byId.get(id);
+    if (slide) chosen.push(slide);
+    else unknown.push(id);
+  }
+
+  /* A plan that names nothing real would otherwise blank the deck. Keep the
+     full deck and say so, rather than presenting an empty screen. */
+  if (!chosen.length) {
+    unknown.length && console.error('Slide plan matched no slides:', unknown);
+  } else {
+    SLIDES.splice(0, SLIDES.length, ...chosen);
+  }
+
+  /* An id that matches no slide is almost always a typo or a slide that was
+     renamed, and the failure mode is a deck that is quietly missing content.
+     Say it on the screen: a console warning is no use mid-presentation. */
+  if (unknown.length) {
+    SLIDES.unshift({
+      id: '__plan_error__',
+      title: 'Slide plan problem',
+      html: `<p class="kicker">Slide plan</p>
+  <h2>This deck's slide plan names ${unknown.length} slide${unknown.length === 1 ? '' : 's'} that ${unknown.length === 1 ? 'does' : 'do'} not exist</h2>
+  <div class="warn"><p>Unknown id${unknown.length === 1 ? '' : 's'}:
+    <code>${unknown.map(u => String(u).replace(/[<&]/g, c => (c === '<' ? '&lt;' : '&amp;'))).join('</code>, <code>')}</code></p></div>
+  <p class="sub">${chosen.length
+    ? 'The rest of the plan was applied, so slides may be missing.'
+    : 'Nothing in the plan matched, so the full deck is being shown.'}
+    Fix the plan in the Workshop Studio, or delete <code>slides.js</code> to show every slide.</p>`
+    });
+  }
+})();
+
+/* ------------------------------------------------------------
+   Build the deck
+   ------------------------------------------------------------ */
+const deck = document.getElementById('deck');
+SLIDES.forEach((s, i) => {
+  const sec = document.createElement('section');
+  sec.className = 'slide';
+  sec.id = 'slide-' + (i + 1);
+  sec.innerHTML = '<div class="inner">' + s.html + '</div>';
+  deck.appendChild(sec);
+});
+const slideEls = Array.from(document.querySelectorAll('.slide'));
+const TOTAL = slideEls.length;
+let current = 0;
+
+/* Apply the configured accent colour. */
+if (CONFIG.accent) document.documentElement.style.setProperty('--accent', CONFIG.accent);
+
+/* ---------- Theme (guarded: storage is unavailable in some sandboxes) ---------- */
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* no-op */ } }
+};
+function initTheme() {
+  const saved = store.get('coco-deck-theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  store.set('coco-deck-theme', t);
+}
+setTheme(initTheme());
+
+/* ---------- Navigation ---------- */
+const counter   = document.getElementById('counter');
+const miniTitle = document.getElementById('miniTitle');
+const progress  = document.getElementById('progress');
+const notesBox  = document.getElementById('notes');
+
+/* ---------- Speaker notes ----------
+   Notes live in speaker-notes.js, keyed by slide title, and that file is
+   gitignored. Resolve them here so the two places that render notes -- this
+   window and the presenter window -- share one lookup and one fallback. */
+const NOTES_LOADED = !!(window.SPEAKER_NOTES && Object.keys(window.SPEAKER_NOTES).length);
+function notesFor(i) {
+  const src = window.SPEAKER_NOTES || {};
+  const n = src[SLIDES[i].title];
+  return Array.isArray(n) ? n : [];
+}
+const NO_NOTES_MSG = NOTES_LOADED
+  ? 'No notes for this slide.'
+  : 'No notes loaded. Speaker notes live in <code>presentation/speaker-notes.js</code>, ' +
+    'which is not committed \u2014 copy <code>speaker-notes.example.js</code> to that name, ' +
+    'or restore your own.';
+
+function renderNotes(i) {
+  const notes = notesFor(i);
+  notesBox.innerHTML = '<p class="kicker">Speaker notes &middot; slide ' + (i + 1) + '</p>' +
+    (notes.length ? notes.map(n => '<p>' + n + '</p>').join('') : '<p>' + NO_NOTES_MSG + '</p>');
+}
+
+/* ---------- Presenter window ----------
+   A second browser window that holds the notes, so the deck window can be
+   shared on a call without the notes going with it.
+
+   It is opened with an empty URL on purpose. That makes it an about:blank
+   child which inherits this document's origin, so this script can keep
+   writing straight into its DOM. Two separate file:// documents cannot talk
+   to each other -- no shared localStorage, no BroadcastChannel, no
+   postMessage across opaque origins -- so an about:blank child is the only
+   approach that also works when the deck is opened as a local file. */
+let presWin = null;
+let presTick = null;
+let startedAt = Date.now();
+
+const PRESENTER_SHELL =
+'<!DOCTYPE html><html data-theme="dark"><head><meta charset="utf-8">' +
+'<title>Presenter notes</title><style>' +
+':root[data-theme="dark"]{--bg:#0D1117;--bg2:#161B22;--fg:#E6EDF3;--dim:#9DA7B3;--line:#2A3441;--ink:#29B5E8}' +
+':root[data-theme="light"]{--bg:#FFFFFF;--bg2:#F5F8FB;--fg:#10202B;--dim:#5A6B78;--line:#D3E0EA;--ink:#0B5A85}' +
+'*{box-sizing:border-box}' +
+'body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;' +
+'display:flex;flex-direction:column;height:100vh}' +
+'header{padding:1.1rem 1.3rem .8rem;border-bottom:1px solid var(--line)}' +
+'.meta{display:flex;justify-content:space-between;align-items:baseline;font-size:.72rem;font-weight:700;' +
+'letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:.4rem}' +
+'#pClock{font-variant-numeric:tabular-nums;color:var(--dim);letter-spacing:.06em}' +
+'h1{margin:0;font-size:1.32rem;line-height:1.2;letter-spacing:-.01em}' +
+'main{flex:1;overflow-y:auto;padding:1.1rem 1.3rem}' +
+'main p{margin:0 0 .95rem;padding-left:.85rem;border-left:2px solid var(--line)}' +
+'main p:last-child{margin-bottom:0}' +
+'main .none{color:var(--dim);border-left-color:transparent;font-style:italic}' +
+'footer{border-top:1px solid var(--line);padding:.75rem 1.3rem;background:var(--bg2);' +
+'display:flex;align-items:center;gap:.55rem}' +
+'button{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;' +
+'padding:.45rem .8rem;font:inherit;font-size:.85rem;line-height:1;cursor:pointer}' +
+'button:hover{border-color:var(--ink);color:var(--ink)}' +
+'#pUp{margin-left:auto;text-align:right;font-size:.8rem;color:var(--dim);max-width:52%}' +
+'#pUp b{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}' +
+'</style></head><body>' +
+'<header><div class="meta"><span id="pNum"></span><span id="pClock">0:00</span></div><h1 id="pTitle"></h1></header>' +
+'<main id="pNotes"></main>' +
+'<footer><button id="pPrev">&#8249; Prev</button><button id="pNext">Next &#8250;</button>' +
+'<div id="pUp"><b>Up next</b><span id="pUpTitle"></span></div></footer>' +
+'</body></html>';
+
+function presenterOpen() {
+  if (presWin && !presWin.closed) { presWin.focus(); return; }
+  presWin = window.open('', 'coco-presenter', 'width=780,height=860');
+  if (!presWin) {
+    alert('The presenter notes window was blocked. Allow pop-ups for this page and press P again.');
+    return;
+  }
+  const d = presWin.document;
+  d.open(); d.write(PRESENTER_SHELL); d.close();
+
+  d.getElementById('pPrev').addEventListener('click', () => { prev(); presWin.focus(); });
+  d.getElementById('pNext').addEventListener('click', () => { next(); presWin.focus(); });
+  d.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+  });
+
+  startedAt = Date.now();
+  if (presTick) clearInterval(presTick);
+  presTick = setInterval(presenterClock, 1000);
+  presenterSync();
+  presWin.focus();
+  updatePresenterBtn();
+}
+
+function presenterClose() {
+  if (presWin && !presWin.closed) presWin.close();
+  presWin = null;
+  if (presTick) { clearInterval(presTick); presTick = null; }
+  updatePresenterBtn();
+}
+
+function presenterClock() {
+  if (!presWin || presWin.closed) { presenterClose(); return; }
+  const s = Math.floor((Date.now() - startedAt) / 1000);
+  const el = presWin.document.getElementById('pClock');
+  if (el) el.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+
+function presenterSync() {
+  if (!presWin || presWin.closed) return;
+  const d = presWin.document;
+  const s = SLIDES[current];
+  const notes = notesFor(current);
+  d.documentElement.setAttribute('data-theme',
+    document.documentElement.getAttribute('data-theme') || 'dark');
+  d.getElementById('pNum').textContent = 'Slide ' + (current + 1) + ' of ' + TOTAL;
+  d.getElementById('pTitle').textContent = s.title;
+  d.getElementById('pNotes').innerHTML = notes.length
+    ? notes.map(n => '<p>' + n + '</p>').join('')
+    : '<p class="none">' + NO_NOTES_MSG + '</p>';
+  d.getElementById('pUpTitle').textContent =
+    current + 1 < TOTAL ? SLIDES[current + 1].title : 'End of deck';
+}
+
+function updatePresenterBtn() {
+  const open = !!(presWin && !presWin.closed);
+  btnPresent.setAttribute('aria-pressed', String(open));
+  btnPresent.textContent = open ? 'Presenting' : 'Present';
+}
+
+window.addEventListener('beforeunload', () => { if (presWin && !presWin.closed) presWin.close(); });
+
+/* ---------- Fit the slide to the window ----------
+   Slides are authored at a comfortable reading size for a full-screen
+   presentation. In a short browser window some of them are taller than the
+   viewport, and the old behaviour was a scrollbar -- which is the worst possible
+   outcome mid-sentence, because content silently sits below the fold and nobody
+   in the room tells you.
+
+   So instead: measure the slide's natural height and scale it down to fit. At
+   presentation size nothing is scaled at all and the deck is pixel-identical to
+   before. Only a cramped window pays, and it pays in slightly smaller text
+   rather than in hidden content.
+
+   scrollHeight is not affected by transforms, so no reset is needed before
+   measuring, but we clear it anyway so a stale scale can never influence the
+   reading. */
+const FIT_MIN = 0.62;   // below this, shrink no further and allow scrolling --
+                        // unreadable-but-visible is not an improvement.
+
+function fitSlide(i) {
+  const sec = slideEls[i];
+  if (!sec) return;
+  const inner = sec.firstElementChild;
+  if (!inner) return;
+
+  inner.style.transform = '';
+  sec.classList.remove('scrollable');
+
+  const cs = getComputedStyle(sec);
+  const avail = sec.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+  const natural = inner.scrollHeight;
+  if (!(avail > 0) || !(natural > 0)) return;      // not laid out yet
+
+  let scale = avail / natural;
+  if (scale >= 0.995) return;                       // fits already, leave it alone
+  if (scale < FIT_MIN) { scale = FIT_MIN; sec.classList.add('scrollable'); }
+  inner.style.transform = 'scale(' + scale.toFixed(4) + ')';
+}
+
+/* Refit on anything that can change either the available height or the content
+   height. Font sizes use vw units, so a width change matters as much as height. */
+let fitTimer = null;
+function refit() {
+  clearTimeout(fitTimer);
+  fitTimer = setTimeout(() => fitSlide(current), 60);
+}
+window.addEventListener('resize', refit);
+window.addEventListener('load', () => fitSlide(current));
+
+function go(i, updateHash) {
+  current = Math.max(0, Math.min(TOTAL - 1, i));
+  slideEls.forEach((el, n) => el.classList.toggle('active', n === current));
+  counter.textContent = (current + 1) + ' / ' + TOTAL;
+  miniTitle.textContent = SLIDES[current].title;
+  progress.style.width = ((current + 1) / TOTAL * 100) + '%';
+  renderNotes(current);
+  presenterSync();
+  markGridCurrent();
+  if (updateHash !== false) history.replaceState(null, '', '#slide-' + (current + 1));
+  slideEls[current].scrollTop = 0;
+  fitSlide(current);
+}
+const next = () => go(current + 1);
+const prev = () => go(current - 1);
+
+/* ---------- Highlight mode ----------
+   Purely a CSS arming switch. The spotlight itself is hover-driven in the
+   stylesheet, so there is no state to latch and nothing to clear. */
+const btnHl = document.getElementById('btnHl');
+function setHlMode(on) {
+  document.body.classList.toggle('hl-on', on);
+  btnHl.setAttribute('aria-pressed', String(on));
+}
+const hlOn = () => document.body.classList.contains('hl-on');
+
+/* ---------- Overlays ---------- */
+const gridOverlay = document.getElementById('gridOverlay');
+const helpOverlay = document.getElementById('helpOverlay');
+const gridList    = document.getElementById('gridList');
+
+SLIDES.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.className = 'thumb';
+  b.innerHTML = '<span class="n">' + String(i + 1).padStart(2, '0') + '</span><span class="t">' + s.title + '</span>';
+  b.addEventListener('click', () => { go(i); closeOverlays(); });
+  gridList.appendChild(b);
+});
+function markGridCurrent() {
+  Array.from(gridList.children).forEach((el, i) => el.classList.toggle('current', i === current));
+}
+function closeOverlays() {
+  gridOverlay.classList.remove('open');
+  helpOverlay.classList.remove('open');
+}
+function toggleOverlay(el) {
+  const wasOpen = el.classList.contains('open');
+  closeOverlays();
+  if (!wasOpen) el.classList.add('open');
+}
+
+/* ---------- Chrome buttons ---------- */
+document.getElementById('btnPrev').addEventListener('click', prev);
+document.getElementById('btnNext').addEventListener('click', next);
+document.getElementById('btnGrid').addEventListener('click', () => toggleOverlay(gridOverlay));
+document.getElementById('btnHelp').addEventListener('click', () => toggleOverlay(helpOverlay));
+document.getElementById('btnHl').addEventListener('click', () => setHlMode(!hlOn()));
+document.getElementById('btnTheme').addEventListener('click', () => {
+  setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  presenterSync();
+  refit();
+});
+const btnPresent = document.getElementById('btnPresent');
+btnPresent.addEventListener('click', () => {
+  if (presWin && !presWin.closed) presenterClose(); else presenterOpen();
+});
+
+const btnNotes = document.getElementById('btnNotes');
+btnNotes.addEventListener('click', () => {
+  const open = notesBox.classList.toggle('open');
+  btnNotes.setAttribute('aria-pressed', String(open));
+});
+
+/* ---------- Keyboard ---------- */
+let numBuffer = '';
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key;
+
+  if (/^[0-9]$/.test(k) && gridOverlay.classList.contains('open')) {
+    numBuffer += k;
+    return;
+  }
+  if (k === 'Enter' && numBuffer) {
+    const n = parseInt(numBuffer, 10); numBuffer = '';
+    if (n >= 1 && n <= TOTAL) { go(n - 1); closeOverlays(); }
+    return;
+  }
+
+  switch (k) {
+    case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+      e.preventDefault(); next(); break;
+    case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+      e.preventDefault(); prev(); break;
+    case 'Home': e.preventDefault(); go(0); break;
+    case 'End':  e.preventDefault(); go(TOTAL - 1); break;
+    case 'g': case 'G': toggleOverlay(gridOverlay); break;
+    case 'h': case 'H': setHlMode(!hlOn()); break;
+    case 's': case 'S': btnNotes.click(); break;
+    case 'p': case 'P': btnPresent.click(); break;
+    case 'd': case 'D':
+      setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); break;
+    case '?': toggleOverlay(helpOverlay); break;
+    case 'Escape':
+      numBuffer = '';
+      if (gridOverlay.classList.contains('open') || helpOverlay.classList.contains('open')) closeOverlays();
+      else setHlMode(false);
+      break;
+  }
+});
+
+/* ---------- Deep links ---------- */
+function fromHash() {
+  const m = /^#slide-(\d+)$/.exec(location.hash || '');
+  return m ? Math.min(TOTAL, Math.max(1, parseInt(m[1], 10))) - 1 : 0;
+}
+window.addEventListener('hashchange', () => go(fromHash(), false));
+go(fromHash(), false);
+</script>
+</body>
+</html>

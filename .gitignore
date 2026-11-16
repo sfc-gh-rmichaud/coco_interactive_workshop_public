@@ -1,0 +1,36 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.venv/
+*.pem
+*.p8
+*.key
+**/profile.json
+connections.toml
+config.toml
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+
+# Editor / OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# CoCo working files and local session state
+.snowflake/
+
+# Attendee-generated files
+PROJECT_CONTEXT.md
+!templates/PROJECT_CONTEXT.md
+labs/*/results/
+labs/41-ship-a-streamlit-app/app.py
+
+# Private event material never belongs here
+*.eml
+dist/
+facilitator/
