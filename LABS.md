@@ -1,6 +1,6 @@
 # Full lab catalog
 
-**37 labs across 9 tracks.** All are included for continued practice after the webinar.
+**26 labs across 7 tracks.** All are included for continued practice after the webinar.
 
 The two-hour [live guide](EVENT_GUIDE.md) remains curated: **10, 11, 41 and 62**.
 The original next-step recommendations (**21, 61, 71**) are still highlighted below.
@@ -10,7 +10,7 @@ The original next-step recommendations (**21, 61, 71**) are still highlighted be
 
 - All duration estimates below are **guidance for the full lab**, not extra time in the webinar.
 - Read the lab's prerequisites, supported surface and cleanup before starting; Desktop is not the right surface for every lab.
-- Data labs use disposable sample resources. Local-only/design-only labs 81-86 and 91-95 use the [extension practice kit](shared/extension_lab/README.md); skip shared SQL setup for their core routes.
+- Data labs use disposable sample resources. Run only the setup required by your chosen guide.
 - Lab 10 is research-only. Lab 74 works in a private Snowsight workspace and has separate file cleanup.
 - **Lab 42 is a 90-120 minute stretch project**, with elevated privileges, feature-availability restrictions and resources that can keep billing while idle. Read its warnings first.
 - Follow each lab's cleanup. Shared SQL cleanup does not remove local extensions, workspace files or all administrative resources.
@@ -90,28 +90,3 @@ Make CoCo yours: reusable skills, a change through CI, and CoCo inside your IDE.
 | 73 | [CoCo in your IDE](labs/73-coco-in-your-ide/README.md) | 20 minutes | Take-home |
 | 74 | [Organize an unnamed Snowflake workspace](labs/74-organize-a-workspace/README.md) | 15-20 minutes (guidance) | Take-home |
 | 75 | [Build a real Cortex Agent terminal client](labs/75-build-terminal-tools/README.md) | 45-60 minutes for one language; porting is a stretch (guidance) | Take-home |
-
-## Advanced CoCo extensibility
-
-Operate the CLI, author commands and skills, connect MCP, delegate and package a plugin.
-
-| Lab | Exercise | Full-lab time (guidance) | Session role |
-|---|---|---|---|
-| 81 | [Operate CoCo CLI like a development tool](labs/81-operate-coco-cli/README.md) | 30-40 minutes (guidance) | Take-home |
-| 82 | [Build and test your own slash commands](labs/82-build-slash-commands/README.md) | 25-35 minutes (guidance) | Take-home |
-| 83 | [Engineer a skill that survives a fresh session](labs/83-engineer-a-skill/README.md) | 35-45 minutes (guidance) | Take-home |
-| 84 | [Connect and debug a real local MCP tool](labs/84-connect-local-mcp/README.md) | 35-45 minutes (guidance) | Take-home |
-| 85 | [Delegate work to bounded subagents](labs/85-delegate-subagents/README.md) | 30-40 minutes (guidance) | Take-home |
-| 86 | [Package a team workflow as a plugin](labs/86-package-a-plugin/README.md) | 40-50 minutes (guidance) | Take-home |
-
-## Working with bundled skills
-
-Find, invoke and verify maintained workflows for SQL, pipelines, operations, AI and apps.
-
-| Lab | Exercise | Full-lab time (guidance) | Session role |
-|---|---|---|---|
-| 91 | [Find the bundled skill for the job](labs/91-discover-bundled-skills/README.md) | 20-30 minutes (guidance) | Take-home |
-| 92 | [Use skills to review and verify SQL](labs/92-skills-review-sql/README.md) | 30-40 minutes (guidance) | Take-home |
-| 93 | [Navigate the data-engineering skill routers](labs/93-skills-pipeline-routers/README.md) | 30-40 minutes (guidance) | Take-home |
-| 94 | [Diagnose cost and access with the right skills](labs/94-skills-cost-and-access/README.md) | 30-40 minutes (guidance) | Take-home |
-| 95 | [Follow a bundled AI or app workflow end to end](labs/95-skills-ai-and-apps/README.md) | 35-45 minutes (guidance) | Take-home |

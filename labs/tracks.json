@@ -53,18 +53,6 @@
       "decade": "70",
       "label": "Working with CoCo",
       "blurb": "Make CoCo yours: reusable skills, a change through CI, and CoCo inside your IDE."
-    },
-    {
-      "id": "advanced-coco",
-      "decade": "80",
-      "label": "Advanced CoCo extensibility",
-      "blurb": "Operate the CLI, author commands and skills, connect MCP, delegate and package a plugin."
-    },
-    {
-      "id": "bundled-skills",
-      "decade": "90",
-      "label": "Working with bundled skills",
-      "blurb": "Find, invoke and verify maintained workflows for SQL, pipelines, operations, AI and apps."
     }
   ]
 }

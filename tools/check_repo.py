@@ -121,9 +121,9 @@ def check_privacy(errors: list[str]) -> None:
 def check_catalog(errors: list[str]) -> None:
     labs = discover()
     ids = {lab["id"] for lab in labs}
-    expected = set("10 11 12 21 22 23 24 25 31 32 33 34 41 42 43 51 52 53 61 62 63 71 72 73 74 75 81 82 83 84 85 86 91 92 93 94 95".split())
+    expected = set("10 11 12 21 22 23 24 25 31 32 33 34 41 42 43 51 52 53 61 62 63 71 72 73 74 75".split())
     if ids != expected:
-        errors.append("Catalog lab IDs differ from the reviewed 37-lab inventory")
+        errors.append("Catalog lab IDs differ from the committed 26-lab source inventory")
     config = json.loads((ROOT / "labs/tracks.json").read_text())
     if config["recommended_path"] != ["10", "11", "41", "62"]:
         errors.append("Curated live selection changed")
@@ -131,9 +131,9 @@ def check_catalog(errors: list[str]) -> None:
         errors.append("Curated take-home recommendations changed")
     if not (ROOT / "LABS.md").exists() or (ROOT / "LABS.md").read_text() != render():
         errors.append("LABS.md is stale: run python3 tools/build_catalog.py")
-    for required in ["labs/33-evaluate-a-cortex-agent/queries/evaluation_config.yaml",
-                     "shared/extension_lab/practice.py", "shared/extension_lab/server.py",
-                     "shared/extension_lab/fixtures.json"]:
+    if (ROOT / "shared/extension_lab").exists():
+        errors.append("Uncommitted source extension kit must not be published")
+    for required in ["labs/33-evaluate-a-cortex-agent/queries/evaluation_config.yaml"]:
         if not (ROOT / required).is_file():
             errors.append(f"Required lab dependency missing: {required}")
 

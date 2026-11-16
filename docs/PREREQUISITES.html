@@ -26,12 +26,11 @@
         { "type": "doc", "url": "https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation" }
       ],
       "producerNotes": "Homebrew core formula, Snowflake-maintained cask, platform installers, and uv/pipx/pip. Python installs need 3.10+." },
-    { "id": "extensions", "title": "Advanced local extension labs",
+    { "id": "extensions", "title": "Optional CLI and extension checks",
       "dataSources": [
-        { "type": "file", "path": "shared/extension_lab/README.md" },
         { "type": "doc", "url": "https://docs.snowflake.com/en/user-guide/cortex-code/extensibility" }
       ],
-      "producerNotes": "Added 2026-10-14. Local Python standard-library kit; no SQL bootstrap for core 80s/90s exercises. Verify installed capabilities and policy." }
+      "producerNotes": "General guidance for optional CLI and extension use. Verify installed capabilities and policy." }
   ]
 }
 </script>
@@ -569,16 +568,14 @@ snow sql -f shared/00_prereqs_check.sql -c &lt;your-connection-name&gt;</code></
     <p><strong>You are ready when</strong> the account and role match your workshop, CoCo responds on your selected surface, and the separate role smoke test succeeds. Confirm the optional probes for your chosen labs; a base smoke test alone does not validate all advanced features.</p>
   </div>
 
-  <h2 id="extensions">Advanced CLI, extensions and bundled-skill labs</h2>
+  <h2 id="extensions">Optional CLI and extension checks</h2>
   <div class="card">
-    <p><strong>Labs 81-86 and 91-95 have no SQL bootstrap in their core routes.</strong>
-    Use an approved CoCo connection for inference and a separate local practice folder.
-    Optional live routes follow the linked data lab's privileges, setup and cleanup.</p>
+    <p>When exploring CLI, skills, plugins or MCP, use an approved CoCo connection for
+    inference and a separate local practice folder. For any data lab, follow its
+    documented privileges, setup and cleanup.</p>
     <ul>
       <li>Check <code>cortex --version</code>, <code>cortex --help</code> and <code>cortex exec --help</code>.
       Desktop users should also inspect their version and Agent Settings skill/plugin/MCP/subagent inventory.</li>
-      <li>Install Python 3.10 or newer for the synthetic practice kit. It uses only the standard library;
-      use <code>python3</code> on macOS/Linux or <code>py -3</code> in Windows PowerShell.</li>
       <li>Ask IT whether local MCP, plugins and subagents are permitted. Missing or disabled features are
       a documented limitation, not a reason to bypass policy.</li>
       <li>Do not paste tokens into configs, overwrite existing global settings, or enable unrelated MCP servers.
@@ -586,9 +583,6 @@ snow sql -f shared/00_prereqs_check.sql -c &lt;your-connection-name&gt;</code></
       <li>CLI and Desktop do not have identical command storage or controls. Follow each lab's route and
       verify actual skill/tool invocation; a plausible answer is not evidence that a component ran.</li>
     </ul>
-    <p>The customer package includes <code>shared/extension_lab/</code>: inert starter templates,
-    synthetic fixtures, a read-only stdio MCP server and local checks. Run its initializer only with
-    a new destination; it refuses existing folders and performs no account operations.</p>
   </div>
 
   <h2 id="trouble">Troubleshooting</h2>

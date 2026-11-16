@@ -163,8 +163,6 @@ The reason both directions exist is that they solve different problems. An exten
 
 ## Take it further
 
-For an actual local MCP connection rather than this overview, use [Lab 84](../84-connect-local-mcp/README.md). [Lab 81](../81-operate-coco-cli/README.md) covers CLI sessions and bounded batch reviews; [Lab 85](../85-delegate-subagents/README.md) covers CoCo subagents.
-
 - Configure an MCP server for a system your team really uses, and try a task that spans it and Snowflake.
 - Run the same task in your IDE and in CoCo Desktop. The gap tells you which surface fits which work -- in-IDE wins when the repository matters, Desktop wins when the task is mostly account-side.
 - Look at the Agent SDK and ask what it would take to run one of the earlier labs as a scheduled job rather than a conversation.

@@ -21,7 +21,7 @@ other Snowflake practitioners.
 | **[EVENT_GUIDE.md](EVENT_GUIDE.md)** | The session, step by step: schedule, prework, every prompt, and what "done" looks like. Works live or on demand. |
 | **[presentation/index.html](presentation/index.html)** | The slides. One self-contained file -- download it and open it in a browser. Arrow keys to move, `D` for light/dark, `G` for the slide grid. |
 | **[docs/PREREQUISITES.html](docs/PREREQUISITES.html)** | Detailed setup for macOS, Windows and Linux, including administrator steps. |
-| **[LABS.md](LABS.md)** | All 37 labs grouped by track for continued practice, including Lab 12 diagramming. |
+| **[LABS.md](LABS.md)** | All 26 labs grouped by track for continued practice, including Lab 12 diagramming. |
 | **[templates/PROJECT_CONTEXT.md](templates/PROJECT_CONTEXT.md)** | The reusable project note you finish the session with. |
 
 ## What we do in two hours
@@ -90,7 +90,7 @@ interfere with each other.
 ```
 EVENT_GUIDE.md      the live session, step by step
 FACILITATION.md     run-of-show, polls and co-host notes for the hosts
-LABS.md             full 37-lab catalog grouped by track
+LABS.md             full 26-lab catalog grouped by track
 presentation/       the slides (self-contained HTML)
 labs/               all lab guides and their required SQL, templates and fixtures
 shared/             prerequisite checks, admin role setup, shared setup/cleanup

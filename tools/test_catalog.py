@@ -12,7 +12,7 @@ import check_repo
 class CatalogTests(unittest.TestCase):
     def test_all_labs_have_catalog_links(self):
         labs = build_catalog.discover()
-        self.assertEqual(len(labs), 37)
+        self.assertEqual(len(labs), 26)
         catalog = build_catalog.render()
         for lab in labs:
             self.assertEqual(catalog.count(f"](labs/{lab['folder']}/README.md)"), 1)
@@ -29,7 +29,14 @@ class CatalogTests(unittest.TestCase):
         with patch.object(check_repo, "discover", return_value=without_diagrams):
             errors = []
             check_repo.check_catalog(errors)
-        self.assertIn("Catalog lab IDs differ from the reviewed 37-lab inventory", errors)
+        self.assertIn("Catalog lab IDs differ from the committed 26-lab source inventory", errors)
+
+    def test_uncommitted_lab_is_rejected(self):
+        extra = build_catalog.discover() + [{"id": "81"}]
+        with patch.object(check_repo, "discover", return_value=extra):
+            errors = []
+            check_repo.check_catalog(errors)
+        self.assertIn("Catalog lab IDs differ from the committed 26-lab source inventory", errors)
 
     def test_pdf_fixture_is_exactly_the_reviewed_file(self):
         self.assertEqual(len(check_repo.ALLOWED_BINARY), 1)

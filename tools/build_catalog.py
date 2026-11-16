@@ -33,7 +33,7 @@ def render(root=ROOT):
              "## Before choosing a lab", "",
              "- All duration estimates below are **guidance for the full lab**, not extra time in the webinar.",
              "- Read the lab's prerequisites, supported surface and cleanup before starting; Desktop is not the right surface for every lab.",
-             "- Data labs use disposable sample resources. Local-only/design-only labs 81-86 and 91-95 use the [extension practice kit](shared/extension_lab/README.md); skip shared SQL setup for their core routes.",
+             "- Data labs use disposable sample resources. Run only the setup required by your chosen guide.",
              "- Lab 10 is research-only. Lab 74 works in a private Snowsight workspace and has separate file cleanup.",
              "- **Lab 42 is a 90-120 minute stretch project**, with elevated privileges, feature-availability restrictions and resources that can keep billing while idle. Read its warnings first.",
              "- Follow each lab's cleanup. Shared SQL cleanup does not remove local extensions, workspace files or all administrative resources.",

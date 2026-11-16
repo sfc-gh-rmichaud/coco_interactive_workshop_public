@@ -12,7 +12,7 @@
 | **Creates** | Lab database, synthetic orders, read-only procedure, Cortex Agent; customer-authored local client and tests |
 | **Tears down with** | [cleanup.sql](cleanup.sql), then stop mock and review local outputs |
 
-> This lab builds a client for a **Snowflake Cortex Agent**. To learn the **CoCo CLI itself**, start with [Lab 81](../81-operate-coco-cli/README.md); for coding/research subagents use [Lab 85](../85-delegate-subagents/README.md). They are different kinds of agent.
+> This lab builds a client for a **Snowflake Cortex Agent**, not the **CoCo CLI itself** or a coding/research subagent. They are different kinds of agent.
 
 ## What you will learn
 

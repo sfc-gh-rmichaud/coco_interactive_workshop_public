@@ -304,7 +304,7 @@ are left for an administrator.
 | Doing the same task repeatedly | [Lab 71 -- turn a recurring task into a reusable skill](labs/71-author-a-coco-skill/) |
 | Wanting to finish today's labs | Lab 10 Steps 3-6, Lab 41 Steps 4-5, Lab 62 Steps 1-4 |
 
-**The [full 37-lab catalog](LABS.md) is included for continued practice.** The
+**The [full 26-lab catalog](LABS.md) is included for continued practice.** The
 live agenda above and the curated recommendations remain unchanged. For a visual
 follow-up, try [Lab 12 -- generate ER and data-flow diagrams](labs/12-generate-diagrams/README.md)
 (about 20 minutes, guidance; Desktop recommended for the complete exercise).

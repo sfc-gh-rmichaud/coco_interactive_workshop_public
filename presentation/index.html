@@ -19,12 +19,12 @@
     { "id": "slide-7", "title": "Review, permissions and cost",
       "dataSources": [{"type": "doc", "url": "https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit"}],
       "producerNotes": "Deliberately general; no prices or parameter specifics on the slide." },
-    { "id": "slide-14", "title": "All 37 labs: choose your next track",
+    { "id": "slide-14", "title": "All 26 labs: choose your next track",
       "dataSources": [{"type": "file", "path": "LABS.md"}, {"type": "file", "path": "labs/tracks.json"}],
       "producerNotes": "Six data-focused tracks; explicitly includes Lab 12 diagramming. Take-home only." },
     { "id": "slide-15", "title": "Make CoCo your own: more take-home labs",
-      "dataSources": [{"type": "file", "path": "LABS.md"}, {"type": "file", "path": "shared/extension_lab/README.md"}],
-      "producerNotes": "Three workflow tracks, 71-75, 81-86 and 91-95. Live curated path unchanged." }
+      "dataSources": [{"type": "file", "path": "LABS.md"}],
+      "producerNotes": "Committed workflow labs 71-75 only. Live curated path unchanged." }
   ]
 }
 </script>
@@ -881,8 +881,8 @@ const SLIDES = [
 /* 14 -------------------------------------------------- */
 {
   id: "other-labs",
-  title: "All 37 labs: choose your next track",
-  html: `<p class="kicker">After the webinar &middot; 37 labs, 9 tracks</p>
+  title: "All 26 labs: choose your next track",
+  html: `<p class="kicker">After the webinar &middot; 26 labs, 7 tracks</p>
   <h2>The rest of the toolkit is yours to explore</h2>
   <div class="grid g3">
     <div class="card hl accent"><span class="tag">10&ndash;12 &middot; Discover</span><h3>Explain it visually</h3><p><strong>Lab 12:</strong> ER and data-flow diagrams, with a shareable export.</p></div>
@@ -902,13 +902,13 @@ const SLIDES = [
   html: `<p class="kicker">After the webinar &middot; reusable ways of working</p>
   <h2>Go beyond one-off prompts</h2>
   <div class="grid g3">
-    <div class="card hl"><span class="tag">71&ndash;75 &middot; Working with CoCo</span><h3>Fit your workflow</h3><p>Reusable skills, SQL through CI, IDE integration, workspace organization and terminal clients.</p></div>
-    <div class="card hl"><span class="tag">81&ndash;86 &middot; Extensibility</span><h3>Extend your toolkit</h3><p>CLI practice, slash commands, robust skills, local MCP tools, subagents and plugins.</p></div>
-    <div class="card hl"><span class="tag">91&ndash;95 &middot; Bundled skills</span><h3>Use the right workflow</h3><p>Discover skills; review SQL; plan pipelines; diagnose cost/access; review AI/app designs.</p></div>
+    <div class="card hl"><span class="tag">Lab 71 &middot; Reusable skills</span><h3>Capture repeat work</h3><p>Turn a recurring task into instructions you can reuse and test in a fresh session.</p></div>
+    <div class="card hl"><span class="tag">Labs 72&ndash;73 &middot; Development</span><h3>Fit your toolchain</h3><p>Put a SQL change through CI and work with CoCo in your IDE.</p></div>
+    <div class="card hl"><span class="tag">Labs 74&ndash;75 &middot; Practical tools</span><h3>Organize and build</h3><p>Organize a Snowflake workspace and build a Cortex Agent terminal client.</p></div>
   </div>
   <div class="callout"><p><strong>Today's curated path stays 10 &rarr; 11 &rarr; 41 &rarr; 62.</strong>
-    Start your next session with one lab, not the entire catalog. The extension practice kit is included; core exercises in tracks 81&ndash;95 need no SQL bootstrap.</p></div>
-  <p><a href="${REPO_URL}/blob/main/LABS.md">Browse all 37 labs, durations and the highlighted diagramming lab in LABS.md</a></p>`,
+    Start your next session with one lab, not the entire catalog. Check the selected guide's surface, prerequisites and cleanup before you begin.</p></div>
+  <p><a href="${REPO_URL}/blob/main/LABS.md">Browse all 26 labs, durations and the highlighted diagramming lab in LABS.md</a></p>`,
 },
 
 /* 16 -------------------------------------------------- */
