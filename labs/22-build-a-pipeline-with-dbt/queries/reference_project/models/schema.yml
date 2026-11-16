@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: lab
+    database: "{{ target.database }}"
+    schema: LAB
+    description: The raw landing zone, written by setup.sql.
+    tables:
+      - name: raw_order_events
+        description: >
+          Order events from the storefront, one VARIANT payload per row.
+          At-least-once delivery, so an event_id can appear more than once.
+        columns:
+          - name: raw_id
+            description: Surrogate ingest id. Unique per ROW, not per event.
+            tests:
+              - unique
+              - not_null
+
+models:
+  - name: stg_order_events
+    description: >
+      One row per event_id, most recently ingested copy wins. This is the model
+      whose row count proves the deduplication worked.
+    columns:
+      - name: event_id
+        description: The storefront's own event id. Unique after deduplication.
+        tests:
+          # These two tests are the point of the lab. With a correct
+          # unique_key they pass on every run; with a missing one they pass on
+          # the first run and fail on the second, which is exactly the shape of
+          # the bug this lab plants.
+          - unique
+          - not_null
+      - name: occurred_at
+        description: >
+          Parsed from two different source encodings, epoch milliseconds and
+          ISO-8601. NULL means neither parse succeeded, which should never
+          happen in the seeded data.
+        tests:
+          - not_null
+      - name: customer_id
+        description: >
+          NULL for about 3% of events. Deliberately NOT tested for not_null:
+          the source really is missing them, and a failing test that everyone
+          learns to ignore is worse than no test.
+
+  - name: stg_order_lines
+    description: One row per line item, flattened out of the nested items array.
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_order_events')
+              field: event_id
+      - name: line_no
+        tests:
+          - not_null
+
+  - name: cur_daily_sales
+    description: >
+      Daily sales by channel and currency. The comparison target for Lab 21's
+      CUR_DAILY_SALES dynamic table -- the two should agree row for row.
+    columns:
+      - name: sales_date
+        tests:
+          - not_null

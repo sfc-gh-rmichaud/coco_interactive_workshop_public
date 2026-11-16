@@ -18,7 +18,13 @@
       "producerNotes": "Keep in sync with the schedule table in EVENT_GUIDE.md; blocks total 120 minutes." },
     { "id": "slide-7", "title": "Review, permissions and cost",
       "dataSources": [{"type": "doc", "url": "https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit"}],
-      "producerNotes": "Deliberately general; no prices or parameter specifics on the slide." }
+      "producerNotes": "Deliberately general; no prices or parameter specifics on the slide." },
+    { "id": "slide-14", "title": "All 37 labs: choose your next track",
+      "dataSources": [{"type": "file", "path": "LABS.md"}, {"type": "file", "path": "labs/tracks.json"}],
+      "producerNotes": "Six data-focused tracks; explicitly includes Lab 12 diagramming. Take-home only." },
+    { "id": "slide-15", "title": "Make CoCo your own: more take-home labs",
+      "dataSources": [{"type": "file", "path": "LABS.md"}, {"type": "file", "path": "shared/extension_lab/README.md"}],
+      "producerNotes": "Three workflow tracks, 71-75, 81-86 and 91-95. Live curated path unchanged." }
   ]
 }
 </script>
@@ -873,6 +879,39 @@ const SLIDES = [
 },
 
 /* 14 -------------------------------------------------- */
+{
+  id: "other-labs",
+  title: "All 37 labs: choose your next track",
+  html: `<p class="kicker">After the webinar &middot; 37 labs, 9 tracks</p>
+  <h2>The rest of the toolkit is yours to explore</h2>
+  <div class="grid g3">
+    <div class="card hl accent"><span class="tag">10&ndash;12 &middot; Discover</span><h3>Explain it visually</h3><p><strong>Lab 12:</strong> ER and data-flow diagrams, with a shareable export.</p></div>
+    <div class="card hl"><span class="tag">21&ndash;25 &middot; Engineering</span><h3>Move and test data</h3><p>Pipelines, dbt, quality checks, streaming and file ingestion.</p></div>
+    <div class="card hl"><span class="tag">31&ndash;34 &middot; AI</span><h3>Build and evaluate</h3><p>Semantic views, agents, evaluation and notebook forecasting.</p></div>
+    <div class="card hl"><span class="tag">41&ndash;43 &middot; Apps</span><h3>Put data on a screen</h3><p>Streamlit, full-stack stretch project and usage dashboard.</p></div>
+    <div class="card hl"><span class="tag">51&ndash;53 &middot; Governance</span><h3>Protect and review</h3><p>PII masking, security review and governance at scale.</p></div>
+    <div class="card hl"><span class="tag">61&ndash;63 &middot; Operations</span><h3>Understand the spend</h3><p>Query tuning, cost evidence and storage lifecycle.</p></div>
+  </div>
+  <p class="muted" style="margin-top:.7rem">Take-home, not extra live labs. Check each guide's prerequisites and cleanup.</p>`,
+},
+
+/* 15 -------------------------------------------------- */
+{
+  id: "other-labs-toolkit",
+  title: "Make CoCo your own: more take-home labs",
+  html: `<p class="kicker">After the webinar &middot; reusable ways of working</p>
+  <h2>Go beyond one-off prompts</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="tag">71&ndash;75 &middot; Working with CoCo</span><h3>Fit your workflow</h3><p>Reusable skills, SQL through CI, IDE integration, workspace organization and terminal clients.</p></div>
+    <div class="card hl"><span class="tag">81&ndash;86 &middot; Extensibility</span><h3>Extend your toolkit</h3><p>CLI practice, slash commands, robust skills, local MCP tools, subagents and plugins.</p></div>
+    <div class="card hl"><span class="tag">91&ndash;95 &middot; Bundled skills</span><h3>Use the right workflow</h3><p>Discover skills; review SQL; plan pipelines; diagnose cost/access; review AI/app designs.</p></div>
+  </div>
+  <div class="callout"><p><strong>Today's curated path stays 10 &rarr; 11 &rarr; 41 &rarr; 62.</strong>
+    Start your next session with one lab, not the entire catalog. The extension practice kit is included; core exercises in tracks 81&ndash;95 need no SQL bootstrap.</p></div>
+  <p><a href="${REPO_URL}/blob/main/LABS.md">Browse all 37 labs, durations and the highlighted diagramming lab in LABS.md</a></p>`,
+},
+
+/* 16 -------------------------------------------------- */
 {
   id: "links",
   title: "Next steps and links",

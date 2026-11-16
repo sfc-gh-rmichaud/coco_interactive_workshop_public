@@ -21,6 +21,7 @@ other Snowflake practitioners.
 | **[EVENT_GUIDE.md](EVENT_GUIDE.md)** | The session, step by step: schedule, prework, every prompt, and what "done" looks like. Works live or on demand. |
 | **[presentation/index.html](presentation/index.html)** | The slides. One self-contained file -- download it and open it in a browser. Arrow keys to move, `D` for light/dark, `G` for the slide grid. |
 | **[docs/PREREQUISITES.html](docs/PREREQUISITES.html)** | Detailed setup for macOS, Windows and Linux, including administrator steps. |
+| **[LABS.md](LABS.md)** | All 37 labs grouped by track for continued practice, including Lab 12 diagramming. |
 | **[templates/PROJECT_CONTEXT.md](templates/PROJECT_CONTEXT.md)** | The reusable project note you finish the session with. |
 
 ## What we do in two hours
@@ -53,14 +54,23 @@ do it afterwards.
 
 ## What it creates and costs
 
-Every lab builds disposable objects on **synthetic data**, named
-`COCO_WS_..._<your_user>`, with an XSMALL warehouse that suspends after 60
-seconds. Every lab has a `cleanup.sql`. Running the labs uses a small amount of
-warehouse compute, and using CoCo consumes AI credits under your account's
-normal terms. Do not paste credentials or sensitive production data into
-prompts.
+The live data labs use disposable synthetic data under `COCO_WS_..._<your_user>`
+with an XSMALL warehouse configured to suspend after 60 seconds. The expanded
+catalog also includes research, local-only, design-only and workspace exercises:
+follow each guide's setup and cleanup rather than running every SQL script.
 
-## The labs
+CoCo inference, warehouse compute and other resources can incur charges. Lab 42
+is a substantial stretch project with elevated privileges and resources that
+can continue billing while idle. Lab 74's workspace files and local skills,
+plugins and MCP registrations require their own cleanup; shared SQL cleanup is
+not universal. Do not paste credentials or sensitive production data into prompts.
+
+## Curated webinar and next steps
+
+The live selection below is unchanged. The **[full catalog](LABS.md)** adds all
+remaining labs for after the session. Start with **[Lab 12 -- generate ER and
+data-flow diagrams](labs/12-generate-diagrams/README.md)** if you want a visual
+follow-up to schema exploration (about 20 minutes, guidance; Desktop recommended).
 
 | # | Lab | In the session | Desktop |
 |---|---|---|---|
@@ -80,13 +90,27 @@ interfere with each other.
 ```
 EVENT_GUIDE.md      the live session, step by step
 FACILITATION.md     run-of-show, polls and co-host notes for the hosts
+LABS.md             full 37-lab catalog grouped by track
 presentation/       the slides (self-contained HTML)
-labs/               full guides, setup.sql and cleanup.sql per lab
+labs/               all lab guides and their required SQL, templates and fixtures
 shared/             prerequisite checks, admin role setup, shared setup/cleanup
 templates/          PROJECT_CONTEXT.md starter
 docs/               prerequisites and reference links
-tools/              check_repo.py and check_deck.js -- repository self-checks
+tools/              catalog generator and repository/deck self-checks
 ```
+
+## Maintain the catalog
+
+After adding or changing a lab's README metadata, run:
+
+```bash
+python3 tools/build_catalog.py
+python3 tools/build_catalog.py --check
+python3 tools/check_repo.py
+node tools/check_deck.js
+```
+
+These are local content checks, not live Snowflake validation.
 
 ## Status
 

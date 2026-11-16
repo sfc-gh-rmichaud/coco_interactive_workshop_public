@@ -14,8 +14,12 @@ Checks:
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
+
+from build_catalog import discover, render
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -36,6 +40,13 @@ FORBIDDEN = [
 ]
 FORBIDDEN_FILES = [re.compile(p) for p in (r"\.eml$", r"(^|/)claims\.sql$", r"branding\.js$",
                                            r"speaker-notes\.js$", r"(^|/)customers/", r"\.pdf$")]
+
+
+# Reviewed synthetic fixture; allow exactly these bytes, not arbitrary PDFs.
+ALLOWED_BINARY = {
+    "labs/25-ingest-files/fixtures/orders.pdf":
+        "0340755029449b88b3283886073a77b189698b2292f8671664fefcde2f69a091"
+}
 
 
 def files() -> list[Path]:
@@ -87,6 +98,13 @@ def check_schedule(errors: list[str]) -> None:
 def check_privacy(errors: list[str]) -> None:
     for f in files():
         rel = f.relative_to(ROOT).as_posix()
+        if f.is_symlink():
+            errors.append(f"{rel}: symlink must not be published")
+            continue
+        if rel in ALLOWED_BINARY:
+            if hashlib.sha256(f.read_bytes()).hexdigest() != ALLOWED_BINARY[rel]:
+                errors.append(f"{rel}: approved fixture checksum changed")
+            continue
         if any(p.search(rel) for p in FORBIDDEN_FILES):
             errors.append(f"{rel}: file type must not be published")
             continue
@@ -100,11 +118,32 @@ def check_privacy(errors: list[str]) -> None:
                 errors.append(f"{rel}: {label}")
 
 
+def check_catalog(errors: list[str]) -> None:
+    labs = discover()
+    ids = {lab["id"] for lab in labs}
+    expected = set("10 11 12 21 22 23 24 25 31 32 33 34 41 42 43 51 52 53 61 62 63 71 72 73 74 75 81 82 83 84 85 86 91 92 93 94 95".split())
+    if ids != expected:
+        errors.append("Catalog lab IDs differ from the reviewed 37-lab inventory")
+    config = json.loads((ROOT / "labs/tracks.json").read_text())
+    if config["recommended_path"] != ["10", "11", "41", "62"]:
+        errors.append("Curated live selection changed")
+    if config["curated_take_home"] != ["21", "61", "71"]:
+        errors.append("Curated take-home recommendations changed")
+    if not (ROOT / "LABS.md").exists() or (ROOT / "LABS.md").read_text() != render():
+        errors.append("LABS.md is stale: run python3 tools/build_catalog.py")
+    for required in ["labs/33-evaluate-a-cortex-agent/queries/evaluation_config.yaml",
+                     "shared/extension_lab/practice.py", "shared/extension_lab/server.py",
+                     "shared/extension_lab/fixtures.json"]:
+        if not (ROOT / required).is_file():
+            errors.append(f"Required lab dependency missing: {required}")
+
+
 def main() -> int:
     errors: list[str] = []
     check_links(errors)
     check_schedule(errors)
     check_privacy(errors)
+    check_catalog(errors)
     for e in errors:
         print("FAIL", e)
     print(f"{len(files())} files checked, {len(errors)} problems")

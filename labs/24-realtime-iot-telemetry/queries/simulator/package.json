@@ -1,0 +1,15 @@
+{
+  "name": "coco-lab24-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Streams simulated IoT sensor readings into Snowflake for CoCo Workshop lab 24.",
+  "scripts": {
+    "start": "node simulate_devices.js"
+  },
+  "dependencies": {
+    "snowpipe-streaming": "^1.8.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

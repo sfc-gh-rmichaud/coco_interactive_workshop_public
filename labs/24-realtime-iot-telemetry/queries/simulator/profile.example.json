@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy to profile.json and fill in from what setup.sql printed. profile.json is gitignored by the repo root .gitignore, so your credentials do not get committed.",
+  "authorization_type": "JWT",
+  "account": "MYORG-MYACCOUNT",
+  "user": "MY_USER",
+  "role": "MY_ROLE",
+  "private_key_file": "/absolute/path/to/rsa_key.p8",
+  "database": "COCO_WS_LAB24_DB_MY_USER",
+  "schema": "LAB",
+  "pipe": "SENSOR_PIPE"
+}

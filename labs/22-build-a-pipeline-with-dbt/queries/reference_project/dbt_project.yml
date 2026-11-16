@@ -1,0 +1,21 @@
+name: 'coco_ws_lab22'
+version: '1.0.0'
+config-version: 2
+
+# The profile named here must exist in dbt_projects_profiles.yml. Snowflake
+# prefers that file over profiles.yml when both are present, which is the whole
+# reason this project ships the former: a stray profiles.yml left in the
+# directory would be ignored, and the mismatch is invisible until a run targets
+# the wrong schema.
+profile: 'coco_ws_lab22'
+
+model-paths: ['models']
+
+models:
+  coco_ws_lab22:
+    staging:
+      # Views, not tables: these two exist to type and reshape, and
+      # materialising them buys nothing that the mart does not already pay for.
+      +materialized: view
+    marts:
+      +materialized: table

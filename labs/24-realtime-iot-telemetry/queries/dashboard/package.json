@@ -1,0 +1,24 @@
+{
+  "name": "coco-lab24-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live telemetry dashboard for CoCo Workshop lab 24.",
+  "scripts": {
+    "dev": "next dev -p 3024",
+    "build": "next build",
+    "start": "next start -p 3024"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0",
+    "snowflake-sdk": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "toml": "^4.2.0"
+  }
+}

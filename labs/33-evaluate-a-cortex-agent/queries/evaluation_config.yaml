@@ -1,0 +1,45 @@
+# Agent evaluation configuration -- Lab 33, baseline run.
+#
+# Replace <YOUR_USER> with your Snowflake user name, or let the lab's step 2
+# generate this file for you. setup.sql prints the exact names you need.
+#
+# There is deliberately NO `dataset:` block here. Leaving one in means Snowflake
+# tries to create the dataset on EVERY run, and the second run fails with "a
+# dataset or internal dataset version already exists" -- even if you only
+# changed run_name. Create the dataset once with
+# SYSTEM$CREATE_EVALUATION_DATASET, then reference it here by name.
+
+evaluation:
+  agent_params:
+    agent_name: "COCO_WS_LAB33_DB_<YOUR_USER>.LAB.SUPPORT_AGENT_V1"
+    agent_type: "CORTEX AGENT"
+  run_params:
+    label: "Baseline -- under-instructed agent"
+    description: "SUPPORT_AGENT_V1 as created by setup.sql, before any improvement."
+  source_metadata:
+    type: "dataset"
+    dataset_name: "SUPPORT_EVALSET"
+
+metrics:
+  # Pinned to v3 on purpose, not left to default.
+  #
+  # The default is v1, whose judge is claude-4-sonnet, and that model entered
+  # its legacy state on 12 August 2026. Only accounts that had already used it
+  # before that date can still use it as a judge -- on a fresh account, an
+  # unpinned run FAILS rather than falling back. v3's judge is
+  # claude-sonnet-4-6 with a 1M context window.
+  #
+  # Pinning also makes runs comparable: scores from different metric versions
+  # are not, because the judge model and rubric both change.
+  - name: "answer_correctness"
+    version: "v3"
+
+  # Deterministic. This is the metric that catches the wrong tool being called,
+  # and it does not care how fluent the answer was.
+  - name: "tool_selection_accuracy"
+    version: "v3"
+
+  # Reference-free -- it needs no ground truth, and scores whether the agent's
+  # instructions, plan and tool calls are consistent with each other.
+  - name: "logical_consistency"
+    version: "v3"

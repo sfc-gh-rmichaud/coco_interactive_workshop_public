@@ -1,0 +1,43 @@
+# Replace the two placeholders with setup.sql output before deployment.
+models:
+  orchestration: auto
+orchestration:
+  budget:
+    seconds: 60
+    tokens: 8000
+instructions:
+  system: You are a support assistant for a synthetic order fulfillment workshop.
+  response: >-
+    Give a concise status, item, amount in USD, and ship date when present.
+    Identify the data as synthetic. A missing ship date is unknown, not today.
+  orchestration: >-
+    Use lookup_order for every order question, passing the exact order ID.
+    Ask for an ID if absent. Report an unknown ID as not found; never invent orders.
+    Explain delays only from support_note. Do not promise dates, refunds, or actions.
+    You cannot change orders or answer aggregate sales questions.
+  sample_questions:
+    - question: What is the status of ORD-0003 and why is it delayed?
+    - question: What item and shipping date are recorded for ORD-0001?
+    - question: Can you find ORD-9999?
+tools:
+  - tool_spec:
+      type: generic
+      name: lookup_order
+      description: >-
+        Read one synthetic order by exact order ID (ORD-0001 through ORD-0200).
+        Returns status, item, USD amount, optional shipping date, and support note.
+        Unknown IDs return found=false. This tool never modifies an order.
+      input_schema:
+        type: object
+        properties:
+          ORDER_ID:
+            type: string
+            description: Exact order identifier supplied by the user, such as ORD-0003.
+        required: [ORDER_ID]
+tool_resources:
+  lookup_order:
+    type: procedure
+    identifier: YOUR_LAB_DATABASE.LAB.LOOKUP_ORDER
+    execution_environment:
+      type: warehouse
+      warehouse: YOUR_WAREHOUSE

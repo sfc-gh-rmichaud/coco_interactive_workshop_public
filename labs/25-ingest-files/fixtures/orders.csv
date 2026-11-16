@@ -1,0 +1,2001 @@
+order_id,item,amount
+A00001,"Cable, blue",11.37
+A00002,Adapter,12.74
+A00003,Stand,14.11
+A00004,Dock & hub,15.48
+A00005,"Monitor ""wide""",16.85
+A00006,"Cable, blue",18.22
+A00007,Adapter,19.59
+A00008,Stand,20.96
+A00009,Dock & hub,22.33
+A00010,"Monitor ""wide""",23.70
+A00011,"Cable, blue",25.07
+A00012,Adapter,26.44
+A00013,Stand,27.81
+A00014,Dock & hub,29.18
+A00015,"Monitor ""wide""",30.55
+A00016,"Cable, blue",31.92
+A00017,Adapter,33.29
+A00018,Stand,34.66
+A00019,Dock & hub,36.03
+A00020,"Monitor ""wide""",37.40
+A00021,"Cable, blue",38.77
+A00022,Adapter,40.14
+A00023,Stand,41.51
+A00024,Dock & hub,42.88
+A00025,"Monitor ""wide""",44.25
+A00026,"Cable, blue",45.62
+A00027,Adapter,46.99
+A00028,Stand,48.36
+A00029,Dock & hub,49.73
+A00030,"Monitor ""wide""",51.10
+A00031,"Cable, blue",52.47
+A00032,Adapter,53.84
+A00033,Stand,55.21
+A00034,Dock & hub,56.58
+A00035,"Monitor ""wide""",57.95
+A00036,"Cable, blue",59.32
+A00037,Adapter,60.69
+A00038,Stand,62.06
+A00039,Dock & hub,63.43
+A00040,"Monitor ""wide""",64.80
+A00041,"Cable, blue",66.17
+A00042,Adapter,67.54
+A00043,Stand,68.91
+A00044,Dock & hub,70.28
+A00045,"Monitor ""wide""",71.65
+A00046,"Cable, blue",73.02
+A00047,Adapter,74.39
+A00048,Stand,75.76
+A00049,Dock & hub,77.13
+A00050,"Monitor ""wide""",78.50
+A00051,"Cable, blue",79.87
+A00052,Adapter,81.24
+A00053,Stand,82.61
+A00054,Dock & hub,83.98
+A00055,"Monitor ""wide""",85.35
+A00056,"Cable, blue",86.72
+A00057,Adapter,88.09
+A00058,Stand,89.46
+A00059,Dock & hub,90.83
+A00060,"Monitor ""wide""",92.20
+A00061,"Cable, blue",93.57
+A00062,Adapter,94.94
+A00063,Stand,96.31
+A00064,Dock & hub,97.68
+A00065,"Monitor ""wide""",99.05
+A00066,"Cable, blue",100.42
+A00067,Adapter,101.79
+A00068,Stand,103.16
+A00069,Dock & hub,104.53
+A00070,"Monitor ""wide""",105.90
+A00071,"Cable, blue",107.27
+A00072,Adapter,108.64
+A00073,Stand,110.01
+A00074,Dock & hub,111.38
+A00075,"Monitor ""wide""",112.75
+A00076,"Cable, blue",114.12
+A00077,Adapter,115.49
+A00078,Stand,116.86
+A00079,Dock & hub,118.23
+A00080,"Monitor ""wide""",119.60
+A00081,"Cable, blue",120.97
+A00082,Adapter,122.34
+A00083,Stand,123.71
+A00084,Dock & hub,125.08
+A00085,"Monitor ""wide""",126.45
+A00086,"Cable, blue",127.82
+A00087,Adapter,129.19
+A00088,Stand,130.56
+A00089,Dock & hub,131.93
+A00090,"Monitor ""wide""",133.30
+A00091,"Cable, blue",134.67
+A00092,Adapter,136.04
+A00093,Stand,137.41
+A00094,Dock & hub,138.78
+A00095,"Monitor ""wide""",140.15
+A00096,"Cable, blue",141.52
+A00097,Adapter,142.89
+A00098,Stand,144.26
+A00099,Dock & hub,145.63
+A00100,"Monitor ""wide""",147.00
+A00101,"Cable, blue",148.37
+A00102,Adapter,149.74
+A00103,Stand,151.11
+A00104,Dock & hub,152.48
+A00105,"Monitor ""wide""",153.85
+A00106,"Cable, blue",155.22
+A00107,Adapter,156.59
+A00108,Stand,157.96
+A00109,Dock & hub,159.33
+A00110,"Monitor ""wide""",160.70
+A00111,"Cable, blue",162.07
+A00112,Adapter,163.44
+A00113,Stand,164.81
+A00114,Dock & hub,166.18
+A00115,"Monitor ""wide""",167.55
+A00116,"Cable, blue",168.92
+A00117,Adapter,170.29
+A00118,Stand,171.66
+A00119,Dock & hub,173.03
+A00120,"Monitor ""wide""",174.40
+A00121,"Cable, blue",175.77
+A00122,Adapter,177.14
+A00123,Stand,178.51
+A00124,Dock & hub,179.88
+A00125,"Monitor ""wide""",181.25
+A00126,"Cable, blue",182.62
+A00127,Adapter,183.99
+A00128,Stand,185.36
+A00129,Dock & hub,186.73
+A00130,"Monitor ""wide""",188.10
+A00131,"Cable, blue",189.47
+A00132,Adapter,190.84
+A00133,Stand,192.21
+A00134,Dock & hub,193.58
+A00135,"Monitor ""wide""",194.95
+A00136,"Cable, blue",196.32
+A00137,Adapter,197.69
+A00138,Stand,199.06
+A00139,Dock & hub,10.43
+A00140,"Monitor ""wide""",11.80
+A00141,"Cable, blue",13.17
+A00142,Adapter,14.54
+A00143,Stand,15.91
+A00144,Dock & hub,17.28
+A00145,"Monitor ""wide""",18.65
+A00146,"Cable, blue",20.02
+A00147,Adapter,21.39
+A00148,Stand,22.76
+A00149,Dock & hub,24.13
+A00150,"Monitor ""wide""",25.50
+A00151,"Cable, blue",26.87
+A00152,Adapter,28.24
+A00153,Stand,29.61
+A00154,Dock & hub,30.98
+A00155,"Monitor ""wide""",32.35
+A00156,"Cable, blue",33.72
+A00157,Adapter,35.09
+A00158,Stand,36.46
+A00159,Dock & hub,37.83
+A00160,"Monitor ""wide""",39.20
+A00161,"Cable, blue",40.57
+A00162,Adapter,41.94
+A00163,Stand,43.31
+A00164,Dock & hub,44.68
+A00165,"Monitor ""wide""",46.05
+A00166,"Cable, blue",47.42
+A00167,Adapter,48.79
+A00168,Stand,50.16
+A00169,Dock & hub,51.53
+A00170,"Monitor ""wide""",52.90
+A00171,"Cable, blue",54.27
+A00172,Adapter,55.64
+A00173,Stand,57.01
+A00174,Dock & hub,58.38
+A00175,"Monitor ""wide""",59.75
+A00176,"Cable, blue",61.12
+A00177,Adapter,62.49
+A00178,Stand,63.86
+A00179,Dock & hub,65.23
+A00180,"Monitor ""wide""",66.60
+A00181,"Cable, blue",67.97
+A00182,Adapter,69.34
+A00183,Stand,70.71
+A00184,Dock & hub,72.08
+A00185,"Monitor ""wide""",73.45
+A00186,"Cable, blue",74.82
+A00187,Adapter,76.19
+A00188,Stand,77.56
+A00189,Dock & hub,78.93
+A00190,"Monitor ""wide""",80.30
+A00191,"Cable, blue",81.67
+A00192,Adapter,83.04
+A00193,Stand,84.41
+A00194,Dock & hub,85.78
+A00195,"Monitor ""wide""",87.15
+A00196,"Cable, blue",88.52
+A00197,Adapter,89.89
+A00198,Stand,91.26
+A00199,Dock & hub,92.63
+A00200,"Monitor ""wide""",94.00
+A00201,"Cable, blue",95.37
+A00202,Adapter,96.74
+A00203,Stand,98.11
+A00204,Dock & hub,99.48
+A00205,"Monitor ""wide""",100.85
+A00206,"Cable, blue",102.22
+A00207,Adapter,103.59
+A00208,Stand,104.96
+A00209,Dock & hub,106.33
+A00210,"Monitor ""wide""",107.70
+A00211,"Cable, blue",109.07
+A00212,Adapter,110.44
+A00213,Stand,111.81
+A00214,Dock & hub,113.18
+A00215,"Monitor ""wide""",114.55
+A00216,"Cable, blue",115.92
+A00217,Adapter,117.29
+A00218,Stand,118.66
+A00219,Dock & hub,120.03
+A00220,"Monitor ""wide""",121.40
+A00221,"Cable, blue",122.77
+A00222,Adapter,124.14
+A00223,Stand,125.51
+A00224,Dock & hub,126.88
+A00225,"Monitor ""wide""",128.25
+A00226,"Cable, blue",129.62
+A00227,Adapter,130.99
+A00228,Stand,132.36
+A00229,Dock & hub,133.73
+A00230,"Monitor ""wide""",135.10
+A00231,"Cable, blue",136.47
+A00232,Adapter,137.84
+A00233,Stand,139.21
+A00234,Dock & hub,140.58
+A00235,"Monitor ""wide""",141.95
+A00236,"Cable, blue",143.32
+A00237,Adapter,144.69
+A00238,Stand,146.06
+A00239,Dock & hub,147.43
+A00240,"Monitor ""wide""",148.80
+A00241,"Cable, blue",150.17
+A00242,Adapter,151.54
+A00243,Stand,152.91
+A00244,Dock & hub,154.28
+A00245,"Monitor ""wide""",155.65
+A00246,"Cable, blue",157.02
+A00247,Adapter,158.39
+A00248,Stand,159.76
+A00249,Dock & hub,161.13
+A00250,"Monitor ""wide""",162.50
+A00251,"Cable, blue",163.87
+A00252,Adapter,165.24
+A00253,Stand,166.61
+A00254,Dock & hub,167.98
+A00255,"Monitor ""wide""",169.35
+A00256,"Cable, blue",170.72
+A00257,Adapter,172.09
+A00258,Stand,173.46
+A00259,Dock & hub,174.83
+A00260,"Monitor ""wide""",176.20
+A00261,"Cable, blue",177.57
+A00262,Adapter,178.94
+A00263,Stand,180.31
+A00264,Dock & hub,181.68
+A00265,"Monitor ""wide""",183.05
+A00266,"Cable, blue",184.42
+A00267,Adapter,185.79
+A00268,Stand,187.16
+A00269,Dock & hub,188.53
+A00270,"Monitor ""wide""",189.90
+A00271,"Cable, blue",191.27
+A00272,Adapter,192.64
+A00273,Stand,194.01
+A00274,Dock & hub,195.38
+A00275,"Monitor ""wide""",196.75
+A00276,"Cable, blue",198.12
+A00277,Adapter,199.49
+A00278,Stand,10.86
+A00279,Dock & hub,12.23
+A00280,"Monitor ""wide""",13.60
+A00281,"Cable, blue",14.97
+A00282,Adapter,16.34
+A00283,Stand,17.71
+A00284,Dock & hub,19.08
+A00285,"Monitor ""wide""",20.45
+A00286,"Cable, blue",21.82
+A00287,Adapter,23.19
+A00288,Stand,24.56
+A00289,Dock & hub,25.93
+A00290,"Monitor ""wide""",27.30
+A00291,"Cable, blue",28.67
+A00292,Adapter,30.04
+A00293,Stand,31.41
+A00294,Dock & hub,32.78
+A00295,"Monitor ""wide""",34.15
+A00296,"Cable, blue",35.52
+A00297,Adapter,36.89
+A00298,Stand,38.26
+A00299,Dock & hub,39.63
+A00300,"Monitor ""wide""",41.00
+A00301,"Cable, blue",42.37
+A00302,Adapter,43.74
+A00303,Stand,45.11
+A00304,Dock & hub,46.48
+A00305,"Monitor ""wide""",47.85
+A00306,"Cable, blue",49.22
+A00307,Adapter,50.59
+A00308,Stand,51.96
+A00309,Dock & hub,53.33
+A00310,"Monitor ""wide""",54.70
+A00311,"Cable, blue",56.07
+A00312,Adapter,57.44
+A00313,Stand,58.81
+A00314,Dock & hub,60.18
+A00315,"Monitor ""wide""",61.55
+A00316,"Cable, blue",62.92
+A00317,Adapter,64.29
+A00318,Stand,65.66
+A00319,Dock & hub,67.03
+A00320,"Monitor ""wide""",68.40
+A00321,"Cable, blue",69.77
+A00322,Adapter,71.14
+A00323,Stand,72.51
+A00324,Dock & hub,73.88
+A00325,"Monitor ""wide""",75.25
+A00326,"Cable, blue",76.62
+A00327,Adapter,77.99
+A00328,Stand,79.36
+A00329,Dock & hub,80.73
+A00330,"Monitor ""wide""",82.10
+A00331,"Cable, blue",83.47
+A00332,Adapter,84.84
+A00333,Stand,86.21
+A00334,Dock & hub,87.58
+A00335,"Monitor ""wide""",88.95
+A00336,"Cable, blue",90.32
+A00337,Adapter,91.69
+A00338,Stand,93.06
+A00339,Dock & hub,94.43
+A00340,"Monitor ""wide""",95.80
+A00341,"Cable, blue",97.17
+A00342,Adapter,98.54
+A00343,Stand,99.91
+A00344,Dock & hub,101.28
+A00345,"Monitor ""wide""",102.65
+A00346,"Cable, blue",104.02
+A00347,Adapter,105.39
+A00348,Stand,106.76
+A00349,Dock & hub,108.13
+A00350,"Monitor ""wide""",109.50
+A00351,"Cable, blue",110.87
+A00352,Adapter,112.24
+A00353,Stand,113.61
+A00354,Dock & hub,114.98
+A00355,"Monitor ""wide""",116.35
+A00356,"Cable, blue",117.72
+A00357,Adapter,119.09
+A00358,Stand,120.46
+A00359,Dock & hub,121.83
+A00360,"Monitor ""wide""",123.20
+A00361,"Cable, blue",124.57
+A00362,Adapter,125.94
+A00363,Stand,127.31
+A00364,Dock & hub,128.68
+A00365,"Monitor ""wide""",130.05
+A00366,"Cable, blue",131.42
+A00367,Adapter,132.79
+A00368,Stand,134.16
+A00369,Dock & hub,135.53
+A00370,"Monitor ""wide""",136.90
+A00371,"Cable, blue",138.27
+A00372,Adapter,139.64
+A00373,Stand,141.01
+A00374,Dock & hub,142.38
+A00375,"Monitor ""wide""",143.75
+A00376,"Cable, blue",145.12
+A00377,Adapter,146.49
+A00378,Stand,147.86
+A00379,Dock & hub,149.23
+A00380,"Monitor ""wide""",150.60
+A00381,"Cable, blue",151.97
+A00382,Adapter,153.34
+A00383,Stand,154.71
+A00384,Dock & hub,156.08
+A00385,"Monitor ""wide""",157.45
+A00386,"Cable, blue",158.82
+A00387,Adapter,160.19
+A00388,Stand,161.56
+A00389,Dock & hub,162.93
+A00390,"Monitor ""wide""",164.30
+A00391,"Cable, blue",165.67
+A00392,Adapter,167.04
+A00393,Stand,168.41
+A00394,Dock & hub,169.78
+A00395,"Monitor ""wide""",171.15
+A00396,"Cable, blue",172.52
+A00397,Adapter,173.89
+A00398,Stand,175.26
+A00399,Dock & hub,176.63
+A00400,"Monitor ""wide""",178.00
+A00401,"Cable, blue",179.37
+A00402,Adapter,180.74
+A00403,Stand,182.11
+A00404,Dock & hub,183.48
+A00405,"Monitor ""wide""",184.85
+A00406,"Cable, blue",186.22
+A00407,Adapter,187.59
+A00408,Stand,188.96
+A00409,Dock & hub,190.33
+A00410,"Monitor ""wide""",191.70
+A00411,"Cable, blue",193.07
+A00412,Adapter,194.44
+A00413,Stand,195.81
+A00414,Dock & hub,197.18
+A00415,"Monitor ""wide""",198.55
+A00416,"Cable, blue",199.92
+A00417,Adapter,11.29
+A00418,Stand,12.66
+A00419,Dock & hub,14.03
+A00420,"Monitor ""wide""",15.40
+A00421,"Cable, blue",16.77
+A00422,Adapter,18.14
+A00423,Stand,19.51
+A00424,Dock & hub,20.88
+A00425,"Monitor ""wide""",22.25
+A00426,"Cable, blue",23.62
+A00427,Adapter,24.99
+A00428,Stand,26.36
+A00429,Dock & hub,27.73
+A00430,"Monitor ""wide""",29.10
+A00431,"Cable, blue",30.47
+A00432,Adapter,31.84
+A00433,Stand,33.21
+A00434,Dock & hub,34.58
+A00435,"Monitor ""wide""",35.95
+A00436,"Cable, blue",37.32
+A00437,Adapter,38.69
+A00438,Stand,40.06
+A00439,Dock & hub,41.43
+A00440,"Monitor ""wide""",42.80
+A00441,"Cable, blue",44.17
+A00442,Adapter,45.54
+A00443,Stand,46.91
+A00444,Dock & hub,48.28
+A00445,"Monitor ""wide""",49.65
+A00446,"Cable, blue",51.02
+A00447,Adapter,52.39
+A00448,Stand,53.76
+A00449,Dock & hub,55.13
+A00450,"Monitor ""wide""",56.50
+A00451,"Cable, blue",57.87
+A00452,Adapter,59.24
+A00453,Stand,60.61
+A00454,Dock & hub,61.98
+A00455,"Monitor ""wide""",63.35
+A00456,"Cable, blue",64.72
+A00457,Adapter,66.09
+A00458,Stand,67.46
+A00459,Dock & hub,68.83
+A00460,"Monitor ""wide""",70.20
+A00461,"Cable, blue",71.57
+A00462,Adapter,72.94
+A00463,Stand,74.31
+A00464,Dock & hub,75.68
+A00465,"Monitor ""wide""",77.05
+A00466,"Cable, blue",78.42
+A00467,Adapter,79.79
+A00468,Stand,81.16
+A00469,Dock & hub,82.53
+A00470,"Monitor ""wide""",83.90
+A00471,"Cable, blue",85.27
+A00472,Adapter,86.64
+A00473,Stand,88.01
+A00474,Dock & hub,89.38
+A00475,"Monitor ""wide""",90.75
+A00476,"Cable, blue",92.12
+A00477,Adapter,93.49
+A00478,Stand,94.86
+A00479,Dock & hub,96.23
+A00480,"Monitor ""wide""",97.60
+A00481,"Cable, blue",98.97
+A00482,Adapter,100.34
+A00483,Stand,101.71
+A00484,Dock & hub,103.08
+A00485,"Monitor ""wide""",104.45
+A00486,"Cable, blue",105.82
+A00487,Adapter,107.19
+A00488,Stand,108.56
+A00489,Dock & hub,109.93
+A00490,"Monitor ""wide""",111.30
+A00491,"Cable, blue",112.67
+A00492,Adapter,114.04
+A00493,Stand,115.41
+A00494,Dock & hub,116.78
+A00495,"Monitor ""wide""",118.15
+A00496,"Cable, blue",119.52
+A00497,Adapter,120.89
+A00498,Stand,122.26
+A00499,Dock & hub,123.63
+A00500,"Monitor ""wide""",125.00
+A00501,"Cable, blue",126.37
+A00502,Adapter,127.74
+A00503,Stand,129.11
+A00504,Dock & hub,130.48
+A00505,"Monitor ""wide""",131.85
+A00506,"Cable, blue",133.22
+A00507,Adapter,134.59
+A00508,Stand,135.96
+A00509,Dock & hub,137.33
+A00510,"Monitor ""wide""",138.70
+A00511,"Cable, blue",140.07
+A00512,Adapter,141.44
+A00513,Stand,142.81
+A00514,Dock & hub,144.18
+A00515,"Monitor ""wide""",145.55
+A00516,"Cable, blue",146.92
+A00517,Adapter,148.29
+A00518,Stand,149.66
+A00519,Dock & hub,151.03
+A00520,"Monitor ""wide""",152.40
+A00521,"Cable, blue",153.77
+A00522,Adapter,155.14
+A00523,Stand,156.51
+A00524,Dock & hub,157.88
+A00525,"Monitor ""wide""",159.25
+A00526,"Cable, blue",160.62
+A00527,Adapter,161.99
+A00528,Stand,163.36
+A00529,Dock & hub,164.73
+A00530,"Monitor ""wide""",166.10
+A00531,"Cable, blue",167.47
+A00532,Adapter,168.84
+A00533,Stand,170.21
+A00534,Dock & hub,171.58
+A00535,"Monitor ""wide""",172.95
+A00536,"Cable, blue",174.32
+A00537,Adapter,175.69
+A00538,Stand,177.06
+A00539,Dock & hub,178.43
+A00540,"Monitor ""wide""",179.80
+A00541,"Cable, blue",181.17
+A00542,Adapter,182.54
+A00543,Stand,183.91
+A00544,Dock & hub,185.28
+A00545,"Monitor ""wide""",186.65
+A00546,"Cable, blue",188.02
+A00547,Adapter,189.39
+A00548,Stand,190.76
+A00549,Dock & hub,192.13
+A00550,"Monitor ""wide""",193.50
+A00551,"Cable, blue",194.87
+A00552,Adapter,196.24
+A00553,Stand,197.61
+A00554,Dock & hub,198.98
+A00555,"Monitor ""wide""",10.35
+A00556,"Cable, blue",11.72
+A00557,Adapter,13.09
+A00558,Stand,14.46
+A00559,Dock & hub,15.83
+A00560,"Monitor ""wide""",17.20
+A00561,"Cable, blue",18.57
+A00562,Adapter,19.94
+A00563,Stand,21.31
+A00564,Dock & hub,22.68
+A00565,"Monitor ""wide""",24.05
+A00566,"Cable, blue",25.42
+A00567,Adapter,26.79
+A00568,Stand,28.16
+A00569,Dock & hub,29.53
+A00570,"Monitor ""wide""",30.90
+A00571,"Cable, blue",32.27
+A00572,Adapter,33.64
+A00573,Stand,35.01
+A00574,Dock & hub,36.38
+A00575,"Monitor ""wide""",37.75
+A00576,"Cable, blue",39.12
+A00577,Adapter,40.49
+A00578,Stand,41.86
+A00579,Dock & hub,43.23
+A00580,"Monitor ""wide""",44.60
+A00581,"Cable, blue",45.97
+A00582,Adapter,47.34
+A00583,Stand,48.71
+A00584,Dock & hub,50.08
+A00585,"Monitor ""wide""",51.45
+A00586,"Cable, blue",52.82
+A00587,Adapter,54.19
+A00588,Stand,55.56
+A00589,Dock & hub,56.93
+A00590,"Monitor ""wide""",58.30
+A00591,"Cable, blue",59.67
+A00592,Adapter,61.04
+A00593,Stand,62.41
+A00594,Dock & hub,63.78
+A00595,"Monitor ""wide""",65.15
+A00596,"Cable, blue",66.52
+A00597,Adapter,67.89
+A00598,Stand,69.26
+A00599,Dock & hub,70.63
+A00600,"Monitor ""wide""",72.00
+A00601,"Cable, blue",73.37
+A00602,Adapter,74.74
+A00603,Stand,76.11
+A00604,Dock & hub,77.48
+A00605,"Monitor ""wide""",78.85
+A00606,"Cable, blue",80.22
+A00607,Adapter,81.59
+A00608,Stand,82.96
+A00609,Dock & hub,84.33
+A00610,"Monitor ""wide""",85.70
+A00611,"Cable, blue",87.07
+A00612,Adapter,88.44
+A00613,Stand,89.81
+A00614,Dock & hub,91.18
+A00615,"Monitor ""wide""",92.55
+A00616,"Cable, blue",93.92
+A00617,Adapter,95.29
+A00618,Stand,96.66
+A00619,Dock & hub,98.03
+A00620,"Monitor ""wide""",99.40
+A00621,"Cable, blue",100.77
+A00622,Adapter,102.14
+A00623,Stand,103.51
+A00624,Dock & hub,104.88
+A00625,"Monitor ""wide""",106.25
+A00626,"Cable, blue",107.62
+A00627,Adapter,108.99
+A00628,Stand,110.36
+A00629,Dock & hub,111.73
+A00630,"Monitor ""wide""",113.10
+A00631,"Cable, blue",114.47
+A00632,Adapter,115.84
+A00633,Stand,117.21
+A00634,Dock & hub,118.58
+A00635,"Monitor ""wide""",119.95
+A00636,"Cable, blue",121.32
+A00637,Adapter,122.69
+A00638,Stand,124.06
+A00639,Dock & hub,125.43
+A00640,"Monitor ""wide""",126.80
+A00641,"Cable, blue",128.17
+A00642,Adapter,129.54
+A00643,Stand,130.91
+A00644,Dock & hub,132.28
+A00645,"Monitor ""wide""",133.65
+A00646,"Cable, blue",135.02
+A00647,Adapter,136.39
+A00648,Stand,137.76
+A00649,Dock & hub,139.13
+A00650,"Monitor ""wide""",140.50
+A00651,"Cable, blue",141.87
+A00652,Adapter,143.24
+A00653,Stand,144.61
+A00654,Dock & hub,145.98
+A00655,"Monitor ""wide""",147.35
+A00656,"Cable, blue",148.72
+A00657,Adapter,150.09
+A00658,Stand,151.46
+A00659,Dock & hub,152.83
+A00660,"Monitor ""wide""",154.20
+A00661,"Cable, blue",155.57
+A00662,Adapter,156.94
+A00663,Stand,158.31
+A00664,Dock & hub,159.68
+A00665,"Monitor ""wide""",161.05
+A00666,"Cable, blue",162.42
+A00667,Adapter,163.79
+A00668,Stand,165.16
+A00669,Dock & hub,166.53
+A00670,"Monitor ""wide""",167.90
+A00671,"Cable, blue",169.27
+A00672,Adapter,170.64
+A00673,Stand,172.01
+A00674,Dock & hub,173.38
+A00675,"Monitor ""wide""",174.75
+A00676,"Cable, blue",176.12
+A00677,Adapter,177.49
+A00678,Stand,178.86
+A00679,Dock & hub,180.23
+A00680,"Monitor ""wide""",181.60
+A00681,"Cable, blue",182.97
+A00682,Adapter,184.34
+A00683,Stand,185.71
+A00684,Dock & hub,187.08
+A00685,"Monitor ""wide""",188.45
+A00686,"Cable, blue",189.82
+A00687,Adapter,191.19
+A00688,Stand,192.56
+A00689,Dock & hub,193.93
+A00690,"Monitor ""wide""",195.30
+A00691,"Cable, blue",196.67
+A00692,Adapter,198.04
+A00693,Stand,199.41
+A00694,Dock & hub,10.78
+A00695,"Monitor ""wide""",12.15
+A00696,"Cable, blue",13.52
+A00697,Adapter,14.89
+A00698,Stand,16.26
+A00699,Dock & hub,17.63
+A00700,"Monitor ""wide""",19.00
+A00701,"Cable, blue",20.37
+A00702,Adapter,21.74
+A00703,Stand,23.11
+A00704,Dock & hub,24.48
+A00705,"Monitor ""wide""",25.85
+A00706,"Cable, blue",27.22
+A00707,Adapter,28.59
+A00708,Stand,29.96
+A00709,Dock & hub,31.33
+A00710,"Monitor ""wide""",32.70
+A00711,"Cable, blue",34.07
+A00712,Adapter,35.44
+A00713,Stand,36.81
+A00714,Dock & hub,38.18
+A00715,"Monitor ""wide""",39.55
+A00716,"Cable, blue",40.92
+A00717,Adapter,42.29
+A00718,Stand,43.66
+A00719,Dock & hub,45.03
+A00720,"Monitor ""wide""",46.40
+A00721,"Cable, blue",47.77
+A00722,Adapter,49.14
+A00723,Stand,50.51
+A00724,Dock & hub,51.88
+A00725,"Monitor ""wide""",53.25
+A00726,"Cable, blue",54.62
+A00727,Adapter,55.99
+A00728,Stand,57.36
+A00729,Dock & hub,58.73
+A00730,"Monitor ""wide""",60.10
+A00731,"Cable, blue",61.47
+A00732,Adapter,62.84
+A00733,Stand,64.21
+A00734,Dock & hub,65.58
+A00735,"Monitor ""wide""",66.95
+A00736,"Cable, blue",68.32
+A00737,Adapter,69.69
+A00738,Stand,71.06
+A00739,Dock & hub,72.43
+A00740,"Monitor ""wide""",73.80
+A00741,"Cable, blue",75.17
+A00742,Adapter,76.54
+A00743,Stand,77.91
+A00744,Dock & hub,79.28
+A00745,"Monitor ""wide""",80.65
+A00746,"Cable, blue",82.02
+A00747,Adapter,83.39
+A00748,Stand,84.76
+A00749,Dock & hub,86.13
+A00750,"Monitor ""wide""",87.50
+A00751,"Cable, blue",88.87
+A00752,Adapter,90.24
+A00753,Stand,91.61
+A00754,Dock & hub,92.98
+A00755,"Monitor ""wide""",94.35
+A00756,"Cable, blue",95.72
+A00757,Adapter,97.09
+A00758,Stand,98.46
+A00759,Dock & hub,99.83
+A00760,"Monitor ""wide""",101.20
+A00761,"Cable, blue",102.57
+A00762,Adapter,103.94
+A00763,Stand,105.31
+A00764,Dock & hub,106.68
+A00765,"Monitor ""wide""",108.05
+A00766,"Cable, blue",109.42
+A00767,Adapter,110.79
+A00768,Stand,112.16
+A00769,Dock & hub,113.53
+A00770,"Monitor ""wide""",114.90
+A00771,"Cable, blue",116.27
+A00772,Adapter,117.64
+A00773,Stand,119.01
+A00774,Dock & hub,120.38
+A00775,"Monitor ""wide""",121.75
+A00776,"Cable, blue",123.12
+A00777,Adapter,124.49
+A00778,Stand,125.86
+A00779,Dock & hub,127.23
+A00780,"Monitor ""wide""",128.60
+A00781,"Cable, blue",129.97
+A00782,Adapter,131.34
+A00783,Stand,132.71
+A00784,Dock & hub,134.08
+A00785,"Monitor ""wide""",135.45
+A00786,"Cable, blue",136.82
+A00787,Adapter,138.19
+A00788,Stand,139.56
+A00789,Dock & hub,140.93
+A00790,"Monitor ""wide""",142.30
+A00791,"Cable, blue",143.67
+A00792,Adapter,145.04
+A00793,Stand,146.41
+A00794,Dock & hub,147.78
+A00795,"Monitor ""wide""",149.15
+A00796,"Cable, blue",150.52
+A00797,Adapter,151.89
+A00798,Stand,153.26
+A00799,Dock & hub,154.63
+A00800,"Monitor ""wide""",156.00
+A00801,"Cable, blue",157.37
+A00802,Adapter,158.74
+A00803,Stand,160.11
+A00804,Dock & hub,161.48
+A00805,"Monitor ""wide""",162.85
+A00806,"Cable, blue",164.22
+A00807,Adapter,165.59
+A00808,Stand,166.96
+A00809,Dock & hub,168.33
+A00810,"Monitor ""wide""",169.70
+A00811,"Cable, blue",171.07
+A00812,Adapter,172.44
+A00813,Stand,173.81
+A00814,Dock & hub,175.18
+A00815,"Monitor ""wide""",176.55
+A00816,"Cable, blue",177.92
+A00817,Adapter,179.29
+A00818,Stand,180.66
+A00819,Dock & hub,182.03
+A00820,"Monitor ""wide""",183.40
+A00821,"Cable, blue",184.77
+A00822,Adapter,186.14
+A00823,Stand,187.51
+A00824,Dock & hub,188.88
+A00825,"Monitor ""wide""",190.25
+A00826,"Cable, blue",191.62
+A00827,Adapter,192.99
+A00828,Stand,194.36
+A00829,Dock & hub,195.73
+A00830,"Monitor ""wide""",197.10
+A00831,"Cable, blue",198.47
+A00832,Adapter,199.84
+A00833,Stand,11.21
+A00834,Dock & hub,12.58
+A00835,"Monitor ""wide""",13.95
+A00836,"Cable, blue",15.32
+A00837,Adapter,16.69
+A00838,Stand,18.06
+A00839,Dock & hub,19.43
+A00840,"Monitor ""wide""",20.80
+A00841,"Cable, blue",22.17
+A00842,Adapter,23.54
+A00843,Stand,24.91
+A00844,Dock & hub,26.28
+A00845,"Monitor ""wide""",27.65
+A00846,"Cable, blue",29.02
+A00847,Adapter,30.39
+A00848,Stand,31.76
+A00849,Dock & hub,33.13
+A00850,"Monitor ""wide""",34.50
+A00851,"Cable, blue",35.87
+A00852,Adapter,37.24
+A00853,Stand,38.61
+A00854,Dock & hub,39.98
+A00855,"Monitor ""wide""",41.35
+A00856,"Cable, blue",42.72
+A00857,Adapter,44.09
+A00858,Stand,45.46
+A00859,Dock & hub,46.83
+A00860,"Monitor ""wide""",48.20
+A00861,"Cable, blue",49.57
+A00862,Adapter,50.94
+A00863,Stand,52.31
+A00864,Dock & hub,53.68
+A00865,"Monitor ""wide""",55.05
+A00866,"Cable, blue",56.42
+A00867,Adapter,57.79
+A00868,Stand,59.16
+A00869,Dock & hub,60.53
+A00870,"Monitor ""wide""",61.90
+A00871,"Cable, blue",63.27
+A00872,Adapter,64.64
+A00873,Stand,66.01
+A00874,Dock & hub,67.38
+A00875,"Monitor ""wide""",68.75
+A00876,"Cable, blue",70.12
+A00877,Adapter,71.49
+A00878,Stand,72.86
+A00879,Dock & hub,74.23
+A00880,"Monitor ""wide""",75.60
+A00881,"Cable, blue",76.97
+A00882,Adapter,78.34
+A00883,Stand,79.71
+A00884,Dock & hub,81.08
+A00885,"Monitor ""wide""",82.45
+A00886,"Cable, blue",83.82
+A00887,Adapter,85.19
+A00888,Stand,86.56
+A00889,Dock & hub,87.93
+A00890,"Monitor ""wide""",89.30
+A00891,"Cable, blue",90.67
+A00892,Adapter,92.04
+A00893,Stand,93.41
+A00894,Dock & hub,94.78
+A00895,"Monitor ""wide""",96.15
+A00896,"Cable, blue",97.52
+A00897,Adapter,98.89
+A00898,Stand,100.26
+A00899,Dock & hub,101.63
+A00900,"Monitor ""wide""",103.00
+A00901,"Cable, blue",104.37
+A00902,Adapter,105.74
+A00903,Stand,107.11
+A00904,Dock & hub,108.48
+A00905,"Monitor ""wide""",109.85
+A00906,"Cable, blue",111.22
+A00907,Adapter,112.59
+A00908,Stand,113.96
+A00909,Dock & hub,115.33
+A00910,"Monitor ""wide""",116.70
+A00911,"Cable, blue",118.07
+A00912,Adapter,119.44
+A00913,Stand,120.81
+A00914,Dock & hub,122.18
+A00915,"Monitor ""wide""",123.55
+A00916,"Cable, blue",124.92
+A00917,Adapter,126.29
+A00918,Stand,127.66
+A00919,Dock & hub,129.03
+A00920,"Monitor ""wide""",130.40
+A00921,"Cable, blue",131.77
+A00922,Adapter,133.14
+A00923,Stand,134.51
+A00924,Dock & hub,135.88
+A00925,"Monitor ""wide""",137.25
+A00926,"Cable, blue",138.62
+A00927,Adapter,139.99
+A00928,Stand,141.36
+A00929,Dock & hub,142.73
+A00930,"Monitor ""wide""",144.10
+A00931,"Cable, blue",145.47
+A00932,Adapter,146.84
+A00933,Stand,148.21
+A00934,Dock & hub,149.58
+A00935,"Monitor ""wide""",150.95
+A00936,"Cable, blue",152.32
+A00937,Adapter,153.69
+A00938,Stand,155.06
+A00939,Dock & hub,156.43
+A00940,"Monitor ""wide""",157.80
+A00941,"Cable, blue",159.17
+A00942,Adapter,160.54
+A00943,Stand,161.91
+A00944,Dock & hub,163.28
+A00945,"Monitor ""wide""",164.65
+A00946,"Cable, blue",166.02
+A00947,Adapter,167.39
+A00948,Stand,168.76
+A00949,Dock & hub,170.13
+A00950,"Monitor ""wide""",171.50
+A00951,"Cable, blue",172.87
+A00952,Adapter,174.24
+A00953,Stand,175.61
+A00954,Dock & hub,176.98
+A00955,"Monitor ""wide""",178.35
+A00956,"Cable, blue",179.72
+A00957,Adapter,181.09
+A00958,Stand,182.46
+A00959,Dock & hub,183.83
+A00960,"Monitor ""wide""",185.20
+A00961,"Cable, blue",186.57
+A00962,Adapter,187.94
+A00963,Stand,189.31
+A00964,Dock & hub,190.68
+A00965,"Monitor ""wide""",192.05
+A00966,"Cable, blue",193.42
+A00967,Adapter,194.79
+A00968,Stand,196.16
+A00969,Dock & hub,197.53
+A00970,"Monitor ""wide""",198.90
+A00971,"Cable, blue",10.27
+A00972,Adapter,11.64
+A00973,Stand,13.01
+A00974,Dock & hub,14.38
+A00975,"Monitor ""wide""",15.75
+A00976,"Cable, blue",17.12
+A00977,Adapter,18.49
+A00978,Stand,19.86
+A00979,Dock & hub,21.23
+A00980,"Monitor ""wide""",22.60
+A00981,"Cable, blue",23.97
+A00982,Adapter,25.34
+A00983,Stand,26.71
+A00984,Dock & hub,28.08
+A00985,"Monitor ""wide""",29.45
+A00986,"Cable, blue",30.82
+A00987,Adapter,32.19
+A00988,Stand,33.56
+A00989,Dock & hub,34.93
+A00990,"Monitor ""wide""",36.30
+A00991,"Cable, blue",37.67
+A00992,Adapter,39.04
+A00993,Stand,40.41
+A00994,Dock & hub,41.78
+A00995,"Monitor ""wide""",43.15
+A00996,"Cable, blue",44.52
+A00997,Adapter,45.89
+A00998,Stand,47.26
+A00999,Dock & hub,48.63
+A01000,"Monitor ""wide""",50.00
+A01001,"Cable, blue",51.37
+A01002,Adapter,52.74
+A01003,Stand,54.11
+A01004,Dock & hub,55.48
+A01005,"Monitor ""wide""",56.85
+A01006,"Cable, blue",58.22
+A01007,Adapter,59.59
+A01008,Stand,60.96
+A01009,Dock & hub,62.33
+A01010,"Monitor ""wide""",63.70
+A01011,"Cable, blue",65.07
+A01012,Adapter,66.44
+A01013,Stand,67.81
+A01014,Dock & hub,69.18
+A01015,"Monitor ""wide""",70.55
+A01016,"Cable, blue",71.92
+A01017,Adapter,73.29
+A01018,Stand,74.66
+A01019,Dock & hub,76.03
+A01020,"Monitor ""wide""",77.40
+A01021,"Cable, blue",78.77
+A01022,Adapter,80.14
+A01023,Stand,81.51
+A01024,Dock & hub,82.88
+A01025,"Monitor ""wide""",84.25
+A01026,"Cable, blue",85.62
+A01027,Adapter,86.99
+A01028,Stand,88.36
+A01029,Dock & hub,89.73
+A01030,"Monitor ""wide""",91.10
+A01031,"Cable, blue",92.47
+A01032,Adapter,93.84
+A01033,Stand,95.21
+A01034,Dock & hub,96.58
+A01035,"Monitor ""wide""",97.95
+A01036,"Cable, blue",99.32
+A01037,Adapter,100.69
+A01038,Stand,102.06
+A01039,Dock & hub,103.43
+A01040,"Monitor ""wide""",104.80
+A01041,"Cable, blue",106.17
+A01042,Adapter,107.54
+A01043,Stand,108.91
+A01044,Dock & hub,110.28
+A01045,"Monitor ""wide""",111.65
+A01046,"Cable, blue",113.02
+A01047,Adapter,114.39
+A01048,Stand,115.76
+A01049,Dock & hub,117.13
+A01050,"Monitor ""wide""",118.50
+A01051,"Cable, blue",119.87
+A01052,Adapter,121.24
+A01053,Stand,122.61
+A01054,Dock & hub,123.98
+A01055,"Monitor ""wide""",125.35
+A01056,"Cable, blue",126.72
+A01057,Adapter,128.09
+A01058,Stand,129.46
+A01059,Dock & hub,130.83
+A01060,"Monitor ""wide""",132.20
+A01061,"Cable, blue",133.57
+A01062,Adapter,134.94
+A01063,Stand,136.31
+A01064,Dock & hub,137.68
+A01065,"Monitor ""wide""",139.05
+A01066,"Cable, blue",140.42
+A01067,Adapter,141.79
+A01068,Stand,143.16
+A01069,Dock & hub,144.53
+A01070,"Monitor ""wide""",145.90
+A01071,"Cable, blue",147.27
+A01072,Adapter,148.64
+A01073,Stand,150.01
+A01074,Dock & hub,151.38
+A01075,"Monitor ""wide""",152.75
+A01076,"Cable, blue",154.12
+A01077,Adapter,155.49
+A01078,Stand,156.86
+A01079,Dock & hub,158.23
+A01080,"Monitor ""wide""",159.60
+A01081,"Cable, blue",160.97
+A01082,Adapter,162.34
+A01083,Stand,163.71
+A01084,Dock & hub,165.08
+A01085,"Monitor ""wide""",166.45
+A01086,"Cable, blue",167.82
+A01087,Adapter,169.19
+A01088,Stand,170.56
+A01089,Dock & hub,171.93
+A01090,"Monitor ""wide""",173.30
+A01091,"Cable, blue",174.67
+A01092,Adapter,176.04
+A01093,Stand,177.41
+A01094,Dock & hub,178.78
+A01095,"Monitor ""wide""",180.15
+A01096,"Cable, blue",181.52
+A01097,Adapter,182.89
+A01098,Stand,184.26
+A01099,Dock & hub,185.63
+A01100,"Monitor ""wide""",187.00
+A01101,"Cable, blue",188.37
+A01102,Adapter,189.74
+A01103,Stand,191.11
+A01104,Dock & hub,192.48
+A01105,"Monitor ""wide""",193.85
+A01106,"Cable, blue",195.22
+A01107,Adapter,196.59
+A01108,Stand,197.96
+A01109,Dock & hub,199.33
+A01110,"Monitor ""wide""",10.70
+A01111,"Cable, blue",12.07
+A01112,Adapter,13.44
+A01113,Stand,14.81
+A01114,Dock & hub,16.18
+A01115,"Monitor ""wide""",17.55
+A01116,"Cable, blue",18.92
+A01117,Adapter,20.29
+A01118,Stand,21.66
+A01119,Dock & hub,23.03
+A01120,"Monitor ""wide""",24.40
+A01121,"Cable, blue",25.77
+A01122,Adapter,27.14
+A01123,Stand,28.51
+A01124,Dock & hub,29.88
+A01125,"Monitor ""wide""",31.25
+A01126,"Cable, blue",32.62
+A01127,Adapter,33.99
+A01128,Stand,35.36
+A01129,Dock & hub,36.73
+A01130,"Monitor ""wide""",38.10
+A01131,"Cable, blue",39.47
+A01132,Adapter,40.84
+A01133,Stand,42.21
+A01134,Dock & hub,43.58
+A01135,"Monitor ""wide""",44.95
+A01136,"Cable, blue",46.32
+A01137,Adapter,47.69
+A01138,Stand,49.06
+A01139,Dock & hub,50.43
+A01140,"Monitor ""wide""",51.80
+A01141,"Cable, blue",53.17
+A01142,Adapter,54.54
+A01143,Stand,55.91
+A01144,Dock & hub,57.28
+A01145,"Monitor ""wide""",58.65
+A01146,"Cable, blue",60.02
+A01147,Adapter,61.39
+A01148,Stand,62.76
+A01149,Dock & hub,64.13
+A01150,"Monitor ""wide""",65.50
+A01151,"Cable, blue",66.87
+A01152,Adapter,68.24
+A01153,Stand,69.61
+A01154,Dock & hub,70.98
+A01155,"Monitor ""wide""",72.35
+A01156,"Cable, blue",73.72
+A01157,Adapter,75.09
+A01158,Stand,76.46
+A01159,Dock & hub,77.83
+A01160,"Monitor ""wide""",79.20
+A01161,"Cable, blue",80.57
+A01162,Adapter,81.94
+A01163,Stand,83.31
+A01164,Dock & hub,84.68
+A01165,"Monitor ""wide""",86.05
+A01166,"Cable, blue",87.42
+A01167,Adapter,88.79
+A01168,Stand,90.16
+A01169,Dock & hub,91.53
+A01170,"Monitor ""wide""",92.90
+A01171,"Cable, blue",94.27
+A01172,Adapter,95.64
+A01173,Stand,97.01
+A01174,Dock & hub,98.38
+A01175,"Monitor ""wide""",99.75
+A01176,"Cable, blue",101.12
+A01177,Adapter,102.49
+A01178,Stand,103.86
+A01179,Dock & hub,105.23
+A01180,"Monitor ""wide""",106.60
+A01181,"Cable, blue",107.97
+A01182,Adapter,109.34
+A01183,Stand,110.71
+A01184,Dock & hub,112.08
+A01185,"Monitor ""wide""",113.45
+A01186,"Cable, blue",114.82
+A01187,Adapter,116.19
+A01188,Stand,117.56
+A01189,Dock & hub,118.93
+A01190,"Monitor ""wide""",120.30
+A01191,"Cable, blue",121.67
+A01192,Adapter,123.04
+A01193,Stand,124.41
+A01194,Dock & hub,125.78
+A01195,"Monitor ""wide""",127.15
+A01196,"Cable, blue",128.52
+A01197,Adapter,129.89
+A01198,Stand,131.26
+A01199,Dock & hub,132.63
+A01200,"Monitor ""wide""",134.00
+A01201,"Cable, blue",135.37
+A01202,Adapter,136.74
+A01203,Stand,138.11
+A01204,Dock & hub,139.48
+A01205,"Monitor ""wide""",140.85
+A01206,"Cable, blue",142.22
+A01207,Adapter,143.59
+A01208,Stand,144.96
+A01209,Dock & hub,146.33
+A01210,"Monitor ""wide""",147.70
+A01211,"Cable, blue",149.07
+A01212,Adapter,150.44
+A01213,Stand,151.81
+A01214,Dock & hub,153.18
+A01215,"Monitor ""wide""",154.55
+A01216,"Cable, blue",155.92
+A01217,Adapter,157.29
+A01218,Stand,158.66
+A01219,Dock & hub,160.03
+A01220,"Monitor ""wide""",161.40
+A01221,"Cable, blue",162.77
+A01222,Adapter,164.14
+A01223,Stand,165.51
+A01224,Dock & hub,166.88
+A01225,"Monitor ""wide""",168.25
+A01226,"Cable, blue",169.62
+A01227,Adapter,170.99
+A01228,Stand,172.36
+A01229,Dock & hub,173.73
+A01230,"Monitor ""wide""",175.10
+A01231,"Cable, blue",176.47
+A01232,Adapter,177.84
+A01233,Stand,179.21
+A01234,Dock & hub,180.58
+A01235,"Monitor ""wide""",181.95
+A01236,"Cable, blue",183.32
+A01237,Adapter,184.69
+A01238,Stand,186.06
+A01239,Dock & hub,187.43
+A01240,"Monitor ""wide""",188.80
+A01241,"Cable, blue",190.17
+A01242,Adapter,191.54
+A01243,Stand,192.91
+A01244,Dock & hub,194.28
+A01245,"Monitor ""wide""",195.65
+A01246,"Cable, blue",197.02
+A01247,Adapter,198.39
+A01248,Stand,199.76
+A01249,Dock & hub,11.13
+A01250,"Monitor ""wide""",12.50
+A01251,"Cable, blue",13.87
+A01252,Adapter,15.24
+A01253,Stand,16.61
+A01254,Dock & hub,17.98
+A01255,"Monitor ""wide""",19.35
+A01256,"Cable, blue",20.72
+A01257,Adapter,22.09
+A01258,Stand,23.46
+A01259,Dock & hub,24.83
+A01260,"Monitor ""wide""",26.20
+A01261,"Cable, blue",27.57
+A01262,Adapter,28.94
+A01263,Stand,30.31
+A01264,Dock & hub,31.68
+A01265,"Monitor ""wide""",33.05
+A01266,"Cable, blue",34.42
+A01267,Adapter,35.79
+A01268,Stand,37.16
+A01269,Dock & hub,38.53
+A01270,"Monitor ""wide""",39.90
+A01271,"Cable, blue",41.27
+A01272,Adapter,42.64
+A01273,Stand,44.01
+A01274,Dock & hub,45.38
+A01275,"Monitor ""wide""",46.75
+A01276,"Cable, blue",48.12
+A01277,Adapter,49.49
+A01278,Stand,50.86
+A01279,Dock & hub,52.23
+A01280,"Monitor ""wide""",53.60
+A01281,"Cable, blue",54.97
+A01282,Adapter,56.34
+A01283,Stand,57.71
+A01284,Dock & hub,59.08
+A01285,"Monitor ""wide""",60.45
+A01286,"Cable, blue",61.82
+A01287,Adapter,63.19
+A01288,Stand,64.56
+A01289,Dock & hub,65.93
+A01290,"Monitor ""wide""",67.30
+A01291,"Cable, blue",68.67
+A01292,Adapter,70.04
+A01293,Stand,71.41
+A01294,Dock & hub,72.78
+A01295,"Monitor ""wide""",74.15
+A01296,"Cable, blue",75.52
+A01297,Adapter,76.89
+A01298,Stand,78.26
+A01299,Dock & hub,79.63
+A01300,"Monitor ""wide""",81.00
+A01301,"Cable, blue",82.37
+A01302,Adapter,83.74
+A01303,Stand,85.11
+A01304,Dock & hub,86.48
+A01305,"Monitor ""wide""",87.85
+A01306,"Cable, blue",89.22
+A01307,Adapter,90.59
+A01308,Stand,91.96
+A01309,Dock & hub,93.33
+A01310,"Monitor ""wide""",94.70
+A01311,"Cable, blue",96.07
+A01312,Adapter,97.44
+A01313,Stand,98.81
+A01314,Dock & hub,100.18
+A01315,"Monitor ""wide""",101.55
+A01316,"Cable, blue",102.92
+A01317,Adapter,104.29
+A01318,Stand,105.66
+A01319,Dock & hub,107.03
+A01320,"Monitor ""wide""",108.40
+A01321,"Cable, blue",109.77
+A01322,Adapter,111.14
+A01323,Stand,112.51
+A01324,Dock & hub,113.88
+A01325,"Monitor ""wide""",115.25
+A01326,"Cable, blue",116.62
+A01327,Adapter,117.99
+A01328,Stand,119.36
+A01329,Dock & hub,120.73
+A01330,"Monitor ""wide""",122.10
+A01331,"Cable, blue",123.47
+A01332,Adapter,124.84
+A01333,Stand,126.21
+A01334,Dock & hub,127.58
+A01335,"Monitor ""wide""",128.95
+A01336,"Cable, blue",130.32
+A01337,Adapter,131.69
+A01338,Stand,133.06
+A01339,Dock & hub,134.43
+A01340,"Monitor ""wide""",135.80
+A01341,"Cable, blue",137.17
+A01342,Adapter,138.54
+A01343,Stand,139.91
+A01344,Dock & hub,141.28
+A01345,"Monitor ""wide""",142.65
+A01346,"Cable, blue",144.02
+A01347,Adapter,145.39
+A01348,Stand,146.76
+A01349,Dock & hub,148.13
+A01350,"Monitor ""wide""",149.50
+A01351,"Cable, blue",150.87
+A01352,Adapter,152.24
+A01353,Stand,153.61
+A01354,Dock & hub,154.98
+A01355,"Monitor ""wide""",156.35
+A01356,"Cable, blue",157.72
+A01357,Adapter,159.09
+A01358,Stand,160.46
+A01359,Dock & hub,161.83
+A01360,"Monitor ""wide""",163.20
+A01361,"Cable, blue",164.57
+A01362,Adapter,165.94
+A01363,Stand,167.31
+A01364,Dock & hub,168.68
+A01365,"Monitor ""wide""",170.05
+A01366,"Cable, blue",171.42
+A01367,Adapter,172.79
+A01368,Stand,174.16
+A01369,Dock & hub,175.53
+A01370,"Monitor ""wide""",176.90
+A01371,"Cable, blue",178.27
+A01372,Adapter,179.64
+A01373,Stand,181.01
+A01374,Dock & hub,182.38
+A01375,"Monitor ""wide""",183.75
+A01376,"Cable, blue",185.12
+A01377,Adapter,186.49
+A01378,Stand,187.86
+A01379,Dock & hub,189.23
+A01380,"Monitor ""wide""",190.60
+A01381,"Cable, blue",191.97
+A01382,Adapter,193.34
+A01383,Stand,194.71
+A01384,Dock & hub,196.08
+A01385,"Monitor ""wide""",197.45
+A01386,"Cable, blue",198.82
+A01387,Adapter,10.19
+A01388,Stand,11.56
+A01389,Dock & hub,12.93
+A01390,"Monitor ""wide""",14.30
+A01391,"Cable, blue",15.67
+A01392,Adapter,17.04
+A01393,Stand,18.41
+A01394,Dock & hub,19.78
+A01395,"Monitor ""wide""",21.15
+A01396,"Cable, blue",22.52
+A01397,Adapter,23.89
+A01398,Stand,25.26
+A01399,Dock & hub,26.63
+A01400,"Monitor ""wide""",28.00
+A01401,"Cable, blue",29.37
+A01402,Adapter,30.74
+A01403,Stand,32.11
+A01404,Dock & hub,33.48
+A01405,"Monitor ""wide""",34.85
+A01406,"Cable, blue",36.22
+A01407,Adapter,37.59
+A01408,Stand,38.96
+A01409,Dock & hub,40.33
+A01410,"Monitor ""wide""",41.70
+A01411,"Cable, blue",43.07
+A01412,Adapter,44.44
+A01413,Stand,45.81
+A01414,Dock & hub,47.18
+A01415,"Monitor ""wide""",48.55
+A01416,"Cable, blue",49.92
+A01417,Adapter,51.29
+A01418,Stand,52.66
+A01419,Dock & hub,54.03
+A01420,"Monitor ""wide""",55.40
+A01421,"Cable, blue",56.77
+A01422,Adapter,58.14
+A01423,Stand,59.51
+A01424,Dock & hub,60.88
+A01425,"Monitor ""wide""",62.25
+A01426,"Cable, blue",63.62
+A01427,Adapter,64.99
+A01428,Stand,66.36
+A01429,Dock & hub,67.73
+A01430,"Monitor ""wide""",69.10
+A01431,"Cable, blue",70.47
+A01432,Adapter,71.84
+A01433,Stand,73.21
+A01434,Dock & hub,74.58
+A01435,"Monitor ""wide""",75.95
+A01436,"Cable, blue",77.32
+A01437,Adapter,78.69
+A01438,Stand,80.06
+A01439,Dock & hub,81.43
+A01440,"Monitor ""wide""",82.80
+A01441,"Cable, blue",84.17
+A01442,Adapter,85.54
+A01443,Stand,86.91
+A01444,Dock & hub,88.28
+A01445,"Monitor ""wide""",89.65
+A01446,"Cable, blue",91.02
+A01447,Adapter,92.39
+A01448,Stand,93.76
+A01449,Dock & hub,95.13
+A01450,"Monitor ""wide""",96.50
+A01451,"Cable, blue",97.87
+A01452,Adapter,99.24
+A01453,Stand,100.61
+A01454,Dock & hub,101.98
+A01455,"Monitor ""wide""",103.35
+A01456,"Cable, blue",104.72
+A01457,Adapter,106.09
+A01458,Stand,107.46
+A01459,Dock & hub,108.83
+A01460,"Monitor ""wide""",110.20
+A01461,"Cable, blue",111.57
+A01462,Adapter,112.94
+A01463,Stand,114.31
+A01464,Dock & hub,115.68
+A01465,"Monitor ""wide""",117.05
+A01466,"Cable, blue",118.42
+A01467,Adapter,119.79
+A01468,Stand,121.16
+A01469,Dock & hub,122.53
+A01470,"Monitor ""wide""",123.90
+A01471,"Cable, blue",125.27
+A01472,Adapter,126.64
+A01473,Stand,128.01
+A01474,Dock & hub,129.38
+A01475,"Monitor ""wide""",130.75
+A01476,"Cable, blue",132.12
+A01477,Adapter,133.49
+A01478,Stand,134.86
+A01479,Dock & hub,136.23
+A01480,"Monitor ""wide""",137.60
+A01481,"Cable, blue",138.97
+A01482,Adapter,140.34
+A01483,Stand,141.71
+A01484,Dock & hub,143.08
+A01485,"Monitor ""wide""",144.45
+A01486,"Cable, blue",145.82
+A01487,Adapter,147.19
+A01488,Stand,148.56
+A01489,Dock & hub,149.93
+A01490,"Monitor ""wide""",151.30
+A01491,"Cable, blue",152.67
+A01492,Adapter,154.04
+A01493,Stand,155.41
+A01494,Dock & hub,156.78
+A01495,"Monitor ""wide""",158.15
+A01496,"Cable, blue",159.52
+A01497,Adapter,160.89
+A01498,Stand,162.26
+A01499,Dock & hub,163.63
+A01500,"Monitor ""wide""",165.00
+A01501,"Cable, blue",166.37
+A01502,Adapter,167.74
+A01503,Stand,169.11
+A01504,Dock & hub,170.48
+A01505,"Monitor ""wide""",171.85
+A01506,"Cable, blue",173.22
+A01507,Adapter,174.59
+A01508,Stand,175.96
+A01509,Dock & hub,177.33
+A01510,"Monitor ""wide""",178.70
+A01511,"Cable, blue",180.07
+A01512,Adapter,181.44
+A01513,Stand,182.81
+A01514,Dock & hub,184.18
+A01515,"Monitor ""wide""",185.55
+A01516,"Cable, blue",186.92
+A01517,Adapter,188.29
+A01518,Stand,189.66
+A01519,Dock & hub,191.03
+A01520,"Monitor ""wide""",192.40
+A01521,"Cable, blue",193.77
+A01522,Adapter,195.14
+A01523,Stand,196.51
+A01524,Dock & hub,197.88
+A01525,"Monitor ""wide""",199.25
+A01526,"Cable, blue",10.62
+A01527,Adapter,11.99
+A01528,Stand,13.36
+A01529,Dock & hub,14.73
+A01530,"Monitor ""wide""",16.10
+A01531,"Cable, blue",17.47
+A01532,Adapter,18.84
+A01533,Stand,20.21
+A01534,Dock & hub,21.58
+A01535,"Monitor ""wide""",22.95
+A01536,"Cable, blue",24.32
+A01537,Adapter,25.69
+A01538,Stand,27.06
+A01539,Dock & hub,28.43
+A01540,"Monitor ""wide""",29.80
+A01541,"Cable, blue",31.17
+A01542,Adapter,32.54
+A01543,Stand,33.91
+A01544,Dock & hub,35.28
+A01545,"Monitor ""wide""",36.65
+A01546,"Cable, blue",38.02
+A01547,Adapter,39.39
+A01548,Stand,40.76
+A01549,Dock & hub,42.13
+A01550,"Monitor ""wide""",43.50
+A01551,"Cable, blue",44.87
+A01552,Adapter,46.24
+A01553,Stand,47.61
+A01554,Dock & hub,48.98
+A01555,"Monitor ""wide""",50.35
+A01556,"Cable, blue",51.72
+A01557,Adapter,53.09
+A01558,Stand,54.46
+A01559,Dock & hub,55.83
+A01560,"Monitor ""wide""",57.20
+A01561,"Cable, blue",58.57
+A01562,Adapter,59.94
+A01563,Stand,61.31
+A01564,Dock & hub,62.68
+A01565,"Monitor ""wide""",64.05
+A01566,"Cable, blue",65.42
+A01567,Adapter,66.79
+A01568,Stand,68.16
+A01569,Dock & hub,69.53
+A01570,"Monitor ""wide""",70.90
+A01571,"Cable, blue",72.27
+A01572,Adapter,73.64
+A01573,Stand,75.01
+A01574,Dock & hub,76.38
+A01575,"Monitor ""wide""",77.75
+A01576,"Cable, blue",79.12
+A01577,Adapter,80.49
+A01578,Stand,81.86
+A01579,Dock & hub,83.23
+A01580,"Monitor ""wide""",84.60
+A01581,"Cable, blue",85.97
+A01582,Adapter,87.34
+A01583,Stand,88.71
+A01584,Dock & hub,90.08
+A01585,"Monitor ""wide""",91.45
+A01586,"Cable, blue",92.82
+A01587,Adapter,94.19
+A01588,Stand,95.56
+A01589,Dock & hub,96.93
+A01590,"Monitor ""wide""",98.30
+A01591,"Cable, blue",99.67
+A01592,Adapter,101.04
+A01593,Stand,102.41
+A01594,Dock & hub,103.78
+A01595,"Monitor ""wide""",105.15
+A01596,"Cable, blue",106.52
+A01597,Adapter,107.89
+A01598,Stand,109.26
+A01599,Dock & hub,110.63
+A01600,"Monitor ""wide""",112.00
+A01601,"Cable, blue",113.37
+A01602,Adapter,114.74
+A01603,Stand,116.11
+A01604,Dock & hub,117.48
+A01605,"Monitor ""wide""",118.85
+A01606,"Cable, blue",120.22
+A01607,Adapter,121.59
+A01608,Stand,122.96
+A01609,Dock & hub,124.33
+A01610,"Monitor ""wide""",125.70
+A01611,"Cable, blue",127.07
+A01612,Adapter,128.44
+A01613,Stand,129.81
+A01614,Dock & hub,131.18
+A01615,"Monitor ""wide""",132.55
+A01616,"Cable, blue",133.92
+A01617,Adapter,135.29
+A01618,Stand,136.66
+A01619,Dock & hub,138.03
+A01620,"Monitor ""wide""",139.40
+A01621,"Cable, blue",140.77
+A01622,Adapter,142.14
+A01623,Stand,143.51
+A01624,Dock & hub,144.88
+A01625,"Monitor ""wide""",146.25
+A01626,"Cable, blue",147.62
+A01627,Adapter,148.99
+A01628,Stand,150.36
+A01629,Dock & hub,151.73
+A01630,"Monitor ""wide""",153.10
+A01631,"Cable, blue",154.47
+A01632,Adapter,155.84
+A01633,Stand,157.21
+A01634,Dock & hub,158.58
+A01635,"Monitor ""wide""",159.95
+A01636,"Cable, blue",161.32
+A01637,Adapter,162.69
+A01638,Stand,164.06
+A01639,Dock & hub,165.43
+A01640,"Monitor ""wide""",166.80
+A01641,"Cable, blue",168.17
+A01642,Adapter,169.54
+A01643,Stand,170.91
+A01644,Dock & hub,172.28
+A01645,"Monitor ""wide""",173.65
+A01646,"Cable, blue",175.02
+A01647,Adapter,176.39
+A01648,Stand,177.76
+A01649,Dock & hub,179.13
+A01650,"Monitor ""wide""",180.50
+A01651,"Cable, blue",181.87
+A01652,Adapter,183.24
+A01653,Stand,184.61
+A01654,Dock & hub,185.98
+A01655,"Monitor ""wide""",187.35
+A01656,"Cable, blue",188.72
+A01657,Adapter,190.09
+A01658,Stand,191.46
+A01659,Dock & hub,192.83
+A01660,"Monitor ""wide""",194.20
+A01661,"Cable, blue",195.57
+A01662,Adapter,196.94
+A01663,Stand,198.31
+A01664,Dock & hub,199.68
+A01665,"Monitor ""wide""",11.05
+A01666,"Cable, blue",12.42
+A01667,Adapter,13.79
+A01668,Stand,15.16
+A01669,Dock & hub,16.53
+A01670,"Monitor ""wide""",17.90
+A01671,"Cable, blue",19.27
+A01672,Adapter,20.64
+A01673,Stand,22.01
+A01674,Dock & hub,23.38
+A01675,"Monitor ""wide""",24.75
+A01676,"Cable, blue",26.12
+A01677,Adapter,27.49
+A01678,Stand,28.86
+A01679,Dock & hub,30.23
+A01680,"Monitor ""wide""",31.60
+A01681,"Cable, blue",32.97
+A01682,Adapter,34.34
+A01683,Stand,35.71
+A01684,Dock & hub,37.08
+A01685,"Monitor ""wide""",38.45
+A01686,"Cable, blue",39.82
+A01687,Adapter,41.19
+A01688,Stand,42.56
+A01689,Dock & hub,43.93
+A01690,"Monitor ""wide""",45.30
+A01691,"Cable, blue",46.67
+A01692,Adapter,48.04
+A01693,Stand,49.41
+A01694,Dock & hub,50.78
+A01695,"Monitor ""wide""",52.15
+A01696,"Cable, blue",53.52
+A01697,Adapter,54.89
+A01698,Stand,56.26
+A01699,Dock & hub,57.63
+A01700,"Monitor ""wide""",59.00
+A01701,"Cable, blue",60.37
+A01702,Adapter,61.74
+A01703,Stand,63.11
+A01704,Dock & hub,64.48
+A01705,"Monitor ""wide""",65.85
+A01706,"Cable, blue",67.22
+A01707,Adapter,68.59
+A01708,Stand,69.96
+A01709,Dock & hub,71.33
+A01710,"Monitor ""wide""",72.70
+A01711,"Cable, blue",74.07
+A01712,Adapter,75.44
+A01713,Stand,76.81
+A01714,Dock & hub,78.18
+A01715,"Monitor ""wide""",79.55
+A01716,"Cable, blue",80.92
+A01717,Adapter,82.29
+A01718,Stand,83.66
+A01719,Dock & hub,85.03
+A01720,"Monitor ""wide""",86.40
+A01721,"Cable, blue",87.77
+A01722,Adapter,89.14
+A01723,Stand,90.51
+A01724,Dock & hub,91.88
+A01725,"Monitor ""wide""",93.25
+A01726,"Cable, blue",94.62
+A01727,Adapter,95.99
+A01728,Stand,97.36
+A01729,Dock & hub,98.73
+A01730,"Monitor ""wide""",100.10
+A01731,"Cable, blue",101.47
+A01732,Adapter,102.84
+A01733,Stand,104.21
+A01734,Dock & hub,105.58
+A01735,"Monitor ""wide""",106.95
+A01736,"Cable, blue",108.32
+A01737,Adapter,109.69
+A01738,Stand,111.06
+A01739,Dock & hub,112.43
+A01740,"Monitor ""wide""",113.80
+A01741,"Cable, blue",115.17
+A01742,Adapter,116.54
+A01743,Stand,117.91
+A01744,Dock & hub,119.28
+A01745,"Monitor ""wide""",120.65
+A01746,"Cable, blue",122.02
+A01747,Adapter,123.39
+A01748,Stand,124.76
+A01749,Dock & hub,126.13
+A01750,"Monitor ""wide""",127.50
+A01751,"Cable, blue",128.87
+A01752,Adapter,130.24
+A01753,Stand,131.61
+A01754,Dock & hub,132.98
+A01755,"Monitor ""wide""",134.35
+A01756,"Cable, blue",135.72
+A01757,Adapter,137.09
+A01758,Stand,138.46
+A01759,Dock & hub,139.83
+A01760,"Monitor ""wide""",141.20
+A01761,"Cable, blue",142.57
+A01762,Adapter,143.94
+A01763,Stand,145.31
+A01764,Dock & hub,146.68
+A01765,"Monitor ""wide""",148.05
+A01766,"Cable, blue",149.42
+A01767,Adapter,150.79
+A01768,Stand,152.16
+A01769,Dock & hub,153.53
+A01770,"Monitor ""wide""",154.90
+A01771,"Cable, blue",156.27
+A01772,Adapter,157.64
+A01773,Stand,159.01
+A01774,Dock & hub,160.38
+A01775,"Monitor ""wide""",161.75
+A01776,"Cable, blue",163.12
+A01777,Adapter,164.49
+A01778,Stand,165.86
+A01779,Dock & hub,167.23
+A01780,"Monitor ""wide""",168.60
+A01781,"Cable, blue",169.97
+A01782,Adapter,171.34
+A01783,Stand,172.71
+A01784,Dock & hub,174.08
+A01785,"Monitor ""wide""",175.45
+A01786,"Cable, blue",176.82
+A01787,Adapter,178.19
+A01788,Stand,179.56
+A01789,Dock & hub,180.93
+A01790,"Monitor ""wide""",182.30
+A01791,"Cable, blue",183.67
+A01792,Adapter,185.04
+A01793,Stand,186.41
+A01794,Dock & hub,187.78
+A01795,"Monitor ""wide""",189.15
+A01796,"Cable, blue",190.52
+A01797,Adapter,191.89
+A01798,Stand,193.26
+A01799,Dock & hub,194.63
+A01800,"Monitor ""wide""",196.00
+A01801,"Cable, blue",197.37
+A01802,Adapter,198.74
+A01803,Stand,10.11
+A01804,Dock & hub,11.48
+A01805,"Monitor ""wide""",12.85
+A01806,"Cable, blue",14.22
+A01807,Adapter,15.59
+A01808,Stand,16.96
+A01809,Dock & hub,18.33
+A01810,"Monitor ""wide""",19.70
+A01811,"Cable, blue",21.07
+A01812,Adapter,22.44
+A01813,Stand,23.81
+A01814,Dock & hub,25.18
+A01815,"Monitor ""wide""",26.55
+A01816,"Cable, blue",27.92
+A01817,Adapter,29.29
+A01818,Stand,30.66
+A01819,Dock & hub,32.03
+A01820,"Monitor ""wide""",33.40
+A01821,"Cable, blue",34.77
+A01822,Adapter,36.14
+A01823,Stand,37.51
+A01824,Dock & hub,38.88
+A01825,"Monitor ""wide""",40.25
+A01826,"Cable, blue",41.62
+A01827,Adapter,42.99
+A01828,Stand,44.36
+A01829,Dock & hub,45.73
+A01830,"Monitor ""wide""",47.10
+A01831,"Cable, blue",48.47
+A01832,Adapter,49.84
+A01833,Stand,51.21
+A01834,Dock & hub,52.58
+A01835,"Monitor ""wide""",53.95
+A01836,"Cable, blue",55.32
+A01837,Adapter,56.69
+A01838,Stand,58.06
+A01839,Dock & hub,59.43
+A01840,"Monitor ""wide""",60.80
+A01841,"Cable, blue",62.17
+A01842,Adapter,63.54
+A01843,Stand,64.91
+A01844,Dock & hub,66.28
+A01845,"Monitor ""wide""",67.65
+A01846,"Cable, blue",69.02
+A01847,Adapter,70.39
+A01848,Stand,71.76
+A01849,Dock & hub,73.13
+A01850,"Monitor ""wide""",74.50
+A01851,"Cable, blue",75.87
+A01852,Adapter,77.24
+A01853,Stand,78.61
+A01854,Dock & hub,79.98
+A01855,"Monitor ""wide""",81.35
+A01856,"Cable, blue",82.72
+A01857,Adapter,84.09
+A01858,Stand,85.46
+A01859,Dock & hub,86.83
+A01860,"Monitor ""wide""",88.20
+A01861,"Cable, blue",89.57
+A01862,Adapter,90.94
+A01863,Stand,92.31
+A01864,Dock & hub,93.68
+A01865,"Monitor ""wide""",95.05
+A01866,"Cable, blue",96.42
+A01867,Adapter,97.79
+A01868,Stand,99.16
+A01869,Dock & hub,100.53
+A01870,"Monitor ""wide""",101.90
+A01871,"Cable, blue",103.27
+A01872,Adapter,104.64
+A01873,Stand,106.01
+A01874,Dock & hub,107.38
+A01875,"Monitor ""wide""",108.75
+A01876,"Cable, blue",110.12
+A01877,Adapter,111.49
+A01878,Stand,112.86
+A01879,Dock & hub,114.23
+A01880,"Monitor ""wide""",115.60
+A01881,"Cable, blue",116.97
+A01882,Adapter,118.34
+A01883,Stand,119.71
+A01884,Dock & hub,121.08
+A01885,"Monitor ""wide""",122.45
+A01886,"Cable, blue",123.82
+A01887,Adapter,125.19
+A01888,Stand,126.56
+A01889,Dock & hub,127.93
+A01890,"Monitor ""wide""",129.30
+A01891,"Cable, blue",130.67
+A01892,Adapter,132.04
+A01893,Stand,133.41
+A01894,Dock & hub,134.78
+A01895,"Monitor ""wide""",136.15
+A01896,"Cable, blue",137.52
+A01897,Adapter,138.89
+A01898,Stand,140.26
+A01899,Dock & hub,141.63
+A01900,"Monitor ""wide""",143.00
+A01901,"Cable, blue",144.37
+A01902,Adapter,145.74
+A01903,Stand,147.11
+A01904,Dock & hub,148.48
+A01905,"Monitor ""wide""",149.85
+A01906,"Cable, blue",151.22
+A01907,Adapter,152.59
+A01908,Stand,153.96
+A01909,Dock & hub,155.33
+A01910,"Monitor ""wide""",156.70
+A01911,"Cable, blue",158.07
+A01912,Adapter,159.44
+A01913,Stand,160.81
+A01914,Dock & hub,162.18
+A01915,"Monitor ""wide""",163.55
+A01916,"Cable, blue",164.92
+A01917,Adapter,166.29
+A01918,Stand,167.66
+A01919,Dock & hub,169.03
+A01920,"Monitor ""wide""",170.40
+A01921,"Cable, blue",171.77
+A01922,Adapter,173.14
+A01923,Stand,174.51
+A01924,Dock & hub,175.88
+A01925,"Monitor ""wide""",177.25
+A01926,"Cable, blue",178.62
+A01927,Adapter,179.99
+A01928,Stand,181.36
+A01929,Dock & hub,182.73
+A01930,"Monitor ""wide""",184.10
+A01931,"Cable, blue",185.47
+A01932,Adapter,186.84
+A01933,Stand,188.21
+A01934,Dock & hub,189.58
+A01935,"Monitor ""wide""",190.95
+A01936,"Cable, blue",192.32
+A01937,Adapter,193.69
+A01938,Stand,195.06
+A01939,Dock & hub,196.43
+A01940,"Monitor ""wide""",197.80
+A01941,"Cable, blue",199.17
+A01942,Adapter,10.54
+A01943,Stand,11.91
+A01944,Dock & hub,13.28
+A01945,"Monitor ""wide""",14.65
+A01946,"Cable, blue",16.02
+A01947,Adapter,17.39
+A01948,Stand,18.76
+A01949,Dock & hub,20.13
+A01950,"Monitor ""wide""",21.50
+A01951,"Cable, blue",22.87
+A01952,Adapter,24.24
+A01953,Stand,25.61
+A01954,Dock & hub,26.98
+A01955,"Monitor ""wide""",28.35
+A01956,"Cable, blue",29.72
+A01957,Adapter,31.09
+A01958,Stand,32.46
+A01959,Dock & hub,33.83
+A01960,"Monitor ""wide""",35.20
+A01961,"Cable, blue",36.57
+A01962,Adapter,37.94
+A01963,Stand,39.31
+A01964,Dock & hub,40.68
+A01965,"Monitor ""wide""",42.05
+A01966,"Cable, blue",43.42
+A01967,Adapter,44.79
+A01968,Stand,46.16
+A01969,Dock & hub,47.53
+A01970,"Monitor ""wide""",48.90
+A01971,"Cable, blue",50.27
+A01972,Adapter,51.64
+A01973,Stand,53.01
+A01974,Dock & hub,54.38
+A01975,"Monitor ""wide""",55.75
+A01976,"Cable, blue",57.12
+A01977,Adapter,58.49
+A01978,Stand,59.86
+A01979,Dock & hub,61.23
+A01980,"Monitor ""wide""",62.60
+A01981,"Cable, blue",63.97
+A01982,Adapter,65.34
+A01983,Stand,66.71
+A01984,Dock & hub,68.08
+A01985,"Monitor ""wide""",69.45
+A01986,"Cable, blue",70.82
+A01987,Adapter,72.19
+A01988,Stand,73.56
+A01989,Dock & hub,74.93
+A01990,"Monitor ""wide""",76.30
+A01991,"Cable, blue",77.67
+A01992,Adapter,79.04
+A01993,Stand,80.41
+A01994,Dock & hub,81.78
+A01995,"Monitor ""wide""",83.15
+A01996,"Cable, blue",84.52
+A01997,Adapter,85.89
+A01998,Stand,87.26
+A01999,Dock & hub,88.63
+A02000,"Monitor ""wide""",90.00

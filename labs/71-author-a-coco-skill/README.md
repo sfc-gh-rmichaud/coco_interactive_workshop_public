@@ -175,7 +175,7 @@ The reason to test in a fresh session is that context makes everything look like
 
 ## Take it further
 
-For local-only practice beyond this first skill, the full CoCo workshop catalog has follow-on labs: Lab 82 for skill-backed commands, Lab 83 for regression tests and references, and Lab 86 for packaging. Lab 91 teaches how to inspect bundled workflows before creating a duplicate.
+For local-only practice beyond this first skill, the full CoCo workshop catalog has follow-on labs: [Lab 82](../82-build-slash-commands/README.md) for skill-backed commands, [Lab 83](../83-engineer-a-skill/README.md) for regression tests and references, and [Lab 86](../86-package-a-plugin/README.md) for packaging. [Lab 91](../91-discover-bundled-skills/README.md) teaches how to inspect bundled workflows before creating a duplicate.
 
 - Add a `--fix` mode that generates the `ALTER TABLE ... COMMENT` statements to remediate what it found.
 - Add a rule specific to your organisation and see how much of the skill you had to change.

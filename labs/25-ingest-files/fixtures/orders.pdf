@@ -1,0 +1,98 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+5 0 obj
+<< /Length 1784 >>
+stream
+BT /F1 10 Tf 40 750 Td 20 TL
+(Synthetic orders - first 30 records) Tj
+T*
+() Tj
+T*
+(order_id    item                      amount) Tj
+T*
+(A00001      Cable, blue                  11.37) Tj
+T*
+(A00002      Adapter                      12.74) Tj
+T*
+(A00003      Stand                        14.11) Tj
+T*
+(A00004      Dock & hub                   15.48) Tj
+T*
+(A00005      Monitor "wide"               16.85) Tj
+T*
+(A00006      Cable, blue                  18.22) Tj
+T*
+(A00007      Adapter                      19.59) Tj
+T*
+(A00008      Stand                        20.96) Tj
+T*
+(A00009      Dock & hub                   22.33) Tj
+T*
+(A00010      Monitor "wide"               23.70) Tj
+T*
+(A00011      Cable, blue                  25.07) Tj
+T*
+(A00012      Adapter                      26.44) Tj
+T*
+(A00013      Stand                        27.81) Tj
+T*
+(A00014      Dock & hub                   29.18) Tj
+T*
+(A00015      Monitor "wide"               30.55) Tj
+T*
+(A00016      Cable, blue                  31.92) Tj
+T*
+(A00017      Adapter                      33.29) Tj
+T*
+(A00018      Stand                        34.66) Tj
+T*
+(A00019      Dock & hub                   36.03) Tj
+T*
+(A00020      Monitor "wide"               37.40) Tj
+T*
+(A00021      Cable, blue                  38.77) Tj
+T*
+(A00022      Adapter                      40.14) Tj
+T*
+(A00023      Stand                        41.51) Tj
+T*
+(A00024      Dock & hub                   42.88) Tj
+T*
+(A00025      Monitor "wide"               44.25) Tj
+T*
+(A00026      Cable, blue                  45.62) Tj
+T*
+(A00027      Adapter                      46.99) Tj
+T*
+(A00028      Stand                        48.36) Tj
+T*
+(A00029      Dock & hub                   49.73) Tj
+T*
+(A00030      Monitor "wide"               51.10) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000309 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2145
+%%EOF

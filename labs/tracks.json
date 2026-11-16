@@ -1,0 +1,70 @@
+{
+  "recommended_path": [
+    "10",
+    "11",
+    "41",
+    "62"
+  ],
+  "curated_take_home": [
+    "21",
+    "61",
+    "71"
+  ],
+  "capstone": "62",
+  "tracks": [
+    {
+      "id": "discover",
+      "decade": "10",
+      "label": "Discover and understand",
+      "blurb": "Research technical questions, then explore unfamiliar data and explain its structure."
+    },
+    {
+      "id": "data-engineering",
+      "decade": "20",
+      "label": "Data engineering",
+      "blurb": "Build and defend pipelines, from a plain-English spec to a tested, scheduled project."
+    },
+    {
+      "id": "ai-agents",
+      "decade": "30",
+      "label": "AI and agents",
+      "blurb": "Model the semantics, put an agent on it, then measure whether the agent is actually right."
+    },
+    {
+      "id": "app-dev",
+      "decade": "40",
+      "label": "App development",
+      "blurb": "Ship something a user can open, from a Streamlit page to a full-stack app on SPCS."
+    },
+    {
+      "id": "governance",
+      "decade": "50",
+      "label": "Governance and security",
+      "blurb": "Find what is sensitive, protect it at scale, and check the account against best practice."
+    },
+    {
+      "id": "performance-cost",
+      "decade": "60",
+      "label": "Performance and cost",
+      "blurb": "Diagnose a slow query, control what data costs to keep, and attribute the spend."
+    },
+    {
+      "id": "with-coco",
+      "decade": "70",
+      "label": "Working with CoCo",
+      "blurb": "Make CoCo yours: reusable skills, a change through CI, and CoCo inside your IDE."
+    },
+    {
+      "id": "advanced-coco",
+      "decade": "80",
+      "label": "Advanced CoCo extensibility",
+      "blurb": "Operate the CLI, author commands and skills, connect MCP, delegate and package a plugin."
+    },
+    {
+      "id": "bundled-skills",
+      "decade": "90",
+      "label": "Working with bundled skills",
+      "blurb": "Find, invoke and verify maintained workflows for SQL, pipelines, operations, AI and apps."
+    }
+  ]
+}

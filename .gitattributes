@@ -1,0 +1,2 @@
+# PDF cross-reference offsets and fixture checksums require byte preservation.
+*.pdf binary

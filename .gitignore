@@ -14,6 +14,13 @@ config.toml
 __pycache__/
 *.pyc
 node_modules/
+.next/
+.cortex/
+cortex_project/
+labs/43-account-usage-dashboard/reference_app/snowflake.yml
+labs/43-account-usage-dashboard/reference_app/output/
+labs/75-build-terminal-tools/go/benchmark
+labs/75-build-terminal-tools/go/benchmark.exe
 
 # Editor / OS noise
 .DS_Store

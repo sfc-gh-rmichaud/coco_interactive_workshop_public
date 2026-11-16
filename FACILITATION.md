@@ -26,9 +26,12 @@ same as having agreed to moderate.
 | 1:00 | 30 | Lab 41 checkpoint | 11 | **Biggest challenge**, after the deployment demo |
 | 1:30 | 13 | Lab 62 checkpoint | 12 | -- |
 | 1:43 | 8 | Save context, clean up | 13 | -- |
-| 1:51 | 9 | Q&A, next steps | 14 | **Usefulness for your role** |
+| 1:51 | 9 | Q&A, next steps and a brief catalog signpost | 14-16 | **Usefulness for your role** |
 
 Blocks total 120 minutes. Polls run inside their blocks; they do not add time.
+The two catalog slides are a brief take-home signpost, not additional live
+exercises. Skip their narration if necessary to protect Q&A; attendees have
+[the full catalog](LABS.md).
 
 ### When running behind
 
@@ -84,4 +87,6 @@ working alone:
   can skip them.
 
 Suggested follow-up email content: the repository link, `EVENT_GUIDE.md`, the
-three take-home labs (21, 61, 71), and a reminder to run cleanup.
+[full catalog](LABS.md), the curated next steps (21, 61, 71),
+[Lab 12 diagramming](labs/12-generate-diagrams/README.md), and a reminder to follow
+the chosen lab's cleanup.

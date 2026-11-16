@@ -1,0 +1,23 @@
+# Connection profile for the deployed dbt project object.
+#
+# account and user are deliberately left as placeholders. When the project runs
+# as a dbt project object on Snowflake, the platform supplies the connection --
+# it is already inside the account -- and a real account name committed here
+# would be both wrong for everyone else and a small credential leak. The
+# Snowflake CLI reads database, role, schema, warehouse and type from this file
+# and ignores the rest.
+#
+# Replace <YOUR_USER> with what setup.sql printed as YOUR_DBT_TARGET_SCHEMA's
+# database, or let `snow dbt deploy` pick it up from your CLI connection.
+coco_ws_lab22:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: placeholder
+      user: placeholder
+      database: COCO_WS_LAB22_DB_<YOUR_USER>
+      schema: LAB_DBT
+      warehouse: COCO_WS_WH_<YOUR_USER>
+      role: placeholder
+      threads: 4
