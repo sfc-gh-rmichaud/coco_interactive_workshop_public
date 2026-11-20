@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Overview -- What's the Art of the Possible with CoCo?</title>
+<style>
+:root{--accent:#08769a;--orange:#a95716;--radius:16px}
+:root[data-theme=light]{--bg:#f4f9fc;--page:radial-gradient(circle at 85% 4%,#d9f1fa 0,transparent 38%),linear-gradient(145deg,#fbfdff,#eaf5fb 65%,#f4f9fc);
+ --card:#fff;--bg3:#e8f5fa;--fg:#102b42;--dim:#496479;--line:#c4dbe7;--ink:#08769a;--tag:#d4f0f8;--aside:#704014;--shadow:0 18px 36px #1e526616}
+:root[data-theme=dark]{--bg:#0b1c2b;--page:radial-gradient(circle at 85% 4%,#12405a 0,transparent 40%),linear-gradient(145deg,#0d2235,#0a1a28 65%,#0b1c2b);
+ --card:#12293d;--bg3:#173550;--fg:#eaf5fb;--dim:#a9c3d4;--line:#24465f;--ink:#5cc8ee;--tag:#134a63;--aside:#f0b47d;--orange:#e08a45;--shadow:0 18px 36px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html{scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);background-image:var(--page);background-attachment:fixed;color:var(--fg);
+ font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+header.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:1rem;padding:.7rem 1.5rem;
+ background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--ink)}
+header.top nav{display:flex;gap:.4rem;flex-wrap:wrap}
+header.top nav a{color:var(--fg);text-decoration:none;padding:.3rem .75rem;border-radius:999px;font-size:.88rem;border:1px solid transparent}
+header.top nav a:hover{border-color:var(--line)}
+header.top nav a.on{background:var(--tag);color:var(--fg);font-weight:650}
+header.top .spacer{flex:1}
+button{font:inherit;cursor:pointer;color:var(--fg);background:var(--bg3);border:1px solid var(--line);border-radius:9px;padding:.32rem .7rem;font-size:.82rem}
+button:hover{border-color:var(--ink);color:var(--ink)}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:2.4rem;max-width:1240px;margin:0 auto;padding:2rem 1.5rem 5rem}
+aside.toc{position:sticky;top:4.6rem;align-self:start;max-height:calc(100vh - 6rem);overflow:auto;font-size:.86rem}
+aside.toc p{margin:0 0 .5rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--ink)}
+aside.toc a{display:block;color:var(--dim);text-decoration:none;padding:.22rem 0 .22rem .7rem;border-left:2px solid var(--line);line-height:1.35}
+aside.toc a.sub{padding-left:1.4rem;font-size:.82rem}
+aside.toc a:hover{color:var(--fg);border-left-color:var(--ink)}
+main{min-width:0}
+main h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.045em;margin:.2rem 0 1rem}
+main h2{font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.1;letter-spacing:-.03em;margin:2.6rem 0 .8rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+main h3{font-size:1.2rem;margin:1.8rem 0 .5rem}
+main a{color:var(--ink);text-underline-offset:4px;overflow-wrap:anywhere}
+p,li{max-width:78ch}
+ul,ol{padding-left:1.4rem}li{margin:.35rem 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--bg3);border:1px solid var(--line);border-radius:5px;padding:.08em .35em}
+.code{position:relative;margin:1rem 0;max-width:90ch}
+.code pre{margin:0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:12px;
+ padding:1rem 1.1rem;overflow:auto;box-shadow:var(--shadow);font-size:.88rem;line-height:1.5}
+.code pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre-wrap}
+.code .copy{position:absolute;top:.5rem;right:.5rem;opacity:.85}
+.table{overflow-x:auto;margin:1rem 0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:.6rem .85rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:1.2rem 0;border-left:4px solid var(--orange);padding:.3rem 0 .3rem 1.2rem;color:var(--aside)}
+blockquote p{margin:.3rem 0}
+footer.gen{margin-top:3rem;color:var(--dim);font-size:.82rem}
+@media (max-width:900px){.layout{grid-template-columns:1fr}aside.toc{display:none}}
+@media print{header.top,aside.toc,.copy{display:none}.layout{display:block}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">CoCo &middot; Dec 2</span><nav><a href="EVENT_GUIDE.html">Live guide</a><a href="FACILITATION.html">Facilitation notes</a><a class="on" href="README.html">Overview</a><a href="../../presentation/index.html">Slides</a></nav><span class="spacer"></span>
+<button id="theme" type="button" title="Light / dark">Theme</button></header>
+<div class="layout">
+<aside class="toc"><p>On this page</p><a href="#start-here">Start here</a><a href="#what-we-do-in-90-minutes">What we do in 90 minutes</a><a href="#what-you-need">What you need</a><a href="#what-it-creates-and-costs">What it creates and costs</a><a href="#curated-webinar-and-next-steps">Curated webinar and next steps</a><a href="#repository-layout">Repository layout</a><a href="#maintain-the-catalog">Maintain the catalog</a><a href="#status">Status</a></aside>
+<main>
+<h1 id="whats-the-art-of-the-possible-with-coco">What's the Art of the Possible with CoCo?</h1>
+<p><strong>Virtual hands-on lab -- December 2, 2026, 12:00-1:30 p.m. ET</strong> Part 2 of <em>I Downloaded CoCo Desktop... Now What?</em></p>
+<p>Speakers: <strong>Rick Michaud</strong>, Senior Solution Engineer, Snowflake, and <strong>Caleb Alexander</strong>, Account Engineer, Snowflake.</p>
+<p>You have installed CoCo Desktop and learned your way around. This session is about making it part of everyday work: framing multi-step tasks, giving useful context, shaping output for a specific audience, checking results before you use them, and saving what you learned so the next task starts ahead.</p>
+<p>It is for analysts, data engineers, developers, data scientists, AI engineers and other Snowflake practitioners.</p>
+<h2 id="start-here">Start here</h2>
+<div class="table"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong><a href="EVENT_GUIDE.html">EVENT_GUIDE.md</a></strong> (<a href="../../docs/html/EVENT_GUIDE.html">HTML</a>)</td><td>The session, step by step: schedule, prework, every prompt, and what "done" looks like. Works live or on demand.</td></tr><tr><td><strong><a href="../../presentation/index.html">presentation/index.html</a></strong></td><td>The slides. One self-contained file -- download it and open it in a browser. Arrow keys to move, <code>D</code> for light/dark, <code>G</code> for the slide grid.</td></tr><tr><td><strong><a href="../../docs/PREREQUISITES.html">docs/PREREQUISITES.html</a></strong></td><td>Detailed setup for macOS, Windows and Linux, including administrator steps.</td></tr><tr><td><strong><a href="../../LABS.md">LABS.md</a></strong></td><td>All 26 labs grouped by track for continued practice, including Lab 12 diagramming.</td></tr><tr><td><strong><a href="FACILITATION.html">FACILITATION.md</a></strong> (<a href="../../docs/html/FACILITATION.html">HTML</a>)</td><td>Run of show, polls and co-host notes for the hosts.</td></tr><tr><td><strong><a href="../../templates/PROJECT_CONTEXT.md">templates/PROJECT_CONTEXT.md</a></strong></td><td>The reusable project note you finish the session with.</td></tr></tbody></table></div>
+<p>Prefer a browser? The guide, the facilitation notes and this README are also rendered as self-contained HTML in <a href="README.html"><code>docs/html/</code></a> -- download and open them like the slides.</p>
+<h2 id="what-we-do-in-90-minutes">What we do in 90 minutes</h2>
+<div class="table"><table><thead><tr><th>Time (ET)</th><th>Activity</th></tr></thead><tbody><tr><td>12:00</td><td>Welcome, Part 1 to Part 2, framing a task, prerequisites check</td></tr><tr><td>12:16</td><td><strong>Lab 10</strong> -- research a question and check the evidence</td></tr><tr><td>12:24</td><td><strong>Lab 11</strong> -- explore an unfamiliar schema and define the metric before computing it</td></tr><tr><td>12:39</td><td><strong>Lab 21</strong> -- build a dynamic-table pipeline from a plain-English spec</td></tr><tr><td>12:55</td><td><strong>Lab 31</strong> -- build a semantic view that cannot double-count revenue</td></tr><tr><td>1:10</td><td><strong>Lab 32</strong> -- a Cortex Agent that needs both documents and data</td></tr><tr><td>1:26</td><td>Save reusable context and clean up</td></tr></tbody></table></div>
+<p>That is five focused checkpoints, not five complete labs: each covers a lab's first steps, and the rest is take-home. Questions go in chat throughout. Times are guidance.</p>
+<h2 id="what-you-need">What you need</h2>
+<ul><li><strong>CoCo Desktop</strong>, installed, signed in and working (macOS or Windows). Linux users can follow along with the CoCo CLI or VS Code; see the prerequisites.</li><li><strong>An approved, non-production Snowflake account</strong> -- sandbox, dev or trial. Do not use production.</li><li>**The <code>COCO_WS_USER</code> role**, created once by your account administrator with <a href="../../shared/00_admin_role_setup.sql"><code>shared/00_admin_role_setup.sql</code></a> (base grants only, down to <code>STOP HERE</code>). It grants <code>CREATE DATABASE</code>, <code>CREATE WAREHOUSE</code>, <code>SNOWFLAKE.CORTEX_USER</code>, <code>SNOWFLAKE.COPILOT_USER</code> and <code>USE AI FUNCTIONS</code>. Never run the labs as <code>ACCOUNTADMIN</code>.</li><li><strong>This repository</strong>, downloaded (<em>Code</em> &gt; <em>Download ZIP</em>) and opened as a project in CoCo Desktop.</li><li>About 30-40 minutes of prework, including running the lab setups, described in the <a href="EVENT_GUIDE.html#before-the-session-prework-about-30-40-minutes">event guide</a>.</li></ul>
+<p>Can't get access in time? Watch along. Everything is written down so you can do it afterwards.</p>
+<h2 id="what-it-creates-and-costs">What it creates and costs</h2>
+<p>The live data labs use disposable synthetic data under <code>COCO_WS_..._&lt;your_user&gt;</code> with an XSMALL warehouse configured to suspend after 60 seconds. The expanded catalog also includes research, local-only, design-only and workspace exercises: follow each guide's setup and cleanup rather than running every SQL script.</p>
+<p>CoCo inference, warehouse compute and other resources can incur charges. Lab 42 is a substantial stretch project with elevated privileges and resources that can continue billing while idle. Lab 74's workspace files and local skills, plugins and MCP registrations require their own cleanup; shared SQL cleanup is not universal. Do not paste credentials or sensitive production data into prompts.</p>
+<h2 id="curated-webinar-and-next-steps">Curated webinar and next steps</h2>
+<p>The live selection is below. The <strong><a href="../../LABS.md">full catalog</a></strong> adds all remaining labs for after the session. Start with <strong><a href="../../labs/12-generate-diagrams/README.md">Lab 12 -- generate ER and data-flow diagrams</a></strong> if you want a visual follow-up to schema exploration (about 20 minutes, guidance; Desktop recommended).</p>
+<div class="table"><table><thead><tr><th>#</th><th>Lab</th><th>In the session</th><th>Desktop</th></tr></thead><tbody><tr><td>10</td><td><a href="../../labs/10-ask-architecture-questions/">Answer architecture, technology and feature questions</a></td><td>Checkpoint (Steps 1-2)</td><td>Yes</td></tr><tr><td>11</td><td><a href="../../labs/11-explore-unfamiliar-schema/">Explore a schema you have never seen</a></td><td>Checkpoint (Steps 1-3)</td><td>Yes</td></tr><tr><td>21</td><td><a href="../../labs/21-build-a-pipeline/">Build a pipeline from a plain-English spec</a></td><td>Checkpoint (Step 1 demo, Steps 2-3)</td><td>Yes</td></tr><tr><td>31</td><td><a href="../../labs/31-build-a-semantic-view/">Build a semantic view, then evaluate it</a></td><td>Checkpoint (Step 1 demo, Steps 2-3)</td><td>Yes</td></tr><tr><td>32</td><td><a href="../../labs/32-cortex-agent/">A Cortex Agent over structured and unstructured data</a></td><td>Checkpoint (Step 1 demo, Steps 2-3)</td><td>Yes</td></tr><tr><td>41</td><td><a href="../../labs/41-ship-a-streamlit-app/">Ship a Streamlit app into Snowflake</a></td><td>Take-home</td><td>Yes, recommended</td></tr><tr><td>61</td><td><a href="../../labs/61-fix-a-slow-query/">Fix a deliberately bad query</a></td><td>Take-home</td><td>Yes</td></tr><tr><td>71</td><td><a href="../../labs/71-author-a-coco-skill/">Turn a recurring task into a reusable skill</a></td><td>Take-home</td><td>Desktop only</td></tr></tbody></table></div>
+<p>Run one lab's setup at a time. Two setups running together as the same user can interfere with each other.</p>
+<h2 id="repository-layout">Repository layout</h2>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>EVENT_GUIDE.md      the live session, step by step
+FACILITATION.md     run-of-show, polls and co-host notes for the hosts
+LABS.md             full 26-lab catalog grouped by track
+presentation/       the slides (self-contained HTML)
+labs/               all lab guides and their required SQL, templates and fixtures
+shared/             prerequisite checks, admin role setup, shared setup/cleanup
+templates/          PROJECT_CONTEXT.md starter
+docs/               prerequisites, reference links, and docs/html/ (rendered guides)
+tools/              catalog and HTML generators, repository/deck self-checks</code></pre></div>
+<h2 id="maintain-the-catalog">Maintain the catalog</h2>
+<p>After adding or changing a lab's README metadata, run:</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code class="lang-bash">python3 tools/build_catalog.py
+python3 tools/build_catalog.py --check
+python3 tools/build_html_docs.py
+python3 tools/check_repo.py
+node tools/check_deck.js</code></pre></div>
+<p><code>build_html_docs.py</code> regenerates <code>docs/html/</code> from the Markdown; <code>check_repo.py</code> fails if those pages are stale.</p>
+<p>These are local content checks, not live Snowflake validation.</p>
+<h2 id="status">Status</h2>
+<p>These are workshop materials, provided as-is for learning. They are not a Snowflake product, and product features, limits and pricing may change -- the <a href="https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code">Snowflake documentation</a> is authoritative.</p>
+<footer class="gen">Generated from <code>README.md</code> by <code>tools/build_html_docs.py</code>. Edit the Markdown, then re-run it.</footer>
+</main>
+</div>
+<script>
+(function(){
+  var k='coco-docs-theme',r=document.documentElement;
+  try{var t=localStorage.getItem(k);if(t==='dark'||t==='light')r.setAttribute('data-theme',t);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);
+    try{localStorage.setItem(k,t);}catch(e){}
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var txt=b.parentNode.querySelector('code').innerText;
+      function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done);}
+      else{var a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();
+        try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+    });
+  });
+})();
+</script>
+</body>
+</html>

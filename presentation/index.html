@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="snowflake-source" content="cortex-agent-authored" />
-<title>What's the Art of the Possible with CoCo? -- December 2, 2026</title>
+<title>What's the Art of the Possible with CoCo? | Dec 2</title>
 
 <script type="application/json" id="snowflake-report-metadata">
 {
-  "generated": "2026-11-16",
-  "intent": "Slides for the public virtual hands-on lab 'What's the Art of the Possible with CoCo?', Part 2 of 'I Downloaded CoCo Desktop... Now What?', December 2, 2026, 12:00-2:00 p.m. ET.",
+  "generated": "2026-11-20",
+  "intent": "Slides for the public virtual hands-on lab 'What's the Art of the Possible with CoCo?', Part 2 of 'I Downloaded CoCo Desktop... Now What?', December 2, 2026, 90-minute session from 12:00 p.m. ET. Styled after the November 10 Part 1 deck.",
   "audience": "Snowflake analysts, data engineers, developers, data scientists and AI engineers who have installed CoCo Desktop.",
   "runtime": "Standalone HTML. Opens directly in a browser with no server, no network access and no external assets.",
-  "dataSources": [{"type": "file", "path": "EVENT_GUIDE.md"}],
+  "dataSources": [
+    {"type": "file", "path": "EVENT_GUIDE.md"},
+    {"type": "url", "url": "https://github.com/sfc-gh-rmichaud/coco_interactive_workshop_public", "purpose": "workshop repository, QR on the welcome slide"},
+    {"type": "url", "url": "https://www.snowflake.com/en/product/snowflake-coco/downloads/", "purpose": "official CoCo downloads, QR on the welcome slide"}
+  ],
   "sections": [
+    { "id": "slide-1", "title": "Welcome",
+      "producerNotes": "QR codes are inline SVG generated from the two URLs above; the pixel penguin is drawn in code. No external assets." },
     { "id": "slide-3", "title": "Agenda", "dataSources": [{"type": "file", "path": "EVENT_GUIDE.md"}],
-      "producerNotes": "Keep in sync with the schedule table in EVENT_GUIDE.md; blocks total 120 minutes." },
+      "producerNotes": "90-minute session: 20 minutes presenting, 70 minutes of lab checkpoints across Labs 10, 11, 21, 31 and 32. Keep in sync with the EVENT_GUIDE.md schedule, which check_repo.py requires to total 90 minutes." },
+    { "id": "slide-8", "title": "Prerequisites and role setup",
+      "dataSources": [{"type": "file", "path": "shared/00_admin_role_setup.sql"}, {"type": "file", "path": "shared/01_role_smoke_test.sql"}, {"type": "file", "path": "shared/00_workshop_setup.sql"}],
+      "producerNotes": "Base role grants only; today's five labs need none of the optional bundles." },
     { "id": "slide-7", "title": "Review, permissions and cost",
       "dataSources": [{"type": "doc", "url": "https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit"}],
       "producerNotes": "Deliberately general; no prices or parameter specifics on the slide." },
-    { "id": "slide-14", "title": "All 26 labs: choose your next track",
+    { "id": "slide-15", "title": "All 26 labs: choose your next track",
       "dataSources": [{"type": "file", "path": "LABS.md"}, {"type": "file", "path": "labs/tracks.json"}],
       "producerNotes": "Six data-focused tracks; explicitly includes Lab 12 diagramming. Take-home only." },
-    { "id": "slide-15", "title": "Make CoCo your own: more take-home labs",
+    { "id": "slide-16", "title": "Make CoCo your own: more take-home labs",
       "dataSources": [{"type": "file", "path": "LABS.md"}],
-      "producerNotes": "Committed workflow labs 71-75 only. Live curated path unchanged." }
+      "producerNotes": "Committed workflow labs 71-75 only. Live path is 10, 11, 21, 31, 32." }
   ]
 }
 </script>
@@ -35,55 +44,63 @@
      <html> rather than light-dark(), because the presenter needs a
      manual toggle mid-talk, not just an OS preference.
      ============================================================ */
+  /* Palette and type follow the November 10 Part 1 deck: navy ink, cyan
+     eyebrows, white rounded cards on a pale blue gradient, an orange rule for
+     asides. Light is the default because that is what Part 1 looked like; the
+     dark theme is kept as a navy variant of the same palette. */
   :root {
-    --accent: #29B5E8;
-    --accent-deep: #11567F;
-    --radius: 14px;
-    --maxw: 1120px;
+    --accent: #08769a;
+    --accent-deep: #064d6c;
+    --orange: #a95716;
+    --radius: 20px;
+    --maxw: 1240px;
     --speed: 180ms;
   }
-  :root[data-theme="dark"] {
-    --bg: #0D1117;
-    --bg-2: #161B22;
-    --bg-3: #1C2430;
-    --fg: #E6EDF3;
-    --fg-dim: #9DA7B3;
-    --line: #2A3441;
-    --shadow: 0 10px 40px rgba(0,0,0,.45);
-    --svg-fill: #1C2430;
-    --svg-fill-2: #11202B;
-    /* Accent used as a border or as small text. On dark, the bright
-       Snowflake blue already clears WCAG AA, so it is used directly. */
-    --accent-brd: #29B5E8;
-    --accent-ink: #29B5E8;
-    --accent-ring: rgba(41,181,232,.28);
-    --accent-glow: rgba(41,181,232,.85);
-  }
   :root[data-theme="light"] {
-    --bg: #FFFFFF;
-    --bg-2: #F5F8FB;
-    --bg-3: #EAF1F7;
-    --fg: #10202B;
-    --fg-dim: #5A6B78;
-    --line: #D3E0EA;
-    --shadow: 0 10px 30px rgba(16,32,43,.10);
-    --svg-fill: #EAF1F7;
-    --svg-fill-2: #DCE9F3;
-    /* On white, #29B5E8 at 1px is roughly 2:1 against the page and
-       reads as a smudge. Borders and small accent text drop to the
-       deeper Snowflake blue, which clears AA on both --bg and --bg-2. */
-    --accent-brd: #11567F;
-    --accent-ink: #0B5A85;
-    --accent-ring: rgba(17,86,127,.20);
-    --accent-glow: rgba(17,86,127,.55);
+    --bg: #f4f9fc;
+    --page: radial-gradient(circle at 85% 4%, #d9f1fa 0, transparent 38%), linear-gradient(145deg, #fbfdff, #eaf5fb 65%, #f4f9fc);
+    --bg-2: #ffffffee;
+    --bg-3: #e8f5fa;
+    --fg: #102b42;
+    --fg-dim: #496479;
+    --line: #c4dbe7;
+    --shadow: 0 18px 36px #1e526616;
+    --svg-fill: #ffffff;
+    --svg-fill-2: #e8f5fa;
+    --accent-brd: #08769a;
+    --accent-ink: #08769a;
+    --accent-ring: #d4f0f8;
+    --accent-glow: rgba(8,118,154,.55);
+    --tag-fg: #064b65;
+    --aside-fg: #704014;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1c2b;
+    --page: radial-gradient(circle at 85% 4%, #12405a 0, transparent 40%), linear-gradient(145deg, #0d2235, #0a1a28 65%, #0b1c2b);
+    --bg-2: #12293dee;
+    --bg-3: #173550;
+    --fg: #eaf5fb;
+    --fg-dim: #a9c3d4;
+    --line: #24465f;
+    --shadow: 0 18px 36px rgba(0,0,0,.35);
+    --svg-fill: #12293d;
+    --svg-fill-2: #173550;
+    --accent-brd: #29b5e8;
+    --accent-ink: #5cc8ee;
+    --accent-ring: #134a63;
+    --accent-glow: rgba(41,181,232,.8);
+    --tag-fg: #bfeaf8;
+    --aside-fg: #f0b47d;
+    --orange: #e08a45;
   }
 
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
   body {
     background: var(--bg);
+    background-image: var(--page);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
     transition: background var(--speed) ease, color var(--speed) ease;
@@ -114,13 +131,13 @@
   /* Printing lays every slide out in full, so any fitted scale must come off. */
   @media print { .inner { transform: none !important; } }
 
-  h1 { font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.08; margin: 0 0 1rem; letter-spacing: -.02em; }
-  h2 { font-size: clamp(1.5rem, 2.9vw, 2.3rem); line-height: 1.15; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  h1 { font-size: clamp(2.4rem, 4.6vw, 4.2rem); line-height: 1.02; margin: 0 0 1rem; letter-spacing: -.05em; }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.04; margin: 0 0 1.1rem; letter-spacing: -.045em; max-width: 30ch; }
   .kicker {
-    text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .16em; font-size: clamp(.8rem, 1.05vw, 1rem); font-weight: 800;
     color: var(--accent-ink); margin: 0 0 .9rem;
   }
-  .sub { color: var(--fg-dim); font-size: clamp(1rem, 1.35vw, 1.18rem); margin: 0 0 1.8rem; max-width: 62ch; line-height: 1.5; }
+  .sub { color: var(--fg-dim); font-size: clamp(1.05rem, 1.6vw, 1.45rem); margin: 0 0 1.6rem; max-width: 62ch; line-height: 1.35; }
   p { line-height: 1.55; }
   strong { color: var(--fg); }
   code {
@@ -136,20 +153,23 @@
   .g4 { grid-template-columns: repeat(4, 1fr); }
   @media (max-width: 900px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
 
+  .grid { gap: 1.2rem; }
   .card {
     background: var(--bg-2); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 1.05rem 1.15rem;
+    border-radius: var(--radius); padding: 1.2rem 1.35rem; box-shadow: var(--shadow); min-width: 0;
   }
-  .card h3 { margin: 0 0 .35rem; font-size: 1.02rem; }
-  .card p { margin: 0; color: var(--fg-dim); font-size: .93rem; line-height: 1.5; }
+  .card h3 { margin: 0 0 .45rem; font-size: clamp(1.05rem, 1.45vw, 1.3rem); line-height: 1.2; }
+  .card p, .card li { margin: 0; color: var(--fg-dim); font-size: clamp(.92rem, 1.15vw, 1.05rem); line-height: 1.42; }
+  .card p + p { margin-top: .55rem; }
   .card .tag {
-    display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--accent-ink); margin-bottom: .45rem;
+    display: inline-block; font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--tag-fg); background: var(--accent-ring);
+    padding: .28rem .7rem; border-radius: 100px; margin-bottom: .7rem;
   }
   /* .accent means exactly one thing: "this is the card to look at first".
      It is never used to decorate one of a set of equal peers -- if two
      cards are alternatives or steps, neither gets it. */
-  .card.accent { border-color: var(--accent-brd); box-shadow: inset 0 0 0 1px var(--accent-ring); }
+  .card.accent { border-top: 4px solid var(--accent-brd); }
 
   ul.clean { margin: 0 0 1rem; padding-left: 1.15rem; }
   ul.clean li { margin: .45rem 0; line-height: 1.5; }
@@ -229,12 +249,13 @@
     position: fixed; bottom: 0; left: 0; right: 0; height: 3.3rem;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 1.5rem; background: var(--bg); border-top: 1px solid var(--line);
+    backdrop-filter: blur(6px);
     z-index: 30; font-size: .84rem; color: var(--fg-dim);
   }
   #chrome .left, #chrome .right { display: flex; align-items: center; gap: .5rem; }
   .btn {
-    background: var(--bg-2); color: var(--fg); border: 1px solid var(--line);
-    border-radius: 8px; padding: .34rem .62rem; font-size: .82rem; cursor: pointer;
+    background: var(--bg-3); color: var(--fg); border: 1px solid var(--line);
+    border-radius: 9px; padding: .34rem .62rem; font-size: .82rem; cursor: pointer;
     font-family: inherit; line-height: 1;
   }
   .btn:hover { border-color: var(--accent); color: var(--accent); }
@@ -323,18 +344,20 @@
   .rail li { font-size: .84rem; color: var(--fg-dim); padding: .2rem 0; line-height: 1.35; }
   .rail li strong { color: var(--fg); font-weight: 600; }
 
-  .lead-num { color: var(--accent); font-weight: 700; font-size: 1.6rem; line-height: 1; }
+  .lead-num {
+    display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: 50%;
+    background: #126f98; color: #fff; font-weight: 800; font-size: 1.05rem; line-height: 1; margin-bottom: .7rem;
+  }
   /* A single headline figure at the top of a card. Deliberately larger than
      .lead-num, which numbers a sequence rather than carrying a statistic. */
   .stat {
     display: block; color: var(--accent-ink); font-weight: 700;
     font-size: 2.3rem; line-height: 1; letter-spacing: -.02em; margin-bottom: .35rem;
   }
-  .callout {
-    border-left: 3px solid var(--accent); background: var(--bg-2);
-    padding: .85rem 1.1rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 1rem 0;
-  }
-  .callout p { margin: 0; font-size: .95rem; }
+  /* The Part 1 "aside": an orange rule and warm text, no box. */
+  .callout { border-left: 4px solid var(--orange); padding: .55rem 0 .55rem 1.3rem; margin: 1.3rem 0 0; }
+  .callout p { margin: 0; font-size: clamp(.98rem, 1.3vw, 1.2rem); line-height: 1.42; color: var(--aside-fg); }
+  .callout strong { color: inherit; }
   .muted { color: var(--fg-dim); }
   .center { text-align: center; }
   a { color: var(--accent); }
@@ -343,6 +366,38 @@
   .linklist p { margin: 0 0 .8rem; break-inside: avoid; font-size: .93rem; }
   .linklist .lt { display: block; font-weight: 600; }
   .linklist a { word-break: break-word; font-size: .86rem; }
+
+  /* ---------- Welcome slide (Part 1 layout) ---------- */
+  .welcome-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 30%); gap: 2rem; align-items: center; }
+  .welcome-copy h1 { margin-bottom: .7rem; }
+  .welcome-copy .sub { margin-bottom: .5rem; }
+  .welcome-copy .byline { margin-top: .4rem; font-size: .95rem; }
+  .welcome-links { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.4rem; }
+  .welcome-links .card { display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 4px solid var(--accent-brd); padding: .9rem 1.2rem; }
+  .welcome-links .card h3 { margin-bottom: .45rem; }
+  .qr { display: block; width: clamp(120px, 12vw, 170px); height: auto; margin: 0 auto .5rem; border-radius: 6px; background: #fff; padding: 4px; }
+  .qr svg { display: block; width: 100%; height: auto; shape-rendering: crispEdges; }
+  .url { font-size: .85rem !important; color: var(--fg-dim) !important; overflow-wrap: anywhere; margin-bottom: .35rem !important; }
+  @media (max-width: 900px) { .welcome-hero, .welcome-links { grid-template-columns: 1fr; } }
+
+  /* ---------- 8-bit CoCo penguin ----------
+     Drawn on a pixel grid in code (see penguinSvg). steps() timing keeps every
+     movement in whole frames, which is what makes it read as 8-bit rather than
+     as a smoothly tweened sprite. */
+  .penguin-stage { display: flex; flex-direction: column; align-items: center; }
+  .penguin { width: min(100%, 250px); height: auto; shape-rendering: crispEdges; overflow: visible;
+    animation: pg-hop 1.2s steps(1) infinite; }
+  .penguin .flip-l { transform-box: fill-box; transform-origin: 100% 0; animation: pg-flap-l .6s steps(1) infinite; }
+  .penguin .flip-r { transform-box: fill-box; transform-origin: 0 0; animation: pg-flap-r .6s steps(1) infinite; }
+  .penguin .eyes { animation: pg-blink 3.2s steps(1) infinite; }
+  .penguin-shadow { width: 46%; height: 10px; border-radius: 50%; background: var(--line); margin-top: 6px;
+    animation: pg-shadow 1.2s steps(1) infinite; }
+  @keyframes pg-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9%); } }
+  @keyframes pg-shadow { 0%, 100% { transform: scaleX(1); opacity: .9; } 50% { transform: scaleX(.75); opacity: .5; } }
+  @keyframes pg-flap-l { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(28deg); } }
+  @keyframes pg-flap-r { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-28deg); } }
+  @keyframes pg-blink { 0%, 92% { opacity: 1; } 94%, 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .penguin, .penguin *, .penguin-shadow { animation: none !important; } }
 
   @media print { body { overflow: visible; } .slide { display: block !important; page-break-after: always; } #chrome, .overlay, #notes { display: none !important; } }
 </style>
@@ -365,7 +420,7 @@
 <div id="chrome">
   <div class="left">
     <button class="btn" id="btnPrev" title="Previous slide">&#8249;</button>
-    <span id="counter">1 / 19</span>
+    <span id="counter">1 / 17</span>
     <button class="btn" id="btnNext" title="Next slide">&#8250;</button>
     <span class="slide-title-mini muted" id="miniTitle"></span>
   </div>
@@ -634,22 +689,81 @@ function teamRow(x, y, w, label, owner, accent) {
    ------------------------------------------------------------ */
 const REPO_URL = "https://github.com/sfc-gh-rmichaud/coco_interactive_workshop_public";
 const REPO_LABEL = "github.com/sfc-gh-rmichaud/coco_interactive_workshop_public";
+const DOWNLOAD_URL = "https://www.snowflake.com/en/product/snowflake-coco/downloads/";
+const DOWNLOAD_LABEL = "snowflake.com/en/product/snowflake-coco/downloads/";
+
+/* QR codes for the two welcome-slide links, generated offline with segno
+   (error correction M) and inlined as SVG so the deck needs no network. If
+   either URL changes, regenerate these -- a QR that points at the old address
+   still scans, which is exactly why nobody would notice. */
+const QR_REPO = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41"><path fill="#fff" d="M0 0h41v41h-41z"/><path stroke="#102b42" d="M2 2.5h7m2 0h1m1 0h5m1 0h1m1 0h2m1 0h5m3 0h7m-37 1h1m5 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m4 0h1m4 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h2m1 0h1m2 0h1m1 0h2m1 0h2m2 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m3 0h1m3 0h3m1 0h3m1 0h2m1 0h2m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h3m2 0h1m1 0h5m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h1m2 0h1m1 0h4m2 0h1m4 0h2m3 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-29 1h5m4 0h2m1 0h1m2 0h1m2 0h3m-29 1h1m5 0h1m1 0h1m1 0h1m3 0h1m1 0h1m4 0h1m2 0h3m2 0h2m2 0h3m-35 1h2m1 0h1m2 0h1m4 0h3m1 0h3m2 0h3m1 0h1m1 0h1m1 0h4m1 0h2m-35 1h4m1 0h1m3 0h3m2 0h3m1 0h1m1 0h2m2 0h7m1 0h4m-37 1h1m6 0h2m2 0h2m1 0h1m4 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m-37 1h1m1 0h1m1 0h4m2 0h1m1 0h1m1 0h3m7 0h1m2 0h2m1 0h2m1 0h1m2 0h1m-35 1h1m1 0h1m2 0h1m1 0h1m1 0h6m1 0h6m3 0h1m3 0h1m1 0h1m1 0h1m-35 1h1m4 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h3m1 0h2m-35 1h2m9 0h1m2 0h1m3 0h3m3 0h4m1 0h1m1 0h4m-37 1h1m2 0h2m1 0h1m3 0h1m3 0h1m3 0h1m1 0h5m1 0h5m1 0h1m1 0h3m-37 1h1m1 0h1m1 0h2m2 0h6m2 0h1m6 0h1m1 0h5m1 0h1m3 0h1m-36 1h2m1 0h2m1 0h1m1 0h1m2 0h1m2 0h1m1 0h1m1 0h2m2 0h4m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m-36 1h1m1 0h3m2 0h2m1 0h2m2 0h2m9 0h2m1 0h3m1 0h1m2 0h1m-36 1h1m3 0h2m1 0h1m2 0h1m5 0h1m4 0h4m3 0h2m1 0h3m-34 1h2m1 0h2m1 0h1m1 0h2m1 0h4m1 0h3m2 0h6m1 0h1m2 0h1m1 0h1m-32 1h1m2 0h1m1 0h1m1 0h2m1 0h1m1 0h3m3 0h1m3 0h9m1 0h2m-37 1h1m2 0h1m5 0h1m1 0h1m3 0h4m3 0h3m1 0h1m1 0h2m1 0h3m2 0h1m-37 1h2m4 0h1m1 0h4m2 0h1m2 0h1m2 0h5m2 0h2m1 0h1m5 0h1m-37 1h1m1 0h1m4 0h1m3 0h2m4 0h2m1 0h4m1 0h4m2 0h1m-32 1h1m1 0h2m2 0h1m1 0h1m1 0h8m1 0h1m1 0h2m1 0h4m1 0h3m2 0h3m-37 1h1m1 0h1m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m2 0h1m3 0h2m2 0h2m1 0h1m2 0h3m-36 1h1m1 0h10m1 0h1m1 0h3m1 0h1m2 0h1m1 0h9m1 0h1m1 0h1m-29 1h3m1 0h3m1 0h1m1 0h4m1 0h1m2 0h3m3 0h1m2 0h1m-36 1h7m3 0h1m1 0h1m1 0h2m1 0h3m3 0h4m1 0h1m1 0h1m1 0h1m3 0h1m-37 1h1m5 0h1m2 0h3m3 0h2m2 0h1m1 0h1m1 0h1m3 0h2m3 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m1 0h1m6 0h1m1 0h3m1 0h9m1 0h2m-36 1h1m1 0h3m1 0h1m3 0h1m3 0h1m5 0h4m4 0h3m2 0h2m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m2 0h1m3 0h2m1 0h2m3 0h1m1 0h2m4 0h1m1 0h2m-37 1h1m5 0h1m3 0h1m1 0h2m1 0h2m5 0h1m3 0h4m2 0h2m2 0h1m-37 1h7m1 0h1m3 0h1m1 0h1m1 0h1m2 0h2m2 0h2m3 0h1m2 0h1m1 0h1m2 0h1"/></svg>`;
+const QR_DOWNLOAD = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37"><path fill="#fff" d="M0 0h37v37h-37z"/><path stroke="#102b42" d="M2 2.5h7m3 0h2m2 0h1m1 0h1m1 0h2m3 0h1m2 0h7m-33 1h1m5 0h1m4 0h1m1 0h1m1 0h2m3 0h1m5 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m1 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m3 0h1m2 0h2m4 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h5m2 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h4m3 0h1m1 0h1m2 0h1m1 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m2 0h1m3 0h2m1 0h4m2 0h1m-25 1h1m1 0h5m2 0h2m2 0h3m1 0h1m1 0h1m2 0h1m3 0h5m-27 1h1m2 0h1m1 0h1m1 0h4m2 0h5m1 0h1m2 0h2m1 0h4m-33 1h3m1 0h3m3 0h2m1 0h3m1 0h1m2 0h3m1 0h3m1 0h1m1 0h2m-32 1h1m1 0h1m2 0h1m3 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h3m2 0h1m1 0h3m-31 1h2m4 0h1m4 0h2m4 0h1m1 0h1m3 0h3m1 0h3m1 0h1m-30 1h1m1 0h2m1 0h1m1 0h5m2 0h1m2 0h1m3 0h1m2 0h1m2 0h4m-33 1h2m1 0h2m1 0h1m2 0h2m1 0h7m1 0h1m1 0h1m1 0h3m1 0h4m-29 1h2m3 0h2m1 0h1m1 0h1m1 0h1m3 0h4m2 0h3m1 0h2m-29 1h1m2 0h3m1 0h7m1 0h1m1 0h1m2 0h4m1 0h2m3 0h1m-32 1h4m2 0h1m2 0h3m3 0h1m1 0h3m1 0h6m1 0h2m1 0h1m-32 1h1m2 0h1m1 0h2m1 0h2m1 0h1m2 0h3m2 0h3m2 0h4m1 0h2m-32 1h1m3 0h2m2 0h1m1 0h1m1 0h2m1 0h2m4 0h3m1 0h8m-33 1h1m3 0h1m1 0h3m1 0h2m2 0h2m1 0h1m4 0h1m1 0h2m2 0h2m1 0h2m-33 1h2m3 0h1m2 0h2m1 0h4m1 0h6m1 0h1m1 0h2m3 0h1m1 0h1m-33 1h1m1 0h5m2 0h5m1 0h3m2 0h1m1 0h1m1 0h2m2 0h2m1 0h1m-32 1h1m1 0h2m1 0h1m1 0h3m1 0h1m4 0h1m2 0h1m1 0h3m1 0h2m1 0h3m1 0h1m-33 1h1m2 0h1m1 0h2m3 0h1m2 0h2m2 0h1m4 0h1m1 0h6m1 0h2m-25 1h4m1 0h1m2 0h6m1 0h2m3 0h1m1 0h1m1 0h1m-33 1h7m3 0h1m1 0h1m1 0h4m5 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1m1 0h5m3 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h2m4 0h1m1 0h1m2 0h1m1 0h6m-30 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m1 0h6m1 0h1m1 0h1m2 0h5m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m4 0h1m1 0h6m2 0h1m-31 1h1m5 0h1m2 0h1m4 0h3m2 0h3m3 0h1m2 0h1m1 0h1m-31 1h7m1 0h2m1 0h3m3 0h3m2 0h6m3 0h1"/></svg>`;
+
+/* The 8-bit CoCo penguin, one character per pixel. Wings are separate layers
+   so they can flap; the eyes are a separate layer so they can blink (hiding
+   them shows the white face underneath, which reads as a closed eye). */
+const PENGUIN_PIXELS = [
+  "......KKKK......",
+  "....KKKKKKKK....",
+  "...KKKKKKKKKK...",
+  "..KKKWWKKWWKKK..",
+  "..KKWWWWWWWWKK..",
+  "..KKWWWOOWWWKK..",
+  "..KKKWOOOOWKKK..",
+  "..BBBBBBBBBBBB..",
+  "..KKWWWWWWWBBK..",
+  "..KWWWWWWWWBBK..",
+  "..KWWWWWWWWWWK..",
+  "..KWWWWWWWWWWK..",
+  "..KKWWWWWWWWKK..",
+  "...KKWWWWWWKK...",
+  "....KKKKKKKK....",
+  "...OOOO..OOOO..."
+];
+const PENGUIN_EYES = [[5, 4], [10, 4]];
+const PENGUIN_WING_L = [[1, 8], [1, 9], [0, 9], [1, 10], [0, 10], [1, 11]];
+const PENGUIN_WING_R = [[14, 8], [14, 9], [15, 9], [14, 10], [15, 10], [14, 11]];
+const PENGUIN_COLORS = { K: "#14324a", W: "#ffffff", O: "#f2a33a", B: "#29b5e8" };
+function penguinSvg() {
+  const px = (x, y, c) => `<rect x="${x}" y="${y}" width="1" height="1" fill="${c}"/>`;
+  const body = PENGUIN_PIXELS.flatMap((row, y) => [...row].map((c, x) =>
+    PENGUIN_COLORS[c] ? px(x, y, PENGUIN_COLORS[c]) : "")).join("");
+  const set = (pts, c) => pts.map(([x, y]) => px(x, y, c)).join("");
+  return `<svg class="penguin" viewBox="-1 -1 18 18" role="img" aria-label="Animated 8-bit CoCo penguin">
+    <g class="flip-l">${set(PENGUIN_WING_L, PENGUIN_COLORS.K)}</g>
+    <g class="flip-r">${set(PENGUIN_WING_R, PENGUIN_COLORS.K)}</g>
+    ${body}
+    <g class="eyes">${set(PENGUIN_EYES, PENGUIN_COLORS.K)}</g>
+  </svg>`;
+}
+
 const SLIDES = [
 
 /* 1 -------------------------------------------------- */
 {
   id: "welcome",
   title: "Welcome",
-  html: `<div class="title-wrap">
-    <div class="logo-row">
-      <img src="${PENGUIN}" alt="CoCo penguin" />
+  html: `<div class="welcome-hero">
+    <div class="welcome-copy">
+      <p class="kicker">Snowflake CoCo / December 2, 2026 / 12 PM ET</p>
+      <h1>What's the Art of the Possible with CoCo?</h1>
+      <p class="sub">Welcome to Part 2. As you settle in, open these two links: the workshop repo with every lab,
+        and CoCo Desktop if you still need it.</p>
+      <p class="byline">Rick Michaud, Senior Solution Engineer &middot; Caleb Alexander, Account Engineer &middot; Snowflake</p>
     </div>
-    <p class="kicker">Virtual hands-on lab &middot; Part 2</p>
-    <h1>What's the Art of the<br/>Possible with CoCo?</h1>
-    <p class="sub">You installed CoCo Desktop and found your way around. Today we use it on real
-      multi-step work &mdash; and check the results before trusting them.</p>
-    <p class="byline">December 2, 2026 &middot; 12:00&ndash;2:00 p.m. ET</p>
-    <p class="byline">Rick Michaud, Senior Solution Engineer &middot; Caleb Alexander, Account Engineer &middot; Snowflake</p>
+    <div class="penguin-stage">${penguinSvg()}<div class="penguin-shadow" aria-hidden="true"></div></div>
+  </div>
+  <div class="grid welcome-links">
+    <div class="card hl"><span class="tag">Today's labs</span>
+      <h3>Workshop repo on GitHub</h3>
+      <a class="qr" href="${REPO_URL}" target="_blank" rel="noopener noreferrer" aria-label="Open the workshop repository">${QR_REPO}</a>
+      <p class="url">${REPO_LABEL}</p>
+      <p>Download or clone it so CoCo can read the lab guides and SQL.</p></div>
+    <div class="card hl"><span class="tag">Get the app</span>
+      <h3>Snowflake CoCo downloads</h3>
+      <a class="qr" href="${DOWNLOAD_URL}" target="_blank" rel="noopener noreferrer" aria-label="Open official Snowflake CoCo downloads">${QR_DOWNLOAD}</a>
+      <p class="url">${DOWNLOAD_LABEL}</p>
+      <p>Choose the Desktop installer for your computer.</p></div>
   </div>`,
 },
 
@@ -658,15 +772,16 @@ const SLIDES = [
   id: "bridge",
   title: "From Part 1 to Part 2",
   html: `<p class="kicker">Where we left off</p>
-  <h2>Part 1 removed the intimidation. Part 2 is the toolkit.</h2>
+  <h2>Part 1 got you started on CoCo Desktop. Part 2 is the toolkit.</h2>
   <div class="grid g2">
-    <div class="card hl"><span class="tag">Part 1 &middot; Now what?</span>
-      <h3>Find your way around</h3>
-      <p>Projects, sessions, connections, settings, and a first real task. We will not repeat the interface tour.</p></div>
+    <div class="card hl"><span class="tag">Part 1 &middot; November 10</span>
+      <h3>Got you started</h3>
+      <p>Installed CoCo Desktop, toured connections, projects and sessions, and finished a first checked task.
+        We will not repeat the tour.</p></div>
     <div class="card hl accent"><span class="tag">Part 2 &middot; Today</span>
-      <h3>Make it part of everyday work</h3>
-      <p>Frame multi-step tasks, give useful context, tailor output for an audience, verify the answer,
-        and save what you learned for the next task.</p></div>
+      <h3>The toolkit</h3>
+      <p>Research a question, explore unfamiliar data, build a pipeline, model a semantic view and stand up an
+        agent &mdash; checking every result before trusting it.</p></div>
   </div>
   <div class="callout"><p><strong>The habit we are practising:</strong> inspect &rarr; clarify &rarr; act &rarr; verify.
     Plausible output is not the same as verified output.</p></div>`,
@@ -676,23 +791,28 @@ const SLIDES = [
 {
   id: "agenda",
   title: "Agenda",
-  html: `<p class="kicker">Two hours, Eastern Time</p>
-  <h2>One full lab, three focused checkpoints</h2>
-  <div class="grid g3">
-    <div class="card hl"><span class="tag">12:00 &middot; 20 min</span><h3>Welcome and readiness</h3>
-      <p>The possibilities, then a quick Desktop and connection check.</p></div>
-    <div class="card hl"><span class="tag">12:20 &middot; 10 min</span><h3>Lab 10 checkpoint</h3>
+  html: `<p class="kicker">90 minutes, Eastern Time</p>
+  <h2>Five labs, run as focused checkpoints</h2>
+  <div class="grid g4">
+    <div class="card hl"><span class="tag">12:00 &middot; 16 min</span><h3>Welcome and set-up</h3>
+      <p>Part 1 to Part 2, how to frame a task, guardrails, prerequisites check.</p></div>
+    <div class="card hl"><span class="tag">12:16 &middot; 8 min</span><h3>Lab 10</h3>
       <p>Research one question and check a source.</p></div>
-    <div class="card hl accent"><span class="tag">12:30 &middot; 30 min</span><h3>Lab 11, full core</h3>
-      <p>Explore unfamiliar data, define the metric, explain the result for an audience.</p></div>
-    <div class="card hl"><span class="tag">1:00 &middot; 30 min</span><h3>Lab 41 checkpoint</h3>
-      <p>Build and open one small Streamlit screen.</p></div>
-    <div class="card hl"><span class="tag">1:30 &middot; 13 min</span><h3>Lab 62 checkpoint</h3>
-      <p>Read cost evidence and propose guardrails.</p></div>
-    <div class="card hl"><span class="tag">1:43 &middot; 17 min</span><h3>Save, clean up, Q&amp;A</h3>
-      <p>Save reusable context, remove what you created, then questions.</p></div>
+    <div class="card hl"><span class="tag">12:24 &middot; 15 min</span><h3>Lab 11</h3>
+      <p>Explore unfamiliar data and define the metric before computing it.</p></div>
+    <div class="card hl"><span class="tag">12:39 &middot; 16 min</span><h3>Lab 21</h3>
+      <p>Build a dynamic-table pipeline from a plain-English spec.</p></div>
+    <div class="card hl"><span class="tag">12:55 &middot; 15 min</span><h3>Lab 31</h3>
+      <p>Build a semantic view that cannot double-count revenue.</p></div>
+    <div class="card hl"><span class="tag">1:10 &middot; 16 min</span><h3>Lab 32</h3>
+      <p>A Cortex Agent that needs both documents and data.</p></div>
+    <div class="card hl"><span class="tag">1:26 &middot; 4 min</span><h3>Save and clean up</h3>
+      <p>Save reusable context, drop what you created, last questions.</p></div>
+    <div class="card hl accent"><span class="tag">Take-home</span><h3>Finish each lab</h3>
+      <p>Every guide's later steps &mdash; incremental proof, evaluation, break-it tests &mdash; are in the repo.</p></div>
   </div>
-  <p class="muted" style="font-size:.86rem;margin-top:.7rem">Times are guidance. If we run behind, we cut optional extras &mdash; never verification, cleanup or Q&amp;A.</p>`,
+  <p class="muted" style="font-size:.9rem;margin-top:.9rem">Run every lab's <code>setup.sql</code> before the session. Ask questions in chat at any time.
+    If we run behind, we cut a lab's later steps &mdash; never verification or cleanup.</p>`,
 },
 
 /* 4 -------------------------------------------------- */
@@ -705,14 +825,14 @@ const SLIDES = [
     <div class="card hl"><span class="tag">Analysts</span><h3>Understand new data</h3>
       <p>Explore a schema, pin down a metric definition, and turn the result into a short business answer.</p></div>
     <div class="card hl"><span class="tag">Data engineers</span><h3>Build and test</h3>
-      <p>Turn a plain-language spec into a pipeline, then prove it handles a new batch correctly.</p></div>
-    <div class="card hl"><span class="tag">Developers</span><h3>Ship something usable</h3>
-      <p>Go from a finding to a small app someone can open, and package repeat work as a skill.</p></div>
-    <div class="card hl"><span class="tag">Data science &amp; AI</span><h3>Research and review</h3>
-      <p>Compare approaches against sources, then check query performance and cost before scaling.</p></div>
+      <p>Turn a plain-language spec into a pipeline, then prove it refreshes the way you think it does.</p></div>
+    <div class="card hl"><span class="tag">Analytics engineers</span><h3>Encode the definition</h3>
+      <p>Put business meaning in a semantic view, so a natural-language question gets the governed answer.</p></div>
+    <div class="card hl"><span class="tag">Data science &amp; AI</span><h3>Build an agent</h3>
+      <p>Combine document search and SQL in one agent, then check it picks the right tool.</p></div>
   </div>
-  <div class="callout"><p><strong>Today vs. take-home:</strong> we do exploration, a small app and cost review live.
-    Pipelines (Lab 21), query tuning (Lab 61) and reusable skills (Lab 71) are in the repo for later.</p></div>`,
+  <div class="callout"><p><strong>Today vs. take-home:</strong> research, exploration, a pipeline, a semantic view and an agent live.
+    Apps (Lab 41), query tuning (Lab 61) and reusable skills (Lab 71) are in the repo for later.</p></div>`,
 },
 
 /* 5 -------------------------------------------------- */
@@ -727,7 +847,7 @@ const SLIDES = [
     <div class="card hl"><span class="lead-num">2</span><h3>Constraints</h3>
       <p>Read-only first. Which warehouse. What not to change. Ask before acting.</p></div>
     <div class="card hl"><span class="lead-num">3</span><h3>Output</h3>
-      <p>The shape you need: a table, two sentences for a manager, a screen, a file.</p></div>
+      <p>The shape you need: a table, two sentences for a manager, a view, a file.</p></div>
     <div class="card hl accent"><span class="lead-num">4</span><h3>Verification</h3>
       <p>How will we know it is right? A count, a reconciliation, a source you opened.</p></div>
   </div>
@@ -744,9 +864,9 @@ const SLIDES = [
   <p class="sub">At the end of today you will write a short project note: the definitions you settled, your
     preferences, the checks that mattered. Next time, you hand it to CoCo at the start.</p>
   <div class="grid g3">
-    <div class="card hl"><h3>Definitions</h3><p>"Revenue means transaction price net of whole-percent discount, completed orders only."</p></div>
+    <div class="card hl"><h3>Definitions</h3><p>"MRR counts current, active subscription versions only."</p></div>
     <div class="card hl"><h3>Preferences</h3><p>"Read-only exploration first. Explain for business readers. Show the SQL."</p></div>
-    <div class="card hl"><h3>Checks</h3><p>"Reconcile totals to the source table before charting."</p></div>
+    <div class="card hl"><h3>Checks</h3><p>"Reconcile totals to the source table before trusting a view or an agent."</p></div>
   </div>
   <div class="callout"><p><strong>Be explicit.</strong> We will not assume CoCo remembers this automatically. A note you
     own and reference is predictable; when it is reusable procedure, Lab 71 turns it into a skill.</p></div>`,
@@ -773,32 +893,40 @@ const SLIDES = [
 /* 8 -------------------------------------------------- */
 {
   id: "readiness",
-  title: "Readiness check",
+  title: "Prerequisites and role setup",
   html: `<p class="pill-lg">Hands-on</p>
-  <p class="kicker">Before we start</p>
-  <h2>Ready in CoCo Desktop?</h2>
+  <p class="kicker">Before you begin</p>
+  <h2>One role, set up once by your admin</h2>
   <div class="grid g2">
-    <div class="card hl accent"><h3>You need</h3>
-      <ul class="clean">
-        <li>CoCo Desktop open and signed in</li>
-        <li>A connection to an <strong>approved non-production</strong> Snowflake account</li>
-        <li>A role that can create a database and warehouse (or pre-provisioned access)</li>
-        <li>CoCo answers a simple question in chat</li>
-        <li>This repo downloaded, so CoCo can read the lab files</li>
-      </ul></div>
-    <div class="card hl"><h3>Not ready? Watch along</h3>
-      <p>Follow the presenter's screen and the guide. Every step and prompt is in
-        <code>EVENT_GUIDE.md</code>, so you can redo it afterwards or from the on-demand recording.</p>
-      <p class="muted">Post blockers in chat &mdash; our co-host is watching it.</p></div>
+    <div class="card hl accent"><span class="tag">Account admin &middot; once</span>
+      <h3>Run <code>shared/00_admin_role_setup.sql</code></h3>
+      <p>As <code>ACCOUNTADMIN</code> in a <strong>non-production</strong> account. Set <code>ATTENDEE</code> to your exact
+        Snowflake user name, then run down to <em>STOP HERE</em>. It creates <code>COCO_WS_USER</code> with:</p>
+      <ul class="clean" style="margin:.5rem 0 .4rem">
+        <li><code>CREATE DATABASE</code> and <code>CREATE WAREHOUSE</code> on the account</li>
+        <li><code>SNOWFLAKE.CORTEX_USER</code> and <code>SNOWFLAKE.COPILOT_USER</code></li>
+        <li><code>USE AI FUNCTIONS</code> on the account</li>
+      </ul>
+      <p>The optional bundles below <em>STOP HERE</em> are not needed for today's five labs.</p></div>
+    <div class="card hl"><span class="tag">You &middot; before the session</span>
+      <h3>Run as <code>COCO_WS_USER</code></h3>
+      <ul class="clean" style="margin:.2rem 0 .4rem">
+        <li>Select the role in <strong>both</strong> your CoCo Desktop connection and your SQL session</li>
+        <li><code>shared/01_role_smoke_test.sql</code> &mdash; proves the role can create and drop</li>
+        <li><code>shared/00_workshop_setup.sql</code>, then <code>setup.sql</code> for Labs 11, 21, 31 and 32</li>
+        <li>Ask CoCo a simple question in chat; keep the repo open as a project</li>
+      </ul>
+      <p class="muted">Not ready? Watch along &mdash; every step is in <code>EVENT_GUIDE.md</code>.</p></div>
   </div>
-  <div class="callout"><p><strong>Poll:</strong> on a scale of 1&ndash;5, how is the pace so far?</p></div>`,
+  <div class="callout"><p><strong>Never run the labs as <code>ACCOUNTADMIN</code>.</strong> Self-service trial? An admin must add a
+    payment method before AI features work. <strong>Poll:</strong> how ready are you, 1&ndash;5?</p></div>`,
 },
 
 /* 9 -------------------------------------------------- */
 {
   id: "lab10",
   title: "Lab 10 checkpoint",
-  html: `<p class="pill-lg">Lab 10 &middot; 10 min</p>
+  html: `<p class="pill-lg">Lab 10 &middot; 8 min</p>
   <p class="kicker">Research a question</p>
   <h2>Ask, then check the evidence</h2>
   <div class="grid g3">
@@ -813,60 +941,70 @@ const SLIDES = [
 {
   id: "lab11",
   title: "Lab 11: explore unfamiliar data",
-  html: `<p class="pill-lg">Lab 11 &middot; 25 min + 5 catch-up</p>
+  html: `<p class="pill-lg">Lab 11 &middot; 15 min</p>
   <p class="kicker">Explore a schema you have never seen</p>
   <h2>Find the trap before you trust the trend</h2>
   <div class="grid g4">
     <div class="card hl"><span class="lead-num">1</span><h3>Names</h3><p>Use the object names your prework <code>setup.sql</code> printed.</p></div>
     <div class="card hl"><span class="lead-num">2</span><h3>Explore</h3><p>Ask CoCo to map the tables, read-only.</p></div>
     <div class="card hl accent"><span class="lead-num">3</span><h3>Define revenue</h3><p>Agree the definition before computing anything.</p></div>
-    <div class="card hl"><span class="lead-num">4</span><h3>Verify &amp; explain</h3><p>Check the finding, then rewrite it for a named audience.</p></div>
+    <div class="card hl"><span class="lead-num">4</span><h3>Answer it</h3><p>Compute the trend with the agreed definition. Verify and rewrite are stretches.</p></div>
   </div>
   <div class="callout"><p><strong>Poll:</strong> how confident are you guiding CoCo through a multi-step exploration?</p></div>`,
 },
 
 /* 11 -------------------------------------------------- */
 {
-  id: "lab41",
-  title: "Lab 41: a small app",
-  html: `<p class="pill-lg">Lab 41 &middot; 30 min</p>
-  <p class="kicker">Ship a Streamlit app into Snowflake</p>
-  <h2>From finding to a screen someone can open</h2>
-  <div class="grid g2">
-    <div class="card hl accent"><h3>Keep the scope small</h3>
-      <ul class="clean">
-        <li>One comparison that shows the finding</li>
-        <li>One region filter</li>
-        <li>One supporting table</li>
-        <li>Aggregate in SQL, not in Python</li>
-      </ul></div>
-    <div class="card hl"><h3>Done when</h3>
-      <p>The app opens in Snowsight and the filter changes the view. A created object that does not open is not done.</p>
-      <p class="muted">Deployment blocked? Keep your agreed screen spec and watch the presenter's demo.</p></div>
+  id: "lab21",
+  title: "Lab 21: a pipeline from a spec",
+  html: `<p class="pill-lg">Lab 21 &middot; 16 min</p>
+  <p class="kicker">Build a pipeline from a plain-English spec</p>
+  <h2>Specify the outcome, not the SQL</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="lead-num">1</span><h3>Profile first (demo)</h3><p>Have CoCo profile <code>RAW_ORDER_EVENTS</code> before it builds: duplicates, two timestamp formats, JSON nulls.</p></div>
+    <div class="card hl accent"><span class="lead-num">2</span><h3>Specify three layers</h3><p>Raw, staged and curated as dynamic tables, with a stated reason for each lag.</p></div>
+    <div class="card hl"><span class="lead-num">3</span><h3>Verify it</h3><p>Reconcile row counts layer to layer, and read the lag on every table.</p></div>
   </div>
-  <div class="callout"><p><strong>Poll:</strong> what is the biggest challenge you have hit so far in the lab?</p></div>`,
+  <div class="callout"><p><strong>Watch for:</strong> <code>TARGET_LAG = DOWNSTREAM</code> on <em>all three</em> tables. It builds and
+    returns correct results once, then never refreshes. Proving it is incremental (Step 4) is take-home.</p></div>`,
 },
 
 /* 12 -------------------------------------------------- */
 {
-  id: "lab62",
-  title: "Lab 62: what did it cost?",
-  html: `<p class="pill-lg">Lab 62 &middot; 13 min</p>
-  <p class="kicker">Cost and usage</p>
-  <h2>Read the evidence, propose a guardrail</h2>
+  id: "lab31",
+  title: "Lab 31: a semantic view",
+  html: `<p class="pill-lg">Lab 31 &middot; 15 min</p>
+  <p class="kicker">Build a semantic view, then check it</p>
+  <h2>Make the wrong answer impossible</h2>
   <div class="grid g3">
-    <div class="card hl"><span class="lead-num">1</span><h3>Seeded evidence</h3><p>Use the lab's labeled sample usage data.</p></div>
-    <div class="card hl"><span class="lead-num">2</span><h3>Three findings</h3><p>Separate warehouse credits from CoCo usage.</p></div>
-    <div class="card hl accent"><span class="lead-num">3</span><h3>One guardrail</h3><p>Recommend a control. Do not change account settings today.</p></div>
+    <div class="card hl"><span class="lead-num">1</span><h3>Spot the trap (demo)</h3><p>One row per subscription <em>version</em>: an unguarded <code>SUM(MRR)</code> counts upgrades twice.</p></div>
+    <div class="card hl accent"><span class="lead-num">2</span><h3>Build it</h3><p>Encode "current and active" in the metric itself, not in a note someone has to remember.</p></div>
+    <div class="card hl"><span class="lead-num">3</span><h3>Ask as a business user</h3><p>Compare the answer with the expected total in the guide.</p></div>
   </div>
-  <div class="callout"><p><strong>Honest scope:</strong> this is not an exact bill for today. Live usage views lag and per-lab figures are estimates.</p></div>`,
+  <div class="callout"><p><strong>Poll:</strong> what is the biggest challenge you have hit so far? A proper evaluation set (Step 4) is take-home.</p></div>`,
 },
 
 /* 13 -------------------------------------------------- */
 {
+  id: "lab32",
+  title: "Lab 32: a Cortex Agent",
+  html: `<p class="pill-lg">Lab 32 &middot; 16 min</p>
+  <p class="kicker">An agent over structured and unstructured data</p>
+  <h2>Which regions breached our support SLA?</h2>
+  <div class="grid g3">
+    <div class="card hl"><span class="lead-num">1</span><h3>Neither half is enough (demo)</h3><p>The SLA target lives in policy prose; the resolution times live in a table.</p></div>
+    <div class="card hl accent"><span class="lead-num">2</span><h3>Build the agent</h3><p>Two tools: Cortex Search over <code>POLICY_DOCS</code>, Analyst over <code>SUPPORT_TICKETS</code>.</p></div>
+    <div class="card hl"><span class="lead-num">3</span><h3>Ask the real question</h3><p>Check it used both tools, and which time window it assumed.</p></div>
+  </div>
+  <div class="callout"><p><strong>Clean up this one today:</strong> the Cortex Search service keeps indexing until it is dropped.
+    Trying to break the agent (Step 4) is take-home.</p></div>`,
+},
+
+/* 14 -------------------------------------------------- */
+{
   id: "wrap-up",
   title: "Save and clean up",
-  html: `<p class="pill-lg">Wrap-up &middot; 8 min</p>
+  html: `<p class="pill-lg">Wrap-up &middot; 4 min</p>
   <p class="kicker">Before you leave</p>
   <h2>Keep the learning, drop the objects</h2>
   <div class="grid g2">
@@ -874,11 +1012,14 @@ const SLIDES = [
       <p>Ask CoCo to draft <code>PROJECT_CONTEXT.md</code> from today: definitions, preferences and checks. Edit it yourself.
         Start your next task by pointing CoCo at it.</p></div>
     <div class="card hl"><h3>Clean up</h3>
-      <p>Run each lab's <code>cleanup.sql</code>. Review the names it prints first, and only remove what you created today.</p></div>
-  </div>`,
+      <p>Run <code>cleanup.sql</code> for Labs 11, 21, 31 and 32 &mdash; Lab 32 first. Review the names it prints, and only
+        remove what you created. Your admin can retire the role later with <code>shared/99_admin_role_cleanup.sql</code>.</p></div>
+  </div>
+  <div class="callout"><p><strong>One more thing&hellip;</strong> all of this &mdash; the 26 labs, their setup and cleanup SQL,
+    the guides and this deck &mdash; was built using CoCo.</p></div>`,
 },
 
-/* 14 -------------------------------------------------- */
+/* 15 -------------------------------------------------- */
 {
   id: "other-labs",
   title: "All 26 labs: choose your next track",
@@ -892,10 +1033,10 @@ const SLIDES = [
     <div class="card hl"><span class="tag">51&ndash;53 &middot; Governance</span><h3>Protect and review</h3><p>PII masking, security review and governance at scale.</p></div>
     <div class="card hl"><span class="tag">61&ndash;63 &middot; Operations</span><h3>Understand the spend</h3><p>Query tuning, cost evidence and storage lifecycle.</p></div>
   </div>
-  <p class="muted" style="margin-top:.7rem">Take-home, not extra live labs. Check each guide's prerequisites and cleanup.</p>`,
+  <p class="muted" style="margin-top:.9rem">Take-home, not extra live labs. Check each guide's prerequisites and cleanup &mdash; some need the admin script's optional bundles.</p>`,
 },
 
-/* 15 -------------------------------------------------- */
+/* 16 -------------------------------------------------- */
 {
   id: "other-labs-toolkit",
   title: "Make CoCo your own: more take-home labs",
@@ -906,12 +1047,12 @@ const SLIDES = [
     <div class="card hl"><span class="tag">Labs 72&ndash;73 &middot; Development</span><h3>Fit your toolchain</h3><p>Put a SQL change through CI and work with CoCo in your IDE.</p></div>
     <div class="card hl"><span class="tag">Labs 74&ndash;75 &middot; Practical tools</span><h3>Organize and build</h3><p>Organize a Snowflake workspace and build a Cortex Agent terminal client.</p></div>
   </div>
-  <div class="callout"><p><strong>Today's curated path stays 10 &rarr; 11 &rarr; 41 &rarr; 62.</strong>
+  <div class="callout"><p><strong>Today's path was 10 &rarr; 11 &rarr; 21 &rarr; 31 &rarr; 32.</strong>
     Start your next session with one lab, not the entire catalog. Check the selected guide's surface, prerequisites and cleanup before you begin.</p></div>
-  <p><a href="${REPO_URL}/blob/main/LABS.md">Browse all 26 labs, durations and the highlighted diagramming lab in LABS.md</a></p>`,
+  <p style="margin-top:1rem"><a href="${REPO_URL}/blob/main/LABS.md">Browse all 26 labs, durations and the highlighted diagramming lab in LABS.md</a></p>`,
 },
 
-/* 16 -------------------------------------------------- */
+/* 17 -------------------------------------------------- */
 {
   id: "links",
   title: "Next steps and links",
@@ -924,13 +1065,28 @@ const SLIDES = [
     <p><span class="lt">Cost controls and credit limits</span><a href="https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit">docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit</a></p>
   </div>
   <div class="grid g3" style="margin-top:1.2rem">
-    <div class="card hl"><span class="tag">Engineers</span><h3>Lab 21</h3><p>Build a pipeline from a plain-English spec.</p></div>
+    <div class="card hl"><span class="tag">App builders</span><h3>Lab 41</h3><p>Ship a small Streamlit app into Snowflake.</p></div>
     <div class="card hl"><span class="tag">SQL-heavy</span><h3>Lab 61</h3><p>Fix a deliberately slow query.</p></div>
     <div class="card hl"><span class="tag">Repeat work</span><h3>Lab 71</h3><p>Turn a recurring task into a skill.</p></div>
   </div>
   <div class="center" style="margin-top:1.4rem">
-    <h2>Thank you &mdash; questions?</h2>
+    <h2 style="max-width:none">Questions?</h2>
     <p class="muted"><strong>Poll:</strong> on a scale of 1&ndash;5, how helpful was this content for your role?</p>
+  </div>`,
+},
+
+/* 18 -------------------------------------------------- */
+{
+  id: "thank-you",
+  title: "Thank you",
+  html: `<div class="welcome-hero">
+    <div class="welcome-copy">
+      <p class="kicker">Snowflake CoCo / December 2, 2026</p>
+      <h1>Thank you for joining us</h1>
+      <p class="sub">Thanks for spending your time with us today. We hope CoCo helps you build something great.</p>
+      <p class="byline">Rick Michaud &middot; Caleb Alexander &middot; Snowflake</p>
+    </div>
+    <div class="penguin-stage">${penguinSvg()}<div class="penguin-shadow" aria-hidden="true"></div></div>
   </div>`,
 }
 
@@ -1021,13 +1177,14 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* no-op */ } }
 };
 function initTheme() {
-  const saved = store.get('coco-deck-theme');
+  const saved = store.get('coco-deck-theme-dec2');
   if (saved === 'light' || saved === 'dark') return saved;
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  // Part 1 was presented light, so light is the default regardless of OS theme.
+  return 'light';
 }
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
-  store.set('coco-deck-theme', t);
+  store.set('coco-deck-theme-dec2', t);
 }
 setTheme(initTheme());
 

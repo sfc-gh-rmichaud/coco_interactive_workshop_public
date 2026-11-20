@@ -27,7 +27,7 @@ def render(root=ROOT):
     assert all(lab["meta"]["Track"] in {track["id"] for track in tracks} for lab in labs)
     lines = ["# Full lab catalog", "",
              f"**{len(labs)} labs across {len(tracks)} tracks.** All are included for continued practice after the webinar.", "",
-             "The two-hour [live guide](EVENT_GUIDE.md) remains curated: **10, 11, 41 and 62**.",
+             "The 90-minute [live guide](EVENT_GUIDE.md) runs checkpoints of **10, 11, 21, 31 and 32**.",
              "The original next-step recommendations (**21, 61, 71**) are still highlighted below.",
              "**Lab 12 -- diagramming** is also included: turn schema metadata into ER and data-flow diagrams, then export a shareable artifact.", "",
              "## Before choosing a lab", "",
@@ -45,7 +45,7 @@ def render(root=ROOT):
         members = sorted([lab for lab in labs if lab["meta"]["Track"] == track["id"]],
                          key=lambda lab: (int(lab["meta"].get("Sequence", "999")), lab["id"]))
         for lab in members:
-            role = "Live core" if lab["id"] == "11" else "Live checkpoint" if lab["id"] in config["recommended_path"] else "Curated take-home" if lab["id"] in config["curated_take_home"] else "Take-home"
+            role = "Live checkpoint" if lab["id"] in config["recommended_path"] else "Curated take-home" if lab["id"] in config["curated_take_home"] else "Take-home"
             if lab["id"] == "12":
                 role += " - diagramming"
             if lab["meta"].get("Stretch") == "yes":

@@ -47,18 +47,18 @@ class CatalogTests(unittest.TestCase):
     def test_slides_preserve_live_order_and_curated_recommendations(self):
         deck = (build_catalog.ROOT / "presentation/index.html").read_text()
         ids = re.findall(r'^  id: "([^"]+)",', deck, re.M)
-        self.assertEqual(len(ids), 16)
+        self.assertEqual(len(ids), 17)
         self.assertEqual([slide for slide in ids if re.fullmatch(r"lab\d+", slide)],
-                         ["lab10", "lab11", "lab41", "lab62"])
+                         ["lab10", "lab11", "lab21", "lab31", "lab32"])
         self.assertEqual(ids[-3:], ["other-labs", "other-labs-toolkit", "links"])
         closing = deck.split('id: "links",', 1)[1].split("\n];", 1)[0]
-        for number in (21, 61, 71):
+        for number in (41, 61, 71):
             self.assertIn(f"<h3>Lab {number}</h3>", closing)
         self.assertIn("<strong>Lab 12:</strong>", deck)
         metadata = json.loads(re.search(
             r'<script type="application/json" id="snowflake-report-metadata">(.*?)</script>',
             deck, re.S).group(1))
-        self.assertTrue({"slide-14", "slide-15"}.issubset(
+        self.assertTrue({"slide-15", "slide-16"}.issubset(
             {section["id"] for section in metadata["sections"]}))
 
     def test_public_links_and_privacy(self):

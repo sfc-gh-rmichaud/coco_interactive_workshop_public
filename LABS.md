@@ -2,7 +2,7 @@
 
 **26 labs across 7 tracks.** All are included for continued practice after the webinar.
 
-The two-hour [live guide](EVENT_GUIDE.md) remains curated: **10, 11, 41 and 62**.
+The 90-minute [live guide](EVENT_GUIDE.md) runs checkpoints of **10, 11, 21, 31 and 32**.
 The original next-step recommendations (**21, 61, 71**) are still highlighted below.
 **Lab 12 -- diagramming** is also included: turn schema metadata into ER and data-flow diagrams, then export a shareable artifact.
 
@@ -23,7 +23,7 @@ Research technical questions, then explore unfamiliar data and explain its struc
 | Lab | Exercise | Full-lab time (guidance) | Session role |
 |---|---|---|---|
 | 10 | [Answer architecture, technology and feature questions](labs/10-ask-architecture-questions/README.md) | 25-35 minutes (guidance); choose one complex scenario | Live checkpoint |
-| 11 | [Explore a schema you have never seen](labs/11-explore-unfamiliar-schema/README.md) | 20 minutes | Live core |
+| 11 | [Explore a schema you have never seen](labs/11-explore-unfamiliar-schema/README.md) | 20 minutes | Live checkpoint |
 | 12 | [Generate ER and data-flow diagrams](labs/12-generate-diagrams/README.md) | 20 minutes | Take-home - diagramming |
 
 ## Data engineering
@@ -32,7 +32,7 @@ Build and defend pipelines, from a plain-English spec to a tested, scheduled pro
 
 | Lab | Exercise | Full-lab time (guidance) | Session role |
 |---|---|---|---|
-| 21 | [Build a pipeline from a plain-English spec](labs/21-build-a-pipeline/README.md) | 30 minutes | Curated take-home |
+| 21 | [Build a pipeline from a plain-English spec](labs/21-build-a-pipeline/README.md) | 30 minutes | Live checkpoint |
 | 22 | [The same pipeline, as a dbt project on Snowflake](labs/22-build-a-pipeline-with-dbt/README.md) | 35 minutes | Take-home |
 | 23 | [Data quality checks that persist](labs/23-data-quality-checks/README.md) | 20 minutes | Take-home |
 | 24 | [Stream IoT telemetry in, and watch it live](labs/24-realtime-iot-telemetry/README.md) | 40 minutes | Take-home |
@@ -44,8 +44,8 @@ Model the semantics, put an agent on it, then measure whether the agent is actua
 
 | Lab | Exercise | Full-lab time (guidance) | Session role |
 |---|---|---|---|
-| 31 | [Build a semantic view, then evaluate it](labs/31-build-a-semantic-view/README.md) | 30 minutes | Take-home |
-| 32 | [A Cortex Agent over structured and unstructured data](labs/32-cortex-agent/README.md) | 30 minutes | Take-home |
+| 31 | [Build a semantic view, then evaluate it](labs/31-build-a-semantic-view/README.md) | 30 minutes | Live checkpoint |
+| 32 | [A Cortex Agent over structured and unstructured data](labs/32-cortex-agent/README.md) | 30 minutes | Live checkpoint |
 | 33 | [Evaluate a Cortex Agent, then make it measurably better](labs/33-evaluate-a-cortex-agent/README.md) | 35 minutes | Take-home |
 | 34 | [Forecast in a notebook with Snowflake ML](labs/34-notebook-forecasting/README.md) | 30 minutes | Take-home |
 
@@ -55,7 +55,7 @@ Ship something a user can open, from a Streamlit page to a full-stack app on SPC
 
 | Lab | Exercise | Full-lab time (guidance) | Session role |
 |---|---|---|---|
-| 41 | [Ship a Streamlit app into Snowflake](labs/41-ship-a-streamlit-app/README.md) | 30 minutes | Live checkpoint |
+| 41 | [Ship a Streamlit app into Snowflake](labs/41-ship-a-streamlit-app/README.md) | 30 minutes | Curated take-home |
 | 42 | [A full-stack React app on SPCS, over Snowflake Postgres](labs/42-fullstack-app-on-spcs/README.md) | 90-120 minutes | Take-home stretch |
 | 43 | [Build an account usage dashboard](labs/43-account-usage-dashboard/README.md) | 40-60 minutes (guidance) | Take-home |
 
@@ -77,7 +77,7 @@ Diagnose a slow query, control what data costs to keep, and attribute the spend.
 |---|---|---|---|
 | 61 | [Fix a deliberately bad query](labs/61-fix-a-slow-query/README.md) | 25 minutes | Curated take-home |
 | 63 | [Make old data cost less, on purpose](labs/63-storage-lifecycle/README.md) | 30 minutes | Take-home |
-| 62 | [What did today actually cost? (capstone)](labs/62-cost-and-usage-capstone/README.md) | 25 minutes | Live checkpoint |
+| 62 | [What did today actually cost? (capstone)](labs/62-cost-and-usage-capstone/README.md) | 25 minutes | Take-home |
 
 ## Working with CoCo
 

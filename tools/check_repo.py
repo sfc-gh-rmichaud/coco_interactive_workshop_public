@@ -6,7 +6,8 @@
 Checks:
   * every relative link in Markdown and HTML points at a file that exists
     (and, for links into EVENT_GUIDE.md, at a heading that exists);
-  * the EVENT_GUIDE.md schedule adds up to exactly 120 minutes;
+  * the EVENT_GUIDE.md schedule adds up to exactly SESSION_MINUTES (90);
+  * docs/html/ matches what tools/build_html_docs.py would generate;
   * nothing private or internal has crept in: credentials, meeting passcodes,
     personalised meeting links, absolute local paths, internal-only files,
     or verification files that belong to the source workshop.
@@ -20,9 +21,11 @@ import re
 import sys
 
 from build_catalog import discover, render
+import build_html_docs
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+SESSION_MINUTES = 90
 SKIP_DIRS = {".git", ".snowflake", "node_modules", "__pycache__"}
 
 LINK_MD = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s]+)\)")
@@ -91,8 +94,8 @@ def check_schedule(errors: list[str]) -> None:
     guide = (ROOT / "EVENT_GUIDE.md").read_text()
     section = guide.split("## Schedule", 1)[1].split("\n## ", 1)[0]
     minutes = [int(m.group(1)) for m in re.finditer(r"^\| [0-9:]+ \| (\d+) \|", section, re.M)]
-    if sum(minutes) != 120:
-        errors.append(f"EVENT_GUIDE.md schedule totals {sum(minutes)} minutes, expected 120")
+    if sum(minutes) != SESSION_MINUTES:
+        errors.append(f"EVENT_GUIDE.md schedule totals {sum(minutes)} minutes, expected {SESSION_MINUTES}")
 
 
 def check_privacy(errors: list[str]) -> None:
@@ -125,9 +128,9 @@ def check_catalog(errors: list[str]) -> None:
     if ids != expected:
         errors.append("Catalog lab IDs differ from the committed 26-lab source inventory")
     config = json.loads((ROOT / "labs/tracks.json").read_text())
-    if config["recommended_path"] != ["10", "11", "41", "62"]:
+    if config["recommended_path"] != ["10", "11", "21", "31", "32"]:
         errors.append("Curated live selection changed")
-    if config["curated_take_home"] != ["21", "61", "71"]:
+    if config["curated_take_home"] != ["41", "61", "71"]:
         errors.append("Curated take-home recommendations changed")
     if not (ROOT / "LABS.md").exists() or (ROOT / "LABS.md").read_text() != render():
         errors.append("LABS.md is stale: run python3 tools/build_catalog.py")
@@ -138,12 +141,19 @@ def check_catalog(errors: list[str]) -> None:
             errors.append(f"Required lab dependency missing: {required}")
 
 
+def check_html_docs(errors: list[str]) -> None:
+    for path, text in build_html_docs.render_all().items():
+        if not path.exists() or path.read_text() != text:
+            errors.append(f"{path.relative_to(ROOT)} is stale: run python3 tools/build_html_docs.py")
+
+
 def main() -> int:
     errors: list[str] = []
     check_links(errors)
     check_schedule(errors)
     check_privacy(errors)
     check_catalog(errors)
+    check_html_docs(errors)
     for e in errors:
         print("FAIL", e)
     print(f"{len(files())} files checked, {len(errors)} problems")
