@@ -109,25 +109,7 @@ labs/               all lab guides and their required SQL, templates and fixture
 shared/             prerequisite checks, admin role setup, shared setup/cleanup
 templates/          PROJECT_CONTEXT.md starter
 docs/               prerequisites, reference links, and docs/html/ (rendered guides)
-tools/              catalog and HTML generators, repository/deck self-checks
 ```
-
-## Maintain the catalog
-
-After adding or changing a lab's README metadata, run:
-
-```bash
-python3 tools/build_catalog.py
-python3 tools/build_catalog.py --check
-python3 tools/build_html_docs.py
-python3 tools/check_repo.py
-node tools/check_deck.js
-```
-
-`build_html_docs.py` regenerates `docs/html/` from the Markdown; `check_repo.py`
-fails if those pages are stale.
-
-These are local content checks, not live Snowflake validation.
 
 ## Status
 

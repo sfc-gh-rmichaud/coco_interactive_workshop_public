@@ -41,3 +41,6 @@ labs/41-ship-a-streamlit-app/app.py
 *.eml
 dist/
 facilitator/
+
+# Maintainer-only generators and checks; kept locally, not published
+tools/

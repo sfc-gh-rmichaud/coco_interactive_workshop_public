@@ -1,6 +1,6 @@
 # Links
 
-Everything cited in the deck, plus the useful reference pages. The final slide of the presentation repeats this list so nobody has to photograph the screen.
+Everything cited in the deck, plus the useful reference pages. The links slide near the end of the presentation lists the essentials so nobody has to photograph the screen.
 
 Setting up a machine from scratch? [`PREREQUISITES.html`](PREREQUISITES.html) in this folder is the step-by-step version, for macOS, Windows, and Linux.
 
@@ -34,7 +34,7 @@ Check installed help and source badges before following a version-specific examp
 
 ## Setup and prerequisites
 
-The pages behind slide 14 and behind `PREREQUISITES.html`.
+The pages behind the readiness slide and `PREREQUISITES.html`.
 
 - [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference) -- the `CORTEX_ENABLED_CROSS_REGION` parameter, every accepted value, and the data-residency answer for a security review. **CoCo requires this, and it is `DISABLED` by default in most accounts.**
 - [BCR 2376, bundle 2026_06](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_06/bcr-2376) -- sets a same-cloud default for eligible commercial accounts that never configured the parameter. Explains why some accounts now work without anyone touching them, and which account types are excluded
@@ -45,10 +45,10 @@ The pages behind slide 14 and behind `PREREQUISITES.html`.
 
 ## Cost and usage
 
-These are the pages behind slide 12, and behind Lab 62.
+These are the pages behind Lab 62.
 
 - [Cost controls for CoCo](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit) -- the per-surface daily credit limit parameters, what `-1`, `0` and positive values do, and how account-level and user-level settings interact
-- [Per-user quotas](https://docs.snowflake.com/en/user-guide/budgets/per-user-quotas) -- the `SNOWFLAKE.CORE.QUOTA` object behind slide 12: monthly and daily per-user limits, the `CORTEX CODE` domain, notification thresholds, and block enforcement
+- [Per-user quotas](https://docs.snowflake.com/en/user-guide/budgets/per-user-quotas) -- the `SNOWFLAKE.CORE.QUOTA` object: monthly and daily per-user limits, the `CORTEX CODE` domain, notification thresholds, and block enforcement
 - [`CORTEX_CODE_CLI_USAGE_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/cortex_code_cli_usage_history)
 - [`CORTEX_CODE_SNOWSIGHT_USAGE_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/cortex_code_snowsight_usage_history)
 - [`CORTEX_CODE_DESKTOP_USAGE_HISTORY`](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-desktop/cortex-code-desktop-usage-history-view)
@@ -81,4 +81,4 @@ These are the pages behind slide 12, and behind Lab 62.
 
 ## Naming, for anyone confused by search results
 
-The product was renamed from **Cortex Code** to **Snowflake CoCo** at Snowflake Summit on 2 June 2026. Same product, same architecture. Documentation URLs, the `CORTEX_CODE_*` parameters and the `CORTEX_CODE_*_USAGE_HISTORY` views all still use the old name, so you will see both spellings for a while. The deck flags this on the title slide.
+The product was renamed from **Cortex Code** to **Snowflake CoCo** at Snowflake Summit on 2 June 2026. Same product, same architecture. Documentation URLs, the `CORTEX_CODE_*` parameters and the `CORTEX_CODE_*_USAGE_HISTORY` views all still use the old name, so you will see both spellings for a while.
